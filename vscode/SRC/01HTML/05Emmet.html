@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 자식요소 선택 : '>' -->
+    <!-- div>ul>li -->
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+    <!-- div>p>ul>li -->
+    <div>
+        <p>
+            <ul>
+                <li></li>
+            </ul>
+        </p>
+    </div>
+    <!-- 형제노드 : '+' -->
+    <!-- 같은 깊이레벨에 있는 태그들 -->
+    <!-- div>ul+ol -->
+    <div>
+        <ul></ul>
+        <ol></ol>
+    </div>
+    <!-- div>p+div+span -->
+    <div>
+        <p></p>
+        <div></div>
+        <span></span>
+    </div>
+
+    <!-- div>ul>li>a+ul -->
+    <div>
+        <ul>
+            <li>
+                <a href="#"></a>
+                <ul></ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 상위태그로 이동 : '^' -->
+    <!-- div>ul>li^p -->
+    <div>
+       <ul>
+           <li></li>
+       </ul>
+       <p></p>
+    </div>
+
+    <!-- 메뉴구조 만들기 -->
+    <!-- div>ul>li>a{MAINMENU $}>ul>li*4{SUBMENU $} -->
+    <div>
+        <ul>
+            <li>
+                <a href="">MAINMENU 1
+                    <ul>
+                        <li>SUBMENU 1</li>
+                        <li>SUBMENU 2</li>
+                        <li>SUBMENU 3</li>
+                        <li>SUBMENU 4</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 메뉴구조 - 여러개 -->
+    <!-- div>ul>li*5>a{MAINMENU $}>ul>li*4{SUBMENU $} -->
+    <div>
+        <ul>
+            <li>
+                <a href="">MAINMENU 1
+                    <ul>
+                        <li>SUBMENU 1</li>
+                        <li>SUBMENU 2</li>
+                        <li>SUBMENU 3</li>
+                        <li>SUBMENU 4</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAINMENU 2
+                    <ul>
+                        <li>SUBMENU 1</li>
+                        <li>SUBMENU 2</li>
+                        <li>SUBMENU 3</li>
+                        <li>SUBMENU 4</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAINMENU 3
+                    <ul>
+                        <li>SUBMENU 1</li>
+                        <li>SUBMENU 2</li>
+                        <li>SUBMENU 3</li>
+                        <li>SUBMENU 4</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAINMENU 4
+                    <ul>
+                        <li>SUBMENU 1</li>
+                        <li>SUBMENU 2</li>
+                        <li>SUBMENU 3</li>
+                        <li>SUBMENU 4</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="">MAINMENU 5
+                    <ul>
+                        <li>SUBMENU 1</li>
+                        <li>SUBMENU 2</li>
+                        <li>SUBMENU 3</li>
+                        <li>SUBMENU 4</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 특정한 태그를 선택할 때 사용하는 것 : 선택자 -->
+    <!-- class 선택자 : '.'-->
+    <!-- 일부를 그룹화, 그룹 선택을 위함 -->
+    <div class = "c1"></div>
+    <!-- emmet의 기본 태그 == div
+    class선택자인 .과 설정하고자 하는 이름 입력하면 바로 해당 이름의 클래스를 가진 div가 생성-->
+    <!-- .c1 -->
+    <div class="c1"></div>
+
+    <!-- ID 선택자 : '#' -->
+    <!-- 단일 태그 지정, 단 하나 -->
+    <!-- #wrapper -->
+    <div id="wrapper"></div>
+
+    <!-- attr 속성 추가 -->
+    <!-- 대괄호 안에 속성 추가 [] -->
+    <!-- div>ol[type='I']>li*4{MENU_$} -->
+    <div>
+        <ol type="I">
+            <li>MENU_1</li>
+            <li>MENU_2</li>
+            <li>MENU_3</li>
+            <li>MENU_4</li>
+        </ol>
+    </div>
+    <!-- 태그에 상황에 따라 데이터를 담아두기도 함, 필요에 의해 임시로 데이터 저장 -->
+    <!-- data- -->
+    <!-- data-name 이름 값 저장 -->
+    <div>
+        <ol type="I" data-name="머머머">
+            <li>MENU_1</li>
+            <li>MENU_2</li>
+            <li>MENU_3</li>
+            <li>MENU_4</li>
+        </ol>
+    </div>
+
+    <!-- 시작번호 선택 -->
+    <!-- @시작번호 -->
+    <!-- div>ol[type='I']>li*4{MENU_$@5} -->
+    <div>
+        <ol type="I">
+            <li>MENU_5</li>
+            <li>MENU_6</li>
+            <li>MENU_7</li>
+            <li>MENU_8</li>
+        </ol>
+    </div>
+
+    <!-- 문서 전체 구조 Emmet 만들기 -->
+    <!-- .wrapper>header>.top-header+nav^main>section*3^footer -->
+    <!-- main을 생략하고 section만 만드는 경우도 있음 -->
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav>
+                <!-- ul.main-menu>li*4>a{$_MAIN}+ul>li*5>a{$_submenu} -->
+                <ul class="main-menu">
+                    <li>
+                        <a href="">1_MAIN</a>
+                        <ul>
+                            <li><a href="">1_submenu</a></li>
+                            <li><a href="">2_submenu</a></li>
+                            <li><a href="">3_submenu</a></li>
+                            <li><a href="">4_submenu</a></li>
+                            <li><a href="">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">2_MAIN</a>
+                        <ul>
+                            <li><a href="">1_submenu</a></li>
+                            <li><a href="">2_submenu</a></li>
+                            <li><a href="">3_submenu</a></li>
+                            <li><a href="">4_submenu</a></li>
+                            <li><a href="">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">3_MAIN</a>
+                        <ul>
+                            <li><a href="">1_submenu</a></li>
+                            <li><a href="">2_submenu</a></li>
+                            <li><a href="">3_submenu</a></li>
+                            <li><a href="">4_submenu</a></li>
+                            <li><a href="">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">4_MAIN</a>
+                        <ul>
+                            <li><a href="">1_submenu</a></li>
+                            <li><a href="">2_submenu</a></li>
+                            <li><a href="">3_submenu</a></li>
+                            <li><a href="">4_submenu</a></li>
+                            <li><a href="">5_submenu</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section></section>
+            <section></section>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+
+</body>
+</html>

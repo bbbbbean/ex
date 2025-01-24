@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 테이블 : 스타일 태그 넣기가 힘듦, 가능한 안쓰는게 좋음 -->
+    <!-- 테이블 - 기본 -->
+    <table border="1" width="400px" height="300px">
+        <!-- tr : 행 -->
+        <tr>
+            <th>열이름1</th>
+            <th>열이름2</th>
+            <th>열이름3</th>
+        </tr>
+        <tr>
+            <td>값1</td>
+            <td>값2</td>
+            <td>값3</td>
+        </tr>
+        <tr>
+            <td>값1</td>
+            <td>값2</td>
+            <td>값3</td>
+        </tr>
+    </table>
+    <hr/>
+
+    <style>
+        .tbl_rowspan td{
+            width: 50px; height: 50px; border: 1px solid;
+            text-align: center;
+        }
+        .tbl_colspan td{
+            width: 50px; height: 50px; border: 1px solid;
+            text-align: center;
+        }
+    </style>
+    <!-- 병합 시 주의할 점 : 모든 행열에 하나 이상의 병합이 포함되어 있으면 구조가 무너짐-->
+    <!-- rowspan : 행병합 -->
+    <table class="tbl_rowspan">
+        <!-- caption : 중간정렬 제목 생김 -->
+        <caption>행병합</caption>
+        <tr>
+            <td rowspan="2">1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <!-- <td>5</td> -->
+            <td rowspan="2">6</td>
+            <td>7</td>
+            <td rowspan="4">8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <!-- <td>10</td> -->
+            <td>11</td>
+            <!-- <td>12</td> -->
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <!-- <td>16</td> -->
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <!-- <td>20</td> -->
+        </tr>
+    </table>
+    <hr/>
+    <!-- colspan : 열병합 -->
+    <table class="tbl_colspan">
+        <caption>열병합</caption>
+        <tr>
+            <td colspan="2">1</td>
+            <!-- <td>2</td> -->
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td colspan="3">6</td>
+            <!-- <td>7</td> -->
+            <!-- <td>8</td> -->
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td colspan="4">13</td>
+            <!-- <td>14</td> -->
+            <!-- <td>15</td> -->
+            <!-- <td>16</td> -->
+        </tr>
+        <tr>
+            <td colspan="3">17</td>
+            <!-- <td>18</td> -->
+            <!-- <td>19</td> -->
+            <td>20</td>
+        </tr>
+    </table>
+    <hr/>
+
+    <!-- Table Sementic(구조) 태그 -->
+    <!-- thead : 테이블 머리말 -->
+    <!-- tbody : 테이블 본문 -->
+    <!-- tfoot : 테이블 꼬리말 -->
+    <style>
+        td{width: 35px; height: 35px; border: 1px solid;}
+        thead{background-color: blue;}
+        tbody{background-color: blanchedalmond;}
+        tfoot{background-color: blueviolet;}
+    </style>
+    <table>
+        <thead>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </tbody>
+        <!-- 구조화 되어있으면 위치에 상관없이 지정 자리에 입력됨 -->
+        <tfoot>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

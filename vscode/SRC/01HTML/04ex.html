@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 8px;
+    }
+    .mainmenu{
+        background-color: rgb(255, 242, 225);
+        width: 200px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        font-weight: bold;
+        color:rgb(85, 85, 85);
+        margin: 10px;
+    }
+    .submenu{
+        margin-left: 10px;
+        width: 160px;
+        height: 150px;
+    }
+    .submenu>li{
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        height: 35px;
+        width: 200px;
+        font-size: .9rem;
+        
+    }
+</style>
+<body>
+    <ul>
+        <li class="mainmenu">2023학년도 수강과목</li>
+        <ol type="1" class="submenu">
+            <li>HTML/CSS/JS</li>
+            <li>JQUERY</li>
+            <li>REACT</li>
+            <li>BOOTSTRAP</li>
+        </ol>
+        <li class="mainmenu">학년</li>
+        <ol type="A" class="submenu">
+            <li>
+                1학년
+                <ul class="content">
+                    <li>HTML/CSS/JS/JQuery</li>
+                </ul>
+            </li>
+            <li>
+                2학년
+                <ul class="content">
+                    <li>bootStrap / Clone Coding</li>
+                </ul>
+            </li>
+            <li>
+                3학년
+                <ul class="content">
+                    <li> React redux</li>
+                </ul>
+            </li>
+            <li>
+                4학년
+                <ul class="content">
+                    <li>Type Script/Next.js</li>
+                </ul>
+            </li>
+        </ol>
+        <li class="mainmenu">백엔드 언어</li>
+        <ol type="I" class="submenu">
+            <li>JAVA</li>
+            <li>JSP</li>
+            <li>Servlet</li>
+            <li>Spring</li>
+            <li>Spring Boot</li>
+        </ol>
+    </ul>
+</body>
+</html>
