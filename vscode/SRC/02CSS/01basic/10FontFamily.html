@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        
+    .block1{
+        font-family: "Montserrat", serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+    }
+    /* 글꼴 등록 : @font-face */
+    @font-face {
+        font-family: "custom-font1";
+        src: url(./fonts/Playwrite_IN/static/PlaywriteIN-Regular.ttf);
+        font-weight: 400;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "custom-font2";
+        src: url(./fonts/naver_fonts/나눔손글씨\ 나무정원.ttf);
+        font-weight: 400;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'PartialSansKR-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body{
+        /* 주의! 폰트는 따옴표로 감싸주기! */
+        font-family:'custom-font1', 'custom-font2', 'PartialSansKR-Regular';
+    }
+    </style>
+</head>
+
+<body>
+    <div style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;">HELLOWORLD</div>
+    <div class="block1">HELLOWORLD</div>
+    <div style="font-family: custom-font1;">HELLOWORLD</div>
+    <div style="font-family: custom-font2; font-weight: 800;">HELLOWORLD</div>
+    <div style="font-family: PartialSansKR-Regular; font-size: 3rem;">HELLOWORLD</div>
+
+    <hr/>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+
+</body>
+</html>

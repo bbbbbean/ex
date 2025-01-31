@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root{
+            font-size: 24px;
+        }
+        div{
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid;
+        }
+        .block1{
+            /* px */
+            /* 고정형 */
+            width: 250px;
+            height: 250px;
+            font-size: 16px;
+        }
+        .block2{
+            /* rem */
+            /* root 기본 값에 따라 비율 변경 */
+            /* 모바일 등등에 유리 */
+            /* 이거 자주 사용, 이거 위주로 공부 */
+            width: 15.625rem;
+            height: 15.625rem;
+            font-size: 1rem;
+        }
+        .block3{
+            /* vw, vh */
+            /* 동적 처리를 원할때 적절하게 섞기 */
+            width: clamp(16.625rem, 50vw, 50rem);
+            height: 25vh;
+            min-height: 3rem;
+            font-size: clamp(1.5rem, 5vw, 5rem);
+        }
+        /* rem + 미디어쿼리 */
+        /* vw + rem + clamp + min/max width/height */
+    </style>
+</head>
+<body>
+    <!-- 블럭형 태그에도 적용됨 -->
+    <div class="block1">HELLOWORLD</div>
+    <hr/>
+    <div class="block2">HELLOWORLD</div>
+    <hr/>
+    <div class="block3">HELLOWORLD</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+        }
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: rgb(93, 104, 43);
+        }
+        .d1{
+            /* top, right, bottom, left : 10px */
+            /* margin: 10px; */
+
+            /* 상하, 좌우 1set */
+            /* margin: 20px 40px; */
+
+            /* 상 좌우 하 */
+            /* margin: 10px 20px 30px; */
+
+            /* 상 우 하 좌, 시계 방향으로 */
+            /* margin: 10px 20px 30px 40px; */
+
+            /* 하나씩 입력 가능 */
+            margin-top: 10px;
+            margin-right: 20px;
+            margin-bottom: 30px;
+            margin-left: 40px;
+        }
+        .d2{
+            /* 중간 정렬 */
+            margin: 0 auto;
+        }
+        /* 자식 가운데 배치 */
+        .parent{
+            width: 80vw;
+            height: 250px;
+            margin: 20px auto;
+        }
+        .son{
+            background-color: rgb(255, 212, 92);
+            width: 150px;
+            height: 150px;
+        }
+        /* 방법1 : position + margin*/
+        /* magin설정이 되어 있음 -> 자식이 하나 더 생기면? 겹치는 형태로 생김 */
+        /* 단일 자식일 경우 사용 */
+        .parent1{
+            /* position : 위치를 설정 */
+            position: relative;
+        }
+        .son1{
+            position: absolute;
+            /* 모든 위치값을 0으로 세팅 후 여백 자동 배치 */
+            /* 아래 margin설정으로 세밀 조정이 가능 */
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        /* 방법2 : display flex */
+        /* 좀 더 간편함, 디테일 작업은 힘듦 */
+        /* 자식이 하나 더 생기면? 옆에 둔 채로 함께 가운데 배치 */
+        /* 자식이 여럿일 때 간편 */
+        .parent2{
+            display: flex;
+            /* 수평 배치 */
+            justify-content: center;
+            /* 수직 배치 */
+            align-items: center;
+        }
+        .son2{
+
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">HELLOWORLD</div>
+    <div class="d2">HELLOWORLD</div>
+    <div class="parent parent1">
+        <div class="son son1"></div>
+    </div>
+    <div class="parent parent2">
+        <div class="son son2"></div>
+    </div>
+</body>
+</html>
