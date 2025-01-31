@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 비디오 삽입 시 상단에 여백이 존재함 -->
+    <style>
+        body{
+            /* 상단 여백 삭제 */
+            margin: 0;
+        }
+        .bg-video{
+            position: absolute;
+            /* 왼쪽, 상단 고정 */
+            left: 0;
+            top: 0;
+            /* vw, vh : viweport 현재 보고있는 화면 크기, 앞 숫자는 비율 */
+            width: 100vw;
+            height: 100vh;
+            /* 비디오 레이어 아래로 밀어주기 */
+            z-index: -2;
+            /* 투명도 주기 */
+            opacity: .9;
+        }
+        bg-video>video{
+            /* 상단 태그에서 설정한 값의 100% */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        body::-webkit-scrollbar{
+            /* 스크롤 바 설정 */
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 그냥 있으면 이미지처럼 보임 > controls 추가, 일시정지 시작 등 동작 컨트롤 바 추가됨 -->
+    <!-- 자동 실행 : autoplay -->
+    <!-- 크롬 정책 상 음소거여야 자동재생 설정이 됨 설정에 뮤트 설정 -->
+    <!-- == 자동 실행과 뮤트는 한 세트, 소리나오는 걸 원하면 따로 설정해야함 -->
+    <!-- 무한 재생 : loop -->
+    <!-- 무한재생 자동재생 설정 후 컨트롤 바 없애도 됨 -->
+    <div class="bg-video">
+        <video autoplay muted loop>
+            <!-- 태그 사이에서 source 처리해도 됨, 타입은 비디오/mp4가 기본, 설정x시 기본설정으로 출력 -->
+            <source src="./images/test2.mp4" type="video/mp4">
+        </video>
+    </div>
+</body>
+</html>
