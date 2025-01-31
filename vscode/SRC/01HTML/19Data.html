@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    HTML : 데이터 기반의 언어가 아님
+    but, 시간이 지남에 따라 데이터 저장의 필요성이 생김 -> 임시로 데이터를 담게 만듦
+    민감하지 않은 데이터일때 사용 (게시판 페이지 번호, 게시글 번호 등등) - 남이 봐도 괜찮은 것들
+    data- : 남들에게 보여짐, 노출되는 데이터
+    -->
+    <div data-username="user1234">계정명</div>
+    <div data-address="대구">주소</div>
+    <div data-phone="01022223333">연락처</div>
+    <script>
+        // 바디 하단에 표시 혹은 외부라면 헤더 상단에 표시, 걍 일반적으로 제일 하단에 위치
+        const Els = document.querySelectorAll('div');
+        Els.forEach(el=>{console.log(el.dataset)})
+        // console에 각각의 dataset 로그 표시
+        // Els는 문서 내 지정된 그룹 == div의 요소 list
+        // querySelectorAll 요소 접근자
+    </script>
+</body>
+</html>

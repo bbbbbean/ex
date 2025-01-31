@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h1{
+            /* !important : 우선순위가 제일 높음 */
+            background-color: rgb(255, 142, 49) !important;
+            color: #fff;
+        }
+        
+    </style>
+    <!-- 충돌이 있을 경우(중복된 스타일) 하단에 적용된 스타일을 따름 -->
+    <!-- css파일과 style 태그 우선 순위 동등 -->
+    <link rel="stylesheet" href="./css/common.css">
+</head>
+<body>
+    <!-- 스타일 우선순위 -->
+    <!--
+        ### 스타일 적용 방식 ###
+        1. 문서 내 style 태그
+        2. 외부 css 생성 이후 link 설정(권장)
+        3. inline style (권장 X)
+        4. !important (권장 X) - 우선 순위를 높임
+
+        4 > 3 > 2 == 1
+    -->
+
+    <!-- 인라인 태그가 우선순위가 제일 높음, 유지 보수 힘들어서 안쓰는게 좋음 -->
+    <h1 style="background-color: blueviolet; color: #fff;">HELLO WORLD</h1>
+</body>
+</html>

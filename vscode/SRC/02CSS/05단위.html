@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{margin: 0;}
+        div{
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: olivedrab;
+        }
+    </style>
+</head>
+<body>
+    <!-- ### 단위 ### -->
+    <!-- px : 고정 크기 지정, 브라우저의 크기에 상관 없이 고정 크기를 가짐 -->
+    <div style="width: 700px;"></div>
+    <div style="width: 700px;">
+        <p style="width: 900px; height: 50px; background-color: rgb(255, 206, 45);"></p>
+    </div>
+    <!-- % : 가변 크기, 상위 태그(부모태그)를 기준으로 %만큼의 크기 지정 -->
+    <!-- 상위 태그 X시 기준 : ViewPort -->
+    <div style="width: 50%;">
+        <p style="width: 50%; height: 50px; background-color: rgb(255, 206, 45);"></p>
+    </div>
+    <!-- vw, vh : 가변 크기, 뷰포트를 기준으로 백분율만큼 크기 지정 -->
+    <div style="width: 25vw;">
+        <p style="width: 75vw; height: 50px; background-color: rgb(255, 206, 45);"></p>
+    </div>
+    <!-- 지정된 부모 태그가 없기 때문에 100% 지정해도 반영 X -->
+    <!-- vh를 사용하면 보이는 화면 가득 채우는 높이됨 -->
+    <div style="height: 100vh;">TEST</div>
+    <!-- em, rem : 글자 크기 지정시 확인 -->
+</body>
+</html>

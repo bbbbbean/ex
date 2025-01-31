@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* selector : 선택자 */
+        /* 태그 선택자 : 태그 자체를 선택 */
+        /* 그룹 선택자 (,) : 여러 태그를 묶어 선택 */
+        div,span{
+            border: 1px solid;
+        }
+        div{
+            /* 블럭형 : 너비, 높이 조정 가능 */
+            width: 300px;
+            height: 200px;
+            /* 상하좌우 외,내부 여백 설정 가능 */
+            margin: 20px;
+            padding: 20px;
+        }
+        span{
+            /* 인라인 : 너비, 높이 조정 불가 */
+            width: 300px;
+            height: 200px;
+            /* 좌우 여백만 설정됨 */
+            margin: 20px;
+            /* 내부 여백은 상하좌우 전부 설정됨 */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    Block형 태그 (ex.div) : 하나의 라인 전체를 사용하는 태그
+        width, height, magin, padding : 적용가능
+
+    Inline형 태그 (ex.span): 한 라인 안에 포함되어 있는 태그 
+        width, height : 적용 불가
+        magin   : 좌우만 적용
+        padding : 적용가능
+    -->
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+    <hr/>
+    <span>HELLOWORLD</span>
+    <span>HELLOWORLD</span>
+</body>
+</html>

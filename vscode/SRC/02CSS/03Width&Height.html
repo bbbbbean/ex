@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* . : 클래스 선택자 */
+        .parent{
+            background-color: aquamarine;
+            width: 100%;
+            max-width: 1280px;
+            min-width: 380px;
+            height: 300px;
+        }
+        .son{
+            background-color: blue;
+            /* 너비 설정 x시 : 부모 너비의 최댓값을 가짐 */
+            /* 계층형 태그 : 너비, 높이 속성 설정 x시 부모의 속성값을 따름 */
+            width: 150px;
+            /* height: 150px; */
+            /* 부모 속성을 최대값으로 잡고 %할당 */
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        width : auto (기본값 : 최대 너비를 가지려는 성질)
+        max-width : 최대 너비, 제한
+        min-width : 최소 너비, 최소한 이정도의 너비 제한
+
+        height : auto (기본값 : 최소 높이를 가지려는 성질)
+        max-height : 최대 높이
+        min-height : 최소 높이
+
+        table 태그 사용시 min, max 제한 잘쓰면 편함
+    -->
+    <div class="parent">
+        <div class="son">
+
+        </div>
+    </div>
+</body>
+</html>
