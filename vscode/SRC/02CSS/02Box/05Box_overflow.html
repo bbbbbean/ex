@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .parent{
+            width: 300px; height: 300px;
+            background-color: rgb(89, 114, 0);
+            overflow: auto;
+        }
+        .child{
+            /* 부모 너비 초과시 부모를 넘어 섦 */
+            /* overflow로 자식이 부모를 초과할 시 설정 */
+            /* hidden : 초과하는 분량 숨김 */
+            /* scroll : 자식의 크기만큼 스크롤바가 생김 */
+            /* scroll-x,-y : 스크롤 축 설정 가능 */
+            /* visible : 그대로 초과분량 보여줌 */
+            /* auto : 어느 축이 초과했는지 자동으로 판단 후 해당 스크롤 바 자동 생성 */
+            width: 450px; height: 150px;
+            background-color: rgb(255, 233, 31);
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{box-sizing: border-box;}
+        input[type="checkbox"]{
+            display: none;
+        }
+        .ch-label{
+            width: 20px; height: 20px;
+            border: 1px solid rgb(165, 114, 56);
+            display: inline-block;
+
+            border-radius: 12px;
+            padding: 10px;
+            margin-right: 5px;
+
+        }
+        span{
+            font-family: monospace;
+            font-weight: 700;
+            color: rgb(92, 69, 43);
+        }
+        input[type="checkbox"]:checked+label{
+            background-color: rgb(165, 114, 56);
+            background-image: url(./pets_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg);
+            background-size: 15px;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-color: rgb(231, 193, 152);
+        }
+        .check{
+            display: flex;
+            align-items: center;
+        }
+    </style>    
+</head>
+<body>
+    <div class="check">
+        <input type="checkbox" id="ch">
+        <label class="ch-label" for="ch"></label>
+        <span>체크박스</span>
+    </div>
+</body>
+</html>

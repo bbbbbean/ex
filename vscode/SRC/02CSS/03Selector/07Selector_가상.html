@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            가상 선택자 : 실제 문서에 존재하지 않는 태그이지만 존재하는 것 처럼 보이게 함
+
+            ### before & after 선택자 ###
+            ::before : content영역 앞에 표시할 스타일
+            ::after : content영역 뒤에 표시할 스타일
+        */
+        div{
+            width: 400px;
+            height: 200px;
+            border: 1px solid;
+            background-color: orange;
+            text-align: center;
+            line-height: 200px;
+        }
+        .d1::before{
+            content: '🐱‍🐉🥬🥦🥒🥑🍄🌶🍆🧄';
+        }
+        .d1::after{
+            content: '😒💨';
+        }
+        /* 로그인 | 회원가입 | << 이런거 할 때 많이 씀 */
+    </style>
+</head>
+<body>
+    <div class="d1">HELLOWORLD</div>
+</body>
+</html>

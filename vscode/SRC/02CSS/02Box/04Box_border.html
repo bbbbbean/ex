@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 300px; height: 300px; margin: 30px; border: 1px solid;
+        }
+        /* 테두리 선 종류 확인 */
+        .d1{
+            border-top: 2px solid rebeccapurple;
+            border-right: 3px double teal;
+            border-bottom: 4px dotted salmon;
+            border-left: 5px dashed navy;
+        }
+        /* 테두리 깎기 */
+        .d2{
+            /* radius : 반지름 */
+            /* 왼상,오하-오상,왼하 set */
+            /* border-radius: 15px 30px; */
+            /* 왼상-오상,왼하-오하 */
+            /* border-radius: 15px 30px 45px; */
+            /* 왼상-오상-오하-왼하 순 */
+            border-radius: 5px 10px 15px 30px;
+        }
+        /* 효과 부여하기 */
+        .d3{
+            /* 삼각형 만들기 */
+            /* 빗금으로 테두리 분리 */
+            /* transparent : 투명한 */
+            width: 0px;
+            height: 0px;
+            border-top: 5px solid transparent;
+            border-left: 5px solid transparent;
+            border-bottom: 5px solid rgb(38, 35, 255);            
+            border-right: 5px solid rgb(255, 155, 6);                       
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .d4{
+            position: relative;
+        }
+        .d4::before{
+            content: "";
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            width: 0px;
+            height: 0px;
+            border: 1px solid rebeccapurple;
+
+            /* 자리 잡고 너비, 높이 0으로 맞춰주기 */
+            border-top: 25px solid #fff;
+            border-left: 25px solid #fff;
+            border-bottom: 25px solid rgb(255, 155, 6);            
+            border-right: 25px solid rgb(255, 155, 6);
+
+            border-radius: 0 0 3px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+    <div class="d4"></div>
+</body>
+</html>

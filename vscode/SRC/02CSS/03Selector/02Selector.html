@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 자식 선택자 : >, 공백 */
+        /* parent > child, 5div, 6p : 바로 하위 태그 */
+        /* child, 5div, 6p : 형제 */
+        .parent >div{
+            border: 1px solid red;
+            margin: 10px;
+        }
+        .parent>p{
+            background-color: orangered;
+        }
+        .parent>.child{
+            background-color: olivedrab;
+        }
+        /* 자손 선택자 : 공백 */
+        /* parent > 1div, 2div, 3div, 4p : 자손 */
+        .parent p{
+            background-color: yellow;
+            font-size: 2rem;
+        }
+        .parent div{
+            color: aqua;
+        }
+        /* 공백 넣을 시 : 자식과 자손 전부 선택 */
+        /* > 넣을 시 : 자식만 선택 */
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+            <div>1 HELLOWORLD</div>
+            <div>2 HELLOWORLD</div>
+            <div>3 HELLOWORLD</div>
+            <p>4 HELLOWORLD</p>
+        </div>
+        <div>5 HELLOWORLD</div>
+        <p>6 HELLOWORLD</p>
+    </div>
+</body>
+</html>

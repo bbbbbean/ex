@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{box-sizing: border-box;}
+        /* 체크박스 커스텀 : 동위 선택자를 적절하게 사용 */
+        input[type="checkbox"]{
+            /* 체크박스의 바탕색과 체크 아이콘 임의 설정 불가능 */
+            /* == 체크박스를 숨기고 입맛대로 커스텀 */
+            display: none;
+        }
+        input[type="checkbox"]+label{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid;
+            border-radius: 2px;
+            margin-right: 5px;
+            padding: 3px;
+
+        }
+        input[type="checkbox"]:checked+label{ /* 체크박스가 체크가 되었다면 */
+            border: 1px solid orange;
+            background-color: rgb(255, 224, 50);
+            background-image: url(./05_check.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 15px;
+        }
+        .check-block{
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="check-block">
+        <input type="checkbox" id="chk">
+        <label class="check-label" for="chk"></label>
+        <span>체크박스</span>
+    </div>
+    
+</body>
+</html>

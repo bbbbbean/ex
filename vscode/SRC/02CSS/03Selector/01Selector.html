@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 전체선택자 */
+        *{margin: 20px;}
+        /* 요소 선택자 */
+        div{width: 150px; height: 150px; border: 1px solid;}
+        p{width: 100px; height: 100px; border: 1px solid;}
+        /* 아이디 선택자 */
+        #id_01{
+            background-color: olivedrab;
+        }
+        /* 클래스 선택자 */
+        .group{
+            background-color: rgb(229, 255, 0);
+        }
+        /* 그룹 선택자 : 여러 선택자를 묶어 씀, 콤마(,)로 구분 */
+        #id_01, .group{
+            border: 5px solid #000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="group"></div>
+    <div id="id_01"></div>
+    <div></div>
+    <div>
+        <p class="group"></p>
+        <div class="group"></div>
+    </div>
+</body>
+</html>
