@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{border: 1px solid;}
+        .ancester{
+            width: 750px;
+            height: 750px;
+            background-color: tomato;
+            margin: 50px;
+            position: relative;
+        }
+        .parent{
+            width: 500px; height: 500px;
+            background-color: steelblue;
+
+            margin: 50px;
+            position: relative;
+        }
+
+        .son{
+            width: 50px;
+            height: 50px;
+            background-color: slategrey;
+        }
+        .son:nth-child(1){
+            /* 2가 사라짐 -> 2는 1이 없다고 판단하고 위로 올라와서 가려진거 */
+            /* 포지셔닝 된 상위 태그가 없다면? vp를 기준으로 움직임 */
+            /* 여러군데 포지셔닝이 되어있어도 absolute는 바로 상위 태그를 우선 순위로 둔다 */
+            position: absolute;
+            left: 0px;
+            top: 0;
+            background-color: seagreen;
+        }
+        .son:nth-child(){}
+        .son:nth-child(){}
+        .son:nth-child(){}
+    </style>
+</head>
+<body>
+    <div class="ancester">
+        <div class="parent">
+            <div class="son">1</div>
+            <div class="son">2</div>
+            <div class="son">3</div>
+            <div class="son">4</div>
+        </div>
+    </div>  
+</body>
+</html>
