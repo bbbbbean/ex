@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 공통설정 */
+        *{}
+
+        a{text-decoration: none; color: #000;}
+        ul{list-style: none; margin: 0; padding: 0;}
+        body{margin: 0; height: 3000px;}
+
+        /* 레이아웃 */
+        .layout-1280{
+            width: 1280px;
+            margin: 0 auto;
+        }
+        .wrapper{}
+
+        /* 메인 */
+        .wrapper>main{}
+        .wrapper>main>section{
+            height: 500px;
+        }
+        .wrapper>main>section>.parent{
+            width: 500px;
+            height: 500px;
+            margin-top: 250px;
+            background-color: blue;
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+
+            position: relative;
+        }
+        .wrapper>main>section>.parent>.son{
+            width: 100px;
+            height: 100px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* text-align: center;
+            line-height: 100px; */
+            font-weight: bold;
+
+            background-color: rgb(255, 251, 0);
+            border: 1px solid;
+        }
+        
+        .wrapper>main>section>.parent>.son:first-child{
+            /* relative */
+            /* 현재의 위치를 기준 */
+            position: relative;
+            left: 0px;
+            top: 10px;
+        }
+        .wrapper>main>section>.parent>.son:nth-child(2){
+            /* absolute */
+            /* 상위태그를 기준 - parent */
+            /* 상위태그에 기준이 잡혀있지 않을 시 기준 - view port */
+            position: absolute;
+            left: 100px;
+            top: 0;
+        }
+        .wrapper>main>section>.parent>.son:nth-child(3){
+            /* fixed */
+            /* vp가 기준 */
+            position: fixed;
+            left: 250px;
+            top: 250px;
+        }
+        .wrapper>main>section>.parent>.son:last-child{
+            /* sticky */
+            /* 가동범위 : 상위 태그 */
+            /* 스크롤시 : vp */
+            position: sticky;
+            left: 0;
+            top: 20px;
+        }
+
+        /* 푸터 */
+        .wrapper>footer{}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav></nav>
+        </header>
+        <main>
+            <section>
+                <div class="parent">
+                    <div class="son">relative</div>
+                    <div class="son">absolute</div>
+                    <div class="son">fixed</div>
+                    <div class="son">sticky</div>
+                </div>
+            </section>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

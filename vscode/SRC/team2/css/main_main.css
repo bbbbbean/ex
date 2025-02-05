@@ -14,13 +14,12 @@
     background-color: rgb(50, 27, 255);
 }
 .community{
-    float: right;
-    width: 50%;
+    width: 100%;
     height: 350px;
     background-color: rgb(255, 27, 95);
 }
 .match-go{
-    width: 50%;
+    width: 100%;
     height: 350px;
     background-color: rgb(255, 130, 27);
 }

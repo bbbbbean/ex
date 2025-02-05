@@ -7,50 +7,106 @@
     <style>
         *{box-sizing: border-box;}
         /* common */
-        a{ text-decoration: none;color:black;}
+        a{ text-decoration: none;color:rgb(117, 117, 117);}
         ul{list-style: none;margin:0;padding :0;}
         body{margin :0;}
 
         /* layout */
         .wrapper{}
+        .layout-1280{
+            width: 1280px;
+            margin: 0 auto;
+        }
+        .line{
+            height: 1px;
+            background-color: rgb(170, 170, 170);
+            top: 51px;
+            z-index: 3;
+        }
         /* header */
         .wrapper>header{}
-        .wrapper>header>.top-header{}
-        
+        .wrapper>header>.top-header{
+            height: 50px;
+            background-color: rgb(238, 238, 238);
+        }
         .wrapper>header>nav{
             height:50px;
         }
+        .wrapper>header>nav>.logo{
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
         /* main-menu */
         .wrapper>header>nav>ul.main-menu{
-            border : 1px solid red;
             display:flex;
             justify-content: space-between;
             height:100%;
         }
         .wrapper>header>nav>ul.main-menu>li{
-            border : 1px solid green;
             width:100%;
             height:100%;
             line-height:50px;
             text-align:center;
+            position: relative;
         }
         .wrapper>header>nav>ul.main-menu>li>a{
-            background-color: yellowgreen;
             display:block;
         }
 
         /* sub-menu */
         .wrapper>header>nav>ul.main-menu>li>ul.sub-menu{
-            background-color: aqua;
+            border-left: 1px solid rgb(170, 170, 170);
+            border-right: 1px solid rgb(170, 170, 170);
+            border-bottom: 1px solid rgb(170, 170, 170);
+            background-color: rgb(255, 255, 255);
         }
         .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li{
-            border : 1px solid rosybrown;
+            display: none;
             
         }
         .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li>a{
-            background-color: red;
             display: block;
-          
+        }
+
+        /* sub-manu-plus */
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li>ul.sub-menu-plus{
+            position: absolute;
+            top: 50px;
+            width: 70%;
+            left: 99%;
+            z-index: 10;
+        }
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li>ul.sub-menu-plus>li{
+
+            display: none;
+        }
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li>ul.sub-menu-plus>li>a{
+            width: 100%;
+            display: block;
+            background-color: rgb(248, 248, 248);
+        }
+
+        /* hover event */
+        /* 서브메뉴 */
+        .wrapper>header>nav>ul.main-menu>li:hover>ul.sub-menu>li{
+            display: block;
+        }
+        /* 글씨 색 */
+        .wrapper>header>nav>ul.main-menu>li:hover>a{
+            color: rgb(0, 0, 0);
+        }
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li:hover>a{
+            background-color: rgb(248, 248, 248);
+            color: rgb(0, 0, 0);
+        }
+        /* 서브메뉴-플러스 */
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li:hover>ul.sub-menu-plus>li{
+            display: block;
+        }
+        /* 글씨색 */
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li>ul.sub-menu-plus>li:hover>a{
+            color: rgb(0, 0, 0);
         }
 
         /* main  */
@@ -61,54 +117,102 @@
     </style>
 </head>
 <body>
-    
     <div class="wrapper">
         <header>
             <div class="top-header"></div>
-            <nav>
+            <nav class="layout-1280">
+                <div class="logo">logo</div>
                 <ul class="main-menu">
                     <li>
-                        <a href="javascript:void(0)">1_mainmenu</a>
+                        <a href="javascript:void(0)">강아지 사료</a>
                         <ul class="sub-menu">
-                            <li><a href="javascript:void(0)">1_submenu</a></li>
-                            <li><a href="javascript:void(0)">2_submenu</a></li>
-                            <li><a href="javascript:void(0)">3_submenu</a></li>
-                            <li><a href="javascript:void(0)">4_submenu</a></li>
-                            <li><a href="javascript:void(0)">5_submenu</a></li>
+                            <li><a href="javascript:void(0)">브랜드별</a>
+                                <ul class="sub-menu-plus">
+                                    <li><a href="javascript:void(0)">건강백서</a></li>
+                                    <li><a href="javascript:void(0)">GO</a></li>
+                                    <li><a href="javascript:void(0)">네츄럴시그니처</a></li>
+                                    <li><a href="javascript:void(0)">네이처플랜</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0)">연령별</a>
+                                <ul class="sub-menu-plus">
+                                    <li><a href="javascript:void(0)">전연령</a></li>
+                                    <li><a href="javascript:void(0)">자견용</a></li>
+                                    <li><a href="javascript:void(0)">성견용</a></li>
+                                    <li><a href="javascript:void(0)">노견용</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0)">임박할인</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">2_mainmenu</a>
+                        <a href="javascript:void(0)">고양이 사료</a>
                         <ul class="sub-menu">
-                            <li><a href="javascript:void(0)">1_submenu</a></li>
-                            <li><a href="javascript:void(0)">2_submenu</a></li>
-                            <li><a href="javascript:void(0)">3_submenu</a></li>
-                            <li><a href="javascript:void(0)">4_submenu</a></li>
-                            <li><a href="javascript:void(0)">5_submenu</a></li>
+                            <li><a href="javascript:void(0)">브랜드별</a>
+                                <ul class="sub-menu-plus">
+                                    <li><a href="javascript:void(0)">나인케어</a></li>
+                                    <li><a href="javascript:void(0)">네추럴시그니처</a></li>
+                                    <li><a href="javascript:void(0)">뉴웨이브</a></li>
+                                    <li><a href="javascript:void(0)">네추럴코어</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0)">연령별</a>
+                                <ul class="sub-menu-plus">
+                                    <li><a href="javascript:void(0)">전연령</a></li>
+                                    <li><a href="javascript:void(0)">자견용</a></li>
+                                    <li><a href="javascript:void(0)">성견용</a></li>
+                                    <li><a href="javascript:void(0)">노견용</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0)">임박할인</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">3_mainmenu</a>
+                        <a href="javascript:void(0)">강아지 간식</a>
                         <ul class="sub-menu">
-                            <li><a href="javascript:void(0)">1_submenu</a></li>
-                            <li><a href="javascript:void(0)">2_submenu</a></li>
-                            <li><a href="javascript:void(0)">3_submenu</a></li>
-                            <li><a href="javascript:void(0)">4_submenu</a></li>
-                            <li><a href="javascript:void(0)">5_submenu</a></li>
+                            <li><a href="javascript:void(0)">수제간식</a></li>
+                            <li><a href="javascript:void(0)">육포/사시미</a></li>
+                            <li><a href="javascript:void(0)">져키/트릿</a></li>
+                            <li><a href="javascript:void(0)">대용량</a></li>
+                            <li><a href="javascript:void(0)">껌</a></li>
+                            <li><a href="javascript:void(0)">캔/파우치</a></li>
+                            <li><a href="javascript:void(0)">쿠키/비스켓</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">4_mainmenu</a>
+                        <a href="javascript:void(0)">고양이 간식</a>
                         <ul class="sub-menu">
-                            <li><a href="javascript:void(0)">1_submenu</a></li>
-                            <li><a href="javascript:void(0)">2_submenu</a></li>
-                            <li><a href="javascript:void(0)">3_submenu</a></li>
-                            <li><a href="javascript:void(0)">4_submenu</a></li>
-                            <li><a href="javascript:void(0)">5_submenu</a></li>
+                            <li><a href="javascript:void(0)">캔</a></li>
+                            <li><a href="javascript:void(0)">파우치</a></li>
+                            <li><a href="javascript:void(0)">건어물/져키</a></li>
+                            <li><a href="javascript:void(0)">통살</a></li>
+                            <li><a href="javascript:void(0)">동결/스낵</a></li>
+                            <li><a href="javascript:void(0)">기타</a></li>
+                            <li><a href="javascript:void(0)">영양제/의약부외품</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">위생/배변</a>
+                        <ul class="sub-menu">
+                            <li><a href="javascript:void(0)">눈/귀/구강</a></li>
+                            <li><a href="javascript:void(0)">패드/토일렛</a></li>
+                            <li><a href="javascript:void(0)">기저귀/팬티</a></li>
+                            <li><a href="javascript:void(0)">탈취/살균</a></li>
+                            <li><a href="javascript:void(0)">기타</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">목욕 미용</a>
+                        <ul class="sub-menu">
+                            <li><a href="javascript:void(0)">샴푸</a></li>
+                            <li><a href="javascript:void(0)">브러쉬/발톱깎이</a></li>
+                            <li><a href="javascript:void(0)">보습/미스트</a></li>
+                            <li><a href="javascript:void(0)">펫클리퍼/미용가위</a></li>
+                            <li><a href="javascript:void(0)">기타</a></li>
                         </ul>
                     </li>
                 </ul>
-
+                <div class="line"></div>
             </nav>
         </header>
         <main>

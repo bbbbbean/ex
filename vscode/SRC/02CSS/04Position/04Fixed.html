@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 기본 설정 */
+        *{box-sizing: border-box;}
+        a{
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 4000px;
+            margin: 0;
+        }
+
+        /* layout */
+        .layout-padding-rem{
+            padding: 0 3rem;
+        }
+        .layout-width-1280{
+            width: 1280px;
+            margin: 0 auto;
+        }
+        .layout-fixed{
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 5;
+        }
+        .wrapper{}
+
+        /* header */
+        .wrapper>header{}
+        .wrapper>header>.top-header{}
+
+        .wrapper>header>nav{
+            background-color: rgb(119, 119, 119);
+
+            height: 50px;
+        }
+
+        .wrapper>header>nav>ul.mainmenu{
+            border: 1px solid;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            height: 100%;
+        }
+        .wrapper>header>nav>ul.mainmenu>li{
+            background-color: rgb(29, 44, 255);
+
+            height: 100%;
+            line-height: 50px;
+            padding: 0 20px;
+
+            position: relative;
+        }
+        .wrapper>header>nav>ul.mainmenu>li>a{
+            border: 1px solid #fff;
+            display: block;
+        }
+
+        .wrapper>header>nav>ul.mainmenu>li>ul.submenu{
+            background-color: indianred;
+
+            position: absolute;
+            width: 100%;
+            left: 0;
+
+            display: none;
+        }
+        .wrapper>header>nav>ul.mainmenu>li>ul.submenu>li{
+            border: 1px solid aqua;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .wrapper>header>nav>ul.mainmenu>li>ul.submenu>li>a{
+            display: block;
+        }
+
+        /* hover event */
+        .wrapper>header>nav>ul.mainmenu>li:hover>ul.submenu{
+            display: block;
+        }
+
+
+        /* main */
+        /* 공통 */
+        .wrapper>main{
+            position: relative;
+            top: 50px;
+        }
+
+        .wrapper>main>section{}
+        .wrapper>main>section.section-01{
+            height: 600px;
+            background-color: rgb(235, 235, 235);
+        }
+        .wrapper>main>section.section-02{
+            height: 600px;
+            background-color: rgb(255, 144, 144);
+        }
+        .wrapper>main>section.section-03{
+            height: 600px;
+            background-color: crimson;
+        }
+        .wrapper>main>section.section-04{
+            height: 600px;
+            background-color: rgb(255, 201, 63);
+        }
+
+        /* footer */
+        .wrapper>footer{}
+
+        /* quickmenu */
+        .quickmenu{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 245, 103);
+
+            position: fixed;
+            left: 92vw;
+            top: 86vh;
+            z-index: 99;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav class="layout-padding-rem layout-width-1280 layout-fixed">
+                <ul class="mainmenu">
+                    <li>
+                        <a href="">1_mainmenu</a>
+                        <ul class="submenu">
+                            <li><a href="">1_submenu</a></li>
+                            <li><a href="">2_submenu</a></li>
+                            <li><a href="">3_submenu</a></li>
+                            <li><a href="">4_submenu</a></li>
+                            <li><a href="">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">2_mainmenu</a>
+                        <ul class="submenu">
+                            <li><a href="">1_submenu</a></li>
+                            <li><a href="">2_submenu</a></li>
+                            <li><a href="">3_submenu</a></li>
+                            <li><a href="">4_submenu</a></li>
+                            <li><a href="">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">3_mainmenu</a>
+                        <ul class="submenu">
+                            <li><a href="">1_submenu</a></li>
+                            <li><a href="">2_submenu</a></li>
+                            <li><a href="">3_submenu</a></li>
+                            <li><a href="">4_submenu</a></li>
+                            <li><a href="">5_submenu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">4_mainmenu</a>
+                        <ul class="submenu">
+                            <li><a href="">1_submenu</a></li>
+                            <li><a href="">2_submenu</a></li>
+                            <li><a href="">3_submenu</a></li>
+                            <li><a href="">4_submenu</a></li>
+                            <li><a href="">5_submenu</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="section-01"></section>
+            <section class="section-02"></section>
+            <section class="section-03"></section>
+            <section class="section-04"></section>
+        </main>
+        <footer></footer>
+    </div>
+    <div class="quickmenu">
+        <a href="javascript:void(0)">
+            🍔
+        </a>
+    </div>
+</body>
+</html>
