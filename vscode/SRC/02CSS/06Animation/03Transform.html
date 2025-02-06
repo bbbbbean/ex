@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{box-sizing: border-box;}
+        .parent{
+            height: 1000px;
+            height: 1000px;
+            border: 1px solid;
+        }
+        .parent>.son{
+            width: 150px;
+            height: 150px;
+            border: 1px solid;
+            background-color: sienna;
+            transition: 1s;
+        }
+
+        /* 위치 이동*/
+        .parent:hover .son{
+            /* transform: translate(x축, y축); */
+            /* transform: translate(200px, 300px);
+            /* transform: translateX(300px); */
+            /* transform: translateY(300px); */
+
+            /* 크기 조정 */
+            /* 배수로 커짐 */
+            /*transform: scale(2,5);      /* 다른 비율로 커짐 */
+            /*transform: scale(1.5);      /* 같은 비율로 커짐 */
+
+            /* 회전 */
+            /* degree : deg */
+            /* transform: rotate(45deg);     /* 양수 : 시계방향 / 음수 : 반시계방향 */
+
+            /* 기울이기 */
+            /* transform: skew(45deg);       /* 찌그러뜨리는거 */
+
+            /* 동시 적용 */
+            /* 연속 나열 */
+            transform:  translate(300px,300px) rotate(360deg) scale(1.5);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!-- 변형 (Transform) : 특정한 블럭형 태그를 여러 형태로 변형, 크기 변경, 찌그러뜨리기, 회전 등등 -->
+     <div class="parent">
+        <div class="son">
+
+        </div>
+     </div>
+</body>
+</html>

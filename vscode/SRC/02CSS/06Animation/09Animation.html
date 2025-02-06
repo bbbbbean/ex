@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid;
+            width: 150px;
+            height: 150px;
+            margin: 50px;
+        }
+        div:nth-child(1){
+            animation-name: mov1;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        div:nth-child(2){
+            animation-name: mov2;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        /* 오->왼 편도를 100%로 이동위치에 따른 효과 설정 가능 */
+        @keyframes mov1 {
+            from{margin-left: 80%;}
+            to{margin-left: 0;}
+            0%{background-color: rgb(112, 35, 35);}
+            25%{background-color: rgb(33, 88, 31);}
+            50%{background-color: rgb(36, 27, 68);}
+            75%{background-color: rgb(106, 119, 35);}
+            100%{background-color: rgb(70, 119, 131);}
+        }
+        @keyframes mov2 {
+            from{margin-left: 80%;}
+            to{margin-left: 0;}
+            0%{background-color: rgb(112, 35, 35); transform: rotate(45deg);}
+            25%{background-color: rgb(33, 88, 31); transform: rotate(90deg) scale(1.5);}
+            50%{background-color: rgb(36, 27, 68); transform: rotate(175deg);}
+            75%{background-color: rgb(106, 119, 35); transform: rotate(360deg) skew(45deg);}
+            100%{background-color: rgb(70, 119, 131);}
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

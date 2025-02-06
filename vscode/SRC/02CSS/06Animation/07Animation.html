@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        /* 해당 태그의 스크롤바 설정 */
+        body::-webkit-scrollbar{
+            display: none;
+        }
+        div{
+            width: 400px;
+            height: 40px;
+            background-color: blue;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid #000;
+        }
+        div:nth-child(1){
+            /* 화면 바깥에서 안쪽으로 위치 이동을 원함 */
+            animation-name: moving1;            /* 설정원하는 애니메이션 이름 */
+            animation-duration: 2s;             /* 이동 동작 시간 */
+            animation-iteration-count: infinite;       /* 반복 횟수 설정, 횟수 혹은 infinite 등 설정, 기본값 1회(새로고침시 리셋) */
+            /* 핑퐁 효과를 원함 -> 방향 설정해주기 */
+            animation-direction: alternate;     /* alternate : from-to 설정 */
+        }
+        div:nth-child(2){
+            /* posotion을 이용한 위치 이동 효과 */
+            position: relative;
+            animation-name: moving2;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+
+        }
+        /* moving1 : 애니 이름 */
+        @keyframes moving1 {
+            /* margin 사용시 */
+            /* 잘못쓰면 다른 영역에 영향을 줌. 권장 X */
+            /* 넘어가는 시점에 스크롤이 생김 -> 바디에서 스크롤 설정 해주기 */
+            from{margin-left: 100%;}     /* 시작 위치 */        
+            to{margin-left: 0;}          /* 끝나는 위치 */
+        }
+        @keyframes moving2 {
+            /* 포지션 이용시 */
+            /* viewport이용 */
+            from{top:100vh}
+            to{top:0;}
+        }
+    </style>
+</head>
+<body>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+</body>
+</html>

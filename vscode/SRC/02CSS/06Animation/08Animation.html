@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+        }
+        /* 해당 태그의 스크롤바 설정 */
+        body::-webkit-scrollbar{
+            display: none;
+        }
+        div{
+            width: 400px;
+            height: 40px;
+            margin: auto;
+
+
+            background-color: blue;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid #ffe600;
+            border-radius: 2px;
+        }
+        div:nth-child(1){
+            position: relative;
+            margin-top: 150px;
+
+            animation-name: mov1;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        div:nth-child(2){
+            position: relative;
+
+            animation-name: mov2;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        div:nth-child(3){
+            position: relative;
+
+            animation-name: mov3;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes mov1{
+            from{top:100vh; background-color: #ffe600;}
+            to{top:0; transform: rotate(360deg);}
+        }
+        @keyframes mov2{
+            from{left: 100vw; opacity: 0; transform: scale(1.5);}
+            to{left: 0;}
+        }
+        @keyframes mov3{
+            from{top:100vh; left: 100vw; background: linear-gradient(to left,red,orange,blue); transform: skew(80deg);}
+            to{top:0; left: 0;}
+        }
+        
+    </style>
+</head>
+<body>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+</body>
+</html>

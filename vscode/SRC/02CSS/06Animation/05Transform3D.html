@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            padding: 200px;
+        }
+        .container{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .container>.item{
+            width: 100px;
+            height: 100px;
+            background-color: chocolate;
+
+            transition: 1s;
+        }
+        /* Z축에 대한 효과 */
+        .container:hover>.item{
+            /* perspective : 원근법 */
+            /* 물체와의 거리 30px */
+            /* 회전축 : X,Y 중 하나 설정 */
+            transform: perspective(50px) rotateX(450deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item"></div>
+    </div> 
+</body>
+</html>
