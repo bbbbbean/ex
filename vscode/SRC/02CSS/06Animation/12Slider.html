@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+        body{margin: 0;}
+        .slider-block{
+            /* 화면상에 보여지는 창 */
+            width: 1200px;
+            height: 300px;
+            margin: 50px auto;
+            /* wrapper의 넘치는 값 : overflow를 숨김 */
+            overflow: hidden;
+            /* item이 든 wrapper를 수직배치 */
+            display: flex;
+            align-items: center;
+
+            border: 1px solid;
+        }
+        .slider-block>.slider-wrapper{
+            /* item이 일렬로 정렬되는 창 */
+            width: 3000px;
+            height: 150px;
+            /* item 가로 배치 */
+            display: flex;
+            align-items: center;
+            /* 애니메이션 이동을 위한 포지셔닝 */
+            position: relative;
+            /* 애니메이션 효과 */
+            animation-name: slider;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+
+            border: 1px solid;
+        }
+        .slider-block>.slider-wrapper>.item{
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            background-color: antiquewhite;
+            border: 1px solid bisque;
+            border-radius: 3px;
+
+            transition: 0.4s;
+
+            /* 이미지 확대 효과 넣은 후 overflow 숨김 처리 */
+            overflow: hidden;
+        }
+        .slider-block>.slider-wrapper>.item>img{
+            /* 이미지 자동 맞춤 */
+            object-fit: cover;
+        }
+        .slider-block>.slider-wrapper>.item:first-child{
+            /* 시작 지점 초기화 */
+            margin-left: 0;
+        }
+        .slider-block>.slider-wrapper:hover{
+            /* 애니메이션 정지 */
+            animation-play-state: paused;
+        }
+        .slider-block>.slider-wrapper>.item:hover{
+            /* item 선택시 커짐 */
+            transform: scale(1.2);
+        }
+
+        @keyframes slider{
+            from{left: 0;}
+            to{left: -1000px;}
+        }
+    </style>
+</head>
+<body>
+    <!-- 슬라이드 만들기 -->
+    <!-- js : swiper(슬라이드 소스 외부 도구) 사용하면 편함 -->
+    <!-- 부트스트랩에도 있음 - 컴포넌트 -> 캐러셀 -->
+
+    <div class="slider-block">
+        <div class="slider-wrapper">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+            <div class="item">10</div>
+        </div>
+    </div>
+</body>
+</html>

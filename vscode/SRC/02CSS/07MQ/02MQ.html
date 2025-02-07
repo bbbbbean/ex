@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 설정 X시 제일 아래에 있는 css파일이 우선순위 -->
+    <!-- common -->
+    <link rel="stylesheet" href="./css/common.css">
+
+    <!-- media="" == @media () -->
+    <!-- 띄어쓰기 조심! 공백 잘못 넣으면 적용 안됨,, -->
+    <!-- desktop -->
+    <link rel="stylesheet" href="./css/desktop.css">
+    <!-- tablet -->
+    <link rel="stylesheet" href="./css/tablet.css" media="all and (max-width:1024px)">
+    <!-- mobile -->
+    <link rel="stylesheet" href="./css/mobile.css" media="all and (max-width:380px)">
+
+    <!--
+        반응처리에는 왜 rem?
+        root라는 기준이 있기 때문
+        px는 기준이 없는 절대값
+        모든 요소의 사이즈를 바꾸고 싶을 때 rem을 쓰지 않으면 모든 디바이스 버전에서 크기 조정을 다시 해야함
+        rem을 쓰면 :root에서 fontsize기준 픽셀을 수정하면 전부 바뀜
+    -->
+
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>
