@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+    
+    <div id="d1">HELLOWORLD</div>
+    <!-- .으로 이어진 함수 == 체인형 함수 -->
+    <button onclick="document.getElementById('d1').innerHTML='abcd'">bbbtttnnn</button>
+
+    <script>
+        // 특정 위치를 찾을 수 있음, 선택자를 이용한 위치 찾기
+        // ID 이용
+        const d1el = document.getElementById('d1');
+        console.log(d1el);
+        // d1el : 참조자, 문자형태의 주소, 데이터의 위치값을 문자형태로 표현
+        // d1el.innerHTML='abcd';
+    </script>
+</body>
+</html>

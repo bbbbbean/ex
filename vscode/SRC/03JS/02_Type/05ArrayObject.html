@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // 배열이란 : 여러 자료형을 묶어 저장하기 위한 공간
+        let arr =['str1','str2', null, true, false, undefined, {name:"홍길동",age:24}];       // idx 번호 순서 == 0, 1, 2 ...
+        console.log(typeof arr);
+        console.log(arr[0]);
+        console.log(arr[1]);
+        console.log(arr[2]);
+        console.log(arr[3]);
+        console.log(arr[4]);
+        console.log(arr[5]);
+        console.log(arr[6]);            // {name: '홍길동', age: 24}
+
+        console.log(typeof arr[0]);     // string
+        console.log(typeof arr[1]);     // string
+        console.log(typeof arr[2]);     // object
+        console.log(typeof arr[3]);     // boolean
+        console.log(typeof arr[4]);     // boolean
+        console.log(typeof arr[5]);     // undefined
+        console.log(typeof arr[6]);     // object
+
+        // 배열은 동적 확장이 가능하다
+        // 만들어진 데이터 구조에 내용 추가가 가능
+        arr[7] = 100;
+        console.log(arr);
+        arr[10] = "HELLOWORLD";
+        console.log(arr[8],arr[9],arr[10]);    // 8과 9는 undefined 
+        console.log('길이 : ',arr.length);     //  길이 :  11
+
+        // 배열함수 사용해보기(forEach) - 반복문
+        // callback함수? 만들어진 함수 내에서 실행, 우리가 실행 X, 실행 주체가 바뀐 함수?? 수행 로직만 전달
+        // arr.forEach((요소의 이름 지정)=>{수행할 로직});                         
+        arr.forEach((item)=>{
+            console.log('item', item);
+        });                         
+
+        // 배열함수 사용해보기
+        // push - 마지막 idx에 요소 추가
+        // pop - 마지막 idx 요소 제거
+        arr.push('aaa');
+        arr.push('bbb');
+        arr.push('ccc');
+        
+        console.log(arr); // 각각 11, 12, 13 데이터로 들어간 것을 볼 수 있음
+
+        arr.pop();
+        arr.pop();
+        console.log(arr); // 12, 13 데이터가 삭제된 것을 볼 수 있음
+
+        // 정렬(sort), 누적(reduce), 필터(filter), 재구성(map)
+
+        // 참고,, mdn web docs
+    </script>
+</body>
+</html>

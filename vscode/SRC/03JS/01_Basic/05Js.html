@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- defer : 아래 html구조를 다 불러 온 후 js파일을 불러오는 옵션 -->
+    <!-- 아래 내용이 많을 경우 딜레이가 생길 수 있음 -->
+    <script defer src="../js/main.js"></script>
+
+</head>
+<body>
+
+    <div class="box" style="width: 50px; height: 50px; background-color: blueviolet;"></div>
+    <!-- 외부 스크립트 불러오기 -->
+    <script src="../js/main.js"></script>
+
+    <!-- <script>
+        // 스크립트 => 문서 구조 빌딩 후 css와 js를 읽어옴
+        // 해당 스크립트가 이벤트를 걸 요소보다 위에 위치하게 되면 작동하지 않음
+        const boxEl = document.querySelector('.box');
+        // 이벤트가 발생하는지 유무 감시 함수
+        // 클릭이 일어난다면 (해당을){해당으로 변화}
+        boxEl.addEventListener('click',()=>{
+            boxEl.style.backgroundColor='#000';
+        });
+    </script> -->
+</body>
+</html>

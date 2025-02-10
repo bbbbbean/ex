@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            /* 스크롤 생성 */
+            height: 3000px;
+        }
+        .test{
+            position: fixed;
+            width: 100%;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <button onclick="alert('hello')">BTN1</button>
+    <!-- 간단한 연산 가능 : 명령 데이터를 이해함 ==> 데이터 기반의 언어다 -->
+    <button onclick="alert(10+20)">BTN2</button>
+    <!-- 문자에 간단한 줄바꿈 등 서식 적용하고 싶으면 탈출문자 사용해야함 -->
+    <!-- 비그래픽 문자 : 눈에 보이지 않지만 영향을 끼치는 제어 문자들 -->
+    <button onclick="alert('hellohellohello\nhellohello\nhello')">BTN3</button>
+    <!-- onclick : JS를 들고오는 속성, 일종의 함수 -->
+    <!-- 기능 == 함수 -->
+    <hr/>
+    <div class="test">
+        <!-- 기본값을 안쓰는 설정 : void(0) -->
+        <a href="javascript:void(0)">TEST1</a>
+        <!-- a : 페이지를 이동하겠다는 성질이 우선됨. 외의 기능 원하면 javascript:를 붙여 JS를 쓰겠다 선언 필요-->
+        <a href="javascript:alert(10+20)">TEST2</a>
+        <!-- console.log() : 콘솔창에 기록을 남기는 것 -->
+        <!-- 콘솔창? 개발자도구의 console창 -->
+        <a href="javascript:console.log(10+20)">TEST3</a>
+        <a href="javascript:console.log(obj)">TEST4</a>
+    </div>   
+    
+
+    <!-- body 제일 하단에 넣는게 원칙 -->
+    <script>
+        // Json타입 key:value 의 형태
+        // 화면 출력 == html 구조 출력 후 css와 JS 적용 순서
+        // obj 공간 = 데이터 값{"name" : "aaa", "age" : "55"}
+        const obj = {"name" : "aaa", "age" : "55"};
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+
+
+    <script>
+        // 특정한 데이터 입력 시 데이터 타입 확인 후 맞는 공간 생성
+        // typeof : 데이터 타입 확인
+        
+        // ""와 ''와 ``은 모두 문자열 처리
+        console.log("hello world");
+        console.log('hello world');
+        console.log(`hello world`);
+
+        // ''안은 문자열 처리
+        // 문자열 + 문자열 == +는 문자열을 이어 붙이는 역할
+        // 따옴표에 가두지 않을 경우 정수와 연산자의 묶음, 함수로 인식 == 처리함
+        console.log(10+20);
+        console.log(`10`+`20`);
+        console.log('10+20');
+
+        // true : 참거짓
+        // null 과 undefined 구별하기
+        // null : object, null이라는 객체로 인식
+        // undefined : 정의되지 않은. 공간을 차지하지 않음
+        // 선언과 정의의 차이점 : 선언-안지켜도됨, 정의-지켜야함
+        console.log(true);
+        console.log(null);
+        console.log(undefined);
+
+        console.log(typeof true);       // boolean
+        console.log(typeof null);       // object
+        console.log(typeof undefined);  // undefined
+
+        let test;                       // 데이터 저장을 하지 않고 공간만 만들어둔 상태 -> 하지만? 데이터가 저장되기 전까지 공간을 차지 하지 않음
+        console.log(test);              // undefined
+
+        let test2 = null;               // test2에 null이라는 객체 저장
+        console.log(test2);
+
+        // if 분기 처리를 위한 문법
+        if(test2){                      // null이라는 값을 가지고 있음 == 판단 가능 == 오류가 나지않음
+            console.log("test2 true")
+        }else{
+            console.log("test2 false")
+        }
+
+        if(test){                      // undefined == 값이 없음, 정의되지 않음 == 판단 불가 == 오류
+            console.log("test true")
+        }else{
+            console.log("test false")
+        }
+    </script>
+</body>
+</html>

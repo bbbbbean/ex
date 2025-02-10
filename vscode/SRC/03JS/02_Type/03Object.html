@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .status-block{
+            width: 400px;
+            height: 50px;
+            border: 1px solid;
+            padding: 5px;
+            margin-top: 10px;
+        }
+        .status-block .gauge{
+            width: 0px;
+            height: 50px;
+            background-color: burlywood;
+            transition: .5s;
+        }
+    </style>
+</head>
+<body>
+    
+    <button onclick="poppi.sound()">뽀삐 짖어</button>
+    <button onclick="poppi.toString()">확인</button>
+    <hr/>
+
+    <button onclick="myCar.accel()">부아앙</button>
+    <button onclick="myCar.break()">끼이익</button>
+    <button onclick="myCar.status()">정보</button>
+
+    <div class="status-block">
+        <div class="gauge"></div>
+    </div>
+
+    <script>
+        // object (사물) < 객체의 하위 카테고리
+        // 객체 : 존재하는 모든 것들 == 공간을 차지하는 사물들
+
+        // 객체의 구성요소
+        // ㄴ 속성 (객체의 고유 data - 저장 대상) = 변수를 통해 저장
+        // ㄴ 기능 (저장된 데이터를 기반으로 움직이는 것, 처리) = 함수를 통해 구현
+
+        const poppi = {               // const : 내용 변경 불가, 객체의 위치정보 변경 불가 / 
+            // 속성
+            name : "뽀삐",
+            kind : "포메",
+            age : 1,
+            birthday : "2024-02-10",
+
+            // 기능
+            sound : function(){       // function 특정한 기능 단위를 만들 수 있음
+                alert(this.name+"이(가) 짖습니다.")     // this 이 객체의 고유 속성 중 name을 들고오겠다. 
+            },
+            toString : function(){
+                alert(`이름 : ${this.name}\n나이 : ${this.age}\n견종 : ${this.kind}`);
+            }
+        }
+        // poppi = {};          // 에러, let poppi면 에러X => let : 위치 정보가 그때그때 바뀔 수 있다.
+        poppi.name="티모";      // 속성 값 변경 가능
+
+        const gaugeEl = document.querySelector('.gauge');
+        const myCar ={
+            //속성
+            owner : "홍길동",
+            category : "세단",
+            fueltype : "가솔린",
+            speed : 0,
+            max_speed : 200,
+            min_speed : 0,
+            fuelAmount : 100,
+
+            //기능
+            accel : function(){
+                if(this.speed<this.max_speed){
+                    this.speed += 10;
+                    gaugeEl.style.width = `${this.speed}px`;
+                    console.log(`accel, ${this.owner}님의 차량 현재 속도 : ${this.speed}`);
+                }else{
+                    alert(`accel.. 최대 속도에 도달했습니다. 현재 속도 : ${this.max_speed}`);
+                }
+                
+            },
+            break : function(){
+                if(this.speed>this.min_speed){
+                    this.speed -= 10;
+                    gaugeEl.style.width = `${this.speed}px`;
+                    console.log(`break, ${this.owner}님의 차량 현재 속도 : ${this.speed}`);
+                }else{
+                    alert(`break.. 현재 속도 : ${this.speed}`);
+                }
+                
+            },
+            status : function(){
+                alert(`소유자 : ${this.owner} \n차종 : ${this.category}\n현재 속도 : ${this.speed}\n연료량 : ${this.fuelAmount}`)
+            }
+        }
+    // console.log(poppi);
+    // console.log(myCar);
+
+
+    </script>
+</body>
+</html>
