@@ -147,16 +147,28 @@
   font-size: 1.2rem;
   font-weight: 500;
   color: #949494;
+
 }
 
 
 /* 게시판 */
 .community{
+  max-width: 640px;
+}
+.community-board{
   min-width: 400px;
   
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  margin: 15px;
+}
+.community-board-idx{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 .commu-line{
