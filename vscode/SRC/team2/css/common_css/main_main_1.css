@@ -25,8 +25,8 @@ main{
 }
 .serch{grid-area: serch;}
 .slide{grid-area: slide;}
-.category{grid-area: category; background-color: burlywood;}
-.community{grid-area: community; background-color: cadetblue;}
+.category{grid-area: category;}
+.community{grid-area: community;}
 .match-go{grid-area: match-go; background-color: cornflowerblue;}
 
 
@@ -95,6 +95,7 @@ main{
     color: #6EC3FF;
   }
 
+
 /* 슬라이드 */
 .slide{
     height: 500px;
@@ -141,3 +142,83 @@ main{
     background-color: aliceblue;
   }
   
+
+  /* 카테고리 */
+.category{
+  border-bottom: 1px solid #6EC3FF;
+}
+.category-wrap{
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 auto;
+
+  padding: 10px 20px;
+}
+.category-wrap>span:first-child{
+  min-width: 110px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #949494;
+
+}
+
+
+/* 게시판 */
+.community{
+  justify-self: end;
+  padding-right: 10px;
+}
+.community span{
+  text-align: center;
+}
+
+.community-board{
+  width: 100%;
+
+}
+.community-board-idx{
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 20px;
+
+}
+.community-board-con{
+  width: 43vw;
+  min-width: 400px;
+}
+.commu-line{
+  height: 1px;
+  width: 100%;
+  background-color: #6EC3FF;
+}
+.bold-row{
+  height: 2px;
+  background-color: #6EC3FF;
+}
+.row-idx{
+  width: 100%;
+  padding: 10px 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr 1fr;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+.row>a{
+  padding: 5px 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr 1fr;
+  
+  justify-content: center;
+  align-items: center;
+}
