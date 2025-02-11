@@ -153,9 +153,15 @@
 
 /* 게시판 */
 .community{
-  max-width: 640px;
+  max-width: 50%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+
+  background-color: #949494;
 }
 .community-board{
+  max-width: 600px;
   min-width: 400px;
   
   display: flex;
@@ -163,13 +169,16 @@
   justify-content: center;
   align-items: center;
 
-  margin: 15px;
 }
 .community-board-idx{
   width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.community-board-con{
+  width: 100%;
 }
 .commu-line{
   height: 1px;
@@ -198,12 +207,6 @@
 
 
 
-.community {
-  float: left;
-
-  width: 50%;
-  height: 350px;
-}
 .match-go {
   float: left;
 
