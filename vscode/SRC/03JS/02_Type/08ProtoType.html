@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 상위 객체가 가지고 있는 속성을 하위 객체에 전달해주는 것
+        // 최상위에 있는 객체 Object (제일 상위 부모) == 어떤 객체를 만들어도 Object의 속성과 함수를 상속함
+        // 상속을 왜 만들었을까, 계층관계가 있는 이유  == 분류하기 위해서, 해당 특징을 가진 객체와 가지지 않은 객체의 구분을 위해서
+        //                                          == 속성의 재정의를 안해도 됨, 효율성. 추가 특징만 생각하면 됨
+        
+        // Object 객체  : 객체를 다루는 기본 함수 제공
+
+        const obj = {};
+        console.log(obj);
+        console.log(typeof obj);    // object
+        // 내용이 없지만 prototype이라는게 기본적으로 들어가 있음 == object에게서 상속받은 것들
+
+        console.log(null);
+        console.log(typeof null);   // object
+
+        console.log(Object)     // 대소문자 가림, Object != object
+        // [native code] 기본적으로 내장된 코드
+        
+        // Object 처리를 위해 기본적으로 제공하는 함수
+        const obj1 = {name:"d",age:23};
+        Object.keys(obj1);      // key 값만 꺼내주는 함수, name,age
+        Object.values(obj1)     // values 값만 꺼내주는 함수, d,23
+        Object.entries(obj1)    // 열거 가능한 속성([k:v]) 형태의 배열로 반환
+        console.log(Object.keys(obj1))
+        console.log(Object.values(obj1))
+        console.log(Object.entries(obj1))
+
+        let ob1 = {addr:"대구"};
+        let ob2 = {gender:"M"};
+
+        console.log(Object.assign(obj1,ob1,ob2));   // obj1에 ob1, ob2를 복사해서 넣어줌
+
+        Object.freeze(obj1);        // 객체 수정 불가
+        // .을 찍고 속성에 접근하는 방식
+        obj1.name = 'g'
+        // []로 속성에 접근하는 방식
+        obj1["age"] = 44;
+        console.log(obj1)
+        // freeze 활성화 시 속성값이 변하지 않음
+
+        Object.seal(obj1)           // 새로운 속성 추가 불가
+
+        console.log(Object.prototype)
+
+
+        //----------------------------------------
+        //    Object.prototype  : 객체가 상속을 구현하는데 사용되는 메커니즘,Object객체 내에 구성
+        //----------------------------------------
+        //    Object.prototype
+        //    자바스크립트의 모든 객체가 상속하는 프로토타입 체인의 최상위에 있는 객체입니다. 
+        //    따라서 Object.prototype에는 다양한 함수들이 정의되어 있습니다. 
+        //    일부 중요한 함수들은 다음과 같습니다:
+
+        //     toString(): 객체를 문자열로 변환하여 반환합니다.
+        //     hasOwnProperty(): 객체가 특정 속성을 직접 소유하고 있는지 여부를 확인합니다.
+        //     isPrototypeOf(): 객체가 다른 객체의 프로토타입 체인에 존재하는지 여부를 확인합니다.
+        //     valueOf(): 객체의 원시 값 표현을 반환합니다.
+        //     toLocaleString(): 객체를 지역화된 문자열로 변환하여 반환합니다.
+        //     propertyIsEnumerable(): 특정 속성이 열거 가능한 속성인지 여부를 확인합니다.
+        //     constructor: 객체를 생성한 생성자 함수를 참조합니다.
+
+
+        // 프로토타입 함수 정의
+        function Person(name){
+            this.name = name;       // 이 객체의 name에 외부에서 받은 name을 대입하겠다
+        }
+        // 매개변수? 외부로부터 값을 받아 내부 로직을 돌림
+
+        // 객체 생성
+        const person1 = new Person('홍길동');
+        console.log(person1);
+        // person1(상수) 생성 - Person이라는 객체의 주소를 저장 -- Person의 주소를 찾아 데이터를 보면 '홍길동'이라는 name을 저장한 값이 있음
+
+        // toString
+        person1.toString();
+        
+        // Person 프로토타입에 기능 추가
+        Person.prototype.hello = function(){
+            // 기능 추가 부분
+            console.log(`안녕하세요, 저는 ${this.name}입니다`)
+        };
+
+        const person2 = new Person('고먐');
+        console.log(person2);
+        person2.hello();
+
+
+        
+    </script>
+</body>
+</html>

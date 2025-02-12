@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box" style="width: 200px; height: 50px; background-color: darksalmon;"></div>
+
+    <script>
+        // 분기문 (코드 블럭을 나누어 처리하기 위한 구문)
+        // 절차 지향 (블럭을 건너띄고 처리할 수 있음)
+
+        // if(조건식){종속문장}
+        // let number = prompt("값을 입력하세요");
+
+        // if(number%2 == 0){  // 짝수라면
+        //     // 참인 경우의 실행 코드
+        //     document.write(`<h3>${number}는 짝수입니다.</h3>`) // write : 출력
+        // }else{
+        //     // 거짓인 경우의 실행 코드
+        //     document.write(`<h3>${number}는 홀수입니다.</h3>`)
+        // }
+
+        // 예제2
+        const boxEl = document.querySelector('.box');
+        let box_style = prompt("기본 스타일을 입력하세요\n'가로/세로', width, height, color, background-Color를 입력하세요\n(;단위로 구분)");
+        const style_arr = box_style.split(';');
+
+        if(style_arr[0] == '가로'){
+            console.log('가로 스타일')
+            boxEl.setAttribute('style',`width:${style_arr[1]}px;height:${style_arr[2]}px;color:${style_arr[3]};background-color:${style_arr[4]}`);
+        }else{
+            console.log('세로 스타일')
+            boxEl.setAttribute('style',`width:${style_arr[2]}px;height:${style_arr[1]}px;color:${style_arr[3]};background-color:${style_arr[4]}`);
+        }
+
+    </script>
+</body>
+</html>

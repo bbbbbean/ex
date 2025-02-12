@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>   
+    // 상위 프로토타입 함수
+    function Animal(name){
+        console.log('Animal 생성자 호출');
+        this.name = name;   // 속성 추가(name)
+    }
+    // 상위 프로토타입에 기능 추가
+    Animal.prototype.getName = function(){console.log(`My name is ${this.name}`)}
+
+    // 하위 프로토타입 함수
+    function Dog(name, kind){   // 부모의 name, 본인의 kind
+        Animal.call(this,name); // 상위 프로토타입 생성자 호출, 외부로 받은 이름값을 초기화
+        console.log("Dog 생성자 호출");
+        this.kind = kind;   // Dog에 속성 추가
+    }
+    Dog.prototype = Object.create(Animal.prototype);    // 프로토타입간 상속
+    
+    function 포메라니안(name, kind, color){
+        Dog.call(this,name,kind);
+        console.log("포메라니안 생성자 호출");
+        this.color = color;
+    }
+    포메라니안.prototype = Object.create(Dog.prototype);    // 프로토타입간 상속
+
+    // Dog 객체 생성
+    const dog1 = new Dog('별이','말티즈');
+    console.log(dog1)
+    dog1.getName();
+
+    const dog2 = new 포메라니안('구름이','포메라니안','모닝빵');
+    console.log(dog2)
+    dog2.getName();
+
+
+    // 실존한다 == 공간을 차지한다
+    // 머리속의 개념 == 실존하지 않는 것
+    // 설계도의 이름이냐 실제 건물이냐
+    // 동물 - 강아지 - 별이(실존)
+    // 상위, 하위 판단 is a, has a 판단 --> is a가 더 강력한 상속관계, has a는 약한 포함관계
+    // 함수는 기본적으로 회귀 성질을 지니고있음
+    // 상속 관계 사용시 유지보수와 확장하기 좋음
+    </script>
+</body>
+</html>
