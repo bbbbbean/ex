@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{margin: 0;}
+        nav{height: 80px; border: 1px solid;}
+        nav>.main-menu{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        li{
+            width: 100%;
+            background-color: beige;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav>
+                <ul class="main-menu">
+
+                </ul>
+            </nav>
+        </header>
+
+        <footer>
+            <!-- 서버로 내용을 전달하지 않고 해당 페이지 이벤트 용으로 사용할 예정 -->
+            <!-- onsubmit : 폼을 제출하는 이벤트를 다루는 이벤트 핸들러-->
+            <form name="navForm" onsubmit="return false">
+                <input type="text" name="menuname">
+                <a href="javascript:void(0)" class="nav-btn">헤더만들기</a>
+            </form>
+        </footer>
+    </div>
+
+    <script>
+        const mainMenuEl = document.querySelector('.main-menu')
+        // 1. 
+        // const settings = prompt('nav메뉴를 입력하세요\n띄어쓰기로 구분합니다.')
+
+        // 2.
+        // a태그를 클릭했을때 내용 받아오기
+        const navBtn = document.querySelector('.nav-btn');  // 문서에서 .nav-btn을 찾음
+        navBtn.addEventListener('click',()=>{               // click을 했을때 이벤트 설정
+            // +a. 기존 노드 제거 후 새 자식노드 생성
+            // 해당 반복문 없으면 li가 계속 쌓임
+            while(mainMenuEl.firstChild){   // 0 == false, 0 != true
+                mainMenuEl.removeChild(mainMenuEl.firstChild);
+            };
+
+            // 1. 폼에 입력한 문자 꺼내기, input값 추출
+            // form에 이름이 설정되어 있으면 그대로 사용하면 됨, '-' 쓰지말기
+            const form = document.navForm;
+            // 문자열 추출 => 값 꺼내기 => .value
+            // input의 이름 : menuname
+            const settings = form.menuname.value;
+            // 2. 공백을 기준으로 문자열 나누기
+            const menuArr = settings.split(' ');
+            console.log(menuArr);
+            // 3. 반복문을 통해 li태그에 붙여넣기
+            for(let i=0;i<menuArr.length;i++){
+            const liEl = document.createElement('li');  // li태그 생성
+            liEl.innerHTML=menuArr[i];  
+            mainMenuEl.appendChild(liEl);   // 마지막 요소로 붙임
+            }
+            // 3-1. 배열함수를 이용(forEach)해서 자식 노드(li)추가
+            // split하며 배열이 생성됨 => 배열 함수 사용 가능
+            menuArr.forEach((str)=>{
+                const liEl = document.createElement('li');  // li태그 생성
+                liEl.innerHTML=str;  
+                mainMenuEl.appendChild(liEl); 
+            })
+        });
+
+        // 1+
+        const menuArr = settings.split(' ');
+        console.log(menuArr); // 문자열 나누기 확인용
+
+        // menuArr를 ul의 요소로 삽입
+        for(let i=0;i<menuArr.length;i++){  // 인덱스 [0]부터 시작해서 [길이-1]까지
+            // 요소 생성 함수
+            const liEl = document.createElement('li');   // 리스트 태그 생성
+            // 생성한 리스트에 나눈 문자열 집어넣기, 몇회? i회
+            liEl.innerHTML=menuArr[i];
+            mainMenuEl.appendChild(liEl); // 한 노드(liEl)를 특정 부모 노드(mainMenuEl)의 자식 노드 리스트 중 마지막 자식으로 붙임
+                                          // 태그의 제일 마지막에 계속 붙여넣는 거
+        }
+
+        // 그으러며어어어어언 li 요소 여러개 지정해두고 원하는 li 골라서 메뉴 만들기도 이런거고낭
+        
+    </script>
+</body>
+</html>
