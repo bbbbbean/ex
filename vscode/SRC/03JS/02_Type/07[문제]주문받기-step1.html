@@ -68,14 +68,19 @@
         <form name="form1" onsubmit="return false">
             <div class="item">
                 <label>상호명 선택: </label>
-                <select class="select-restorant">
+                <select class="select-restorant" name="selectRestorant">
+                    <option value="" selected></option>
                     <!-- <option value=""></option> -->
                 </select>
             </div>
             <div>
-                <button>검색</button>
+                <a href="javascript:void(0)" class="show-menu-btn">검색</a>
             </div>
         </form>
+        <!-- 상단 폼에서 선택한 식당의 메뉴를 표시 -->
+        <div class="restorant-menu-block">
+
+        </div>
     </div>
 
     <div class="show-block order-input-block">
@@ -161,9 +166,45 @@
             selectRestorant.appendChild(opNode)   //selectNode의 자식으로 붙이기, 저장한 내용 붙이기
         }) // 를 123번 반복하겠다. 모든 아이템 수에 반복하겠다.
         
-        // 
-        
-        // 
+        // 1-1. 상단 폼에서 선택한 식당의 메뉴를 표시
+        // 메뉴 정보 추출 > 각 메뉴 리스트에 붙여넣기
+        // show-menu-btn 검색 버튼 클래스
+        // restorant-menu-block 메뉴 리스트 들어갈 div태그 클래스
+         
+        // 검색 눌렀을때 내용 받아오기
+        // const ShowMoreBtn = document.querySelector('.show-menu-btn');
+        // const restorantMenuBlock = document.querySelector('.restorant-menu-block');
+       
+        // ShowMoreBtn.addEventListener('click',()=>{
+        //     // 맛집 이름은 나옴..
+        //     const selectRestorantName = selectRestorant.value
+        //     console.log(selectRestorantName)
+        //     // 해당 맛집의 메뉴 출력
+        //     RenewaledMenu.forEach((item)=>{
+        //         if(item.BZ_NM===selectRestorantName){
+        //             return item.MNU
+        //         }
+        //     });
+        // })
+        //---------------------------------------------------------------------------------
+        // 풀이, , ,,, , , ,, ,
+        // 1) 검색 버튼 눌렀을 때의 처리
+        const ShowMenuBtn = document.querySelector('.show-menu-btn');
+        ShowMenuBtn.addEventListener('click',()=>{
+            
+            const form = document.form1;
+            const selectedRestorant = form.selectRestorant.value;
+            console.log(selectedRestorant);
+            
+            // 다 요소로 가르기
+            const restorantEl = RenewaledMenu.find((item)=>{
+                return item.BZ_NM===selectedRestorant
+            });
+            console.log(restorantEl)
+
+            const restorantMenuBlock = document.querySelector('.restorant-menu-block');
+            restorantMenuBlock.innerHTML=restorantEl.MNU;
+        })
 
         // step-2
 

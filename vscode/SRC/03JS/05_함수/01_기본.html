@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 함(담다)수(data) : 외부로부터 data를 받아와 처리하는 논리적 공간
+        // 인수, 인자(외부로부터 들어오는 data) / 파라미터 변수(매개 변수) / Call / 반환값(return값)
+        // 크게 아래 네가지 구성
+        // 인자O, 리턴값O
+        // 인자X, 리턴값O
+        // 인자O, 리턴값X
+        // 인자X, 리턴값X
+
+        // 함수를 쓰는 이유? 모듈(탈부착이 가능한 프로그램/장치)화 : 재사용성 증가
+
+        // 기본형태 (ECMA6 이전)
+        // 헤더만 : 선언
+        // 본체만 : 정의
+        // 함수 : 재사용성을 위해 공용 공간에 저장
+        // 실행이 되고나면 돌아오는 성질을 지님. 값을 지니고 돌아오면 return, 값이 없이 돌아오면 null
+
+        // 1 ) 인자 O, 리턴 O (가장 종속적)
+        function sum1(n1,n2){       // 함수의 헤더 : 함수의 용도, 데이터 입력 타입 등을 알 수 있는 공간
+            return n1+n2;           // 바디 : 본체, 기능적인 부분 
+        }
+        // 2 ) 인자 O, 리턴 X 
+        function sum2(n1,n2){       // 외부로 값을 전달하지 않으면 내부로 값을 전달하는 본체가 있어야함      
+            console.log(n1+n2);     // return이 없어도 처리하고 나면 돌아감
+        }
+        // 3 ) 인자 X, 리턴 O
+        function sum3(){
+            const n1 = 10;          // 외부에서 받는 값이 없다? 그럼 내부에서 값 전달
+            const n2 = 20;
+            return n1+n2;
+        }
+        // 4 ) 인자 X, 리턴 X (메인과 가장 떨어진 형태, 잘안씀..) => 호이스팅 문제????????
+        function sum4(){    // 안에서 모든걸 해결
+            const n1 = 10; 
+            const n2 = 20;
+            console.log(n1+n2);
+        }
+
+        // 함수명을 통해 함수 위치를 찾음
+        // 오른쪽부터 처리
+        const v1 = sum1(10,20);     // Call : 함수를 실행하는 ~
+        console.log(v1);            // 30
+        
+        const v2 = sum2(10,20);
+        console.log(v2);        // undefined, 외부로 전달하는 값 X
+
+        const v3 = sum3();
+        console.log(v3);        // 30
+
+        const v4 = sum4();
+        console.log(v4);        // undefined
+
+
+
+        // 기본형태 (ECMA6 이후)
+        // 화살표 함수 사용 ()=>{}
+        const f1 = (n1,n2)=>{
+            return n1+n2;
+        };
+        const f2 = (n1,n2)=>{
+            console.log(n1+n2)
+        };
+        const f3 = ()=>{
+            const n1 = 10;
+            const n2 = 20;
+            return n1+n2;
+        };
+        const f4 = ()=>{
+            const n1 = 10;
+            const n2 = 20;
+            console.log(n1+n2)
+        };
+        const v_1 = f1(10,20); console.log('v_1',v_1); // 30
+        const v_2 = f2(10,20); console.log('v_2',v_2); // undefined
+        const v_3 = f3(); console.log('v_3',v_3); // 30
+        const v_4 = f4(); console.log('v_4',v_4); // undefined
+
+
+
+        // 인자의 갯수 : 메모리 공간이 허용하는 만큼 무제한 생성 가능
+        // 반환값의 갯수 : 1개
+
+        // 여러개의 반환값을 원한다면 object로 반환
+        const f5 = (n1,n2,n3)=>{
+            return {
+                // 속성
+                arg1:n1,
+                arg2:n2,
+                arg3:n3,
+                // 기능
+                toString : function(){
+                    console.log(`이름: ${this.arg1}, 나이: ${this.arg2}, 주소: ${this.arg3}`)
+                }
+            }
+        }
+        const v_5 = f5("홍",30,"대구");
+        console.log('v_5',v_5); // v_5 Object
+        v_5.toString();
+      
+        // 가변인자(...args) : 복수의 값을 동시에 받을 수 있음
+        const f6 = (n1,n2,n3, ...args)=>{
+            console.log('n1',n1);
+            console.log('n2',n2);
+            console.log('n3',n3);
+            console.log('args',args);
+        };
+        f6(10,20,30,40,50,60,70,80,90); // n1 10 n2 20 n3 30 args (6) [40, 50, 60, 70, 80, 90] => 배열 형태 반환
+    </script>
+</body>
+</html>

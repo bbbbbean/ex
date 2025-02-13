@@ -7,7 +7,7 @@
     <style>
         body{margin: 0;}
         nav{height: 80px; border: 1px solid;}
-        nav>.main-menu{
+        .main-menu{
             list-style: none;
             margin: 0;
             padding: 0;
@@ -15,11 +15,20 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
+            flex-wrap: wrap;
         }
         li{
-            width: 100%;
             background-color: beige;
             text-align: center;
+            min-width: 120px;
+            max-width: 200px;
+            width: 100%;
+        }
+        .sub-menu{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: bisque;
         }
     </style>
 </head>
@@ -39,7 +48,21 @@
             <!-- onsubmit : 폼을 제출하는 이벤트를 다루는 이벤트 핸들러-->
             <form name="navForm" onsubmit="return false">
                 <input type="text" name="menuname">
-                <a href="javascript:void(0)" class="nav-btn">헤더만들기</a>
+                <a href="javascript:void(0)" class="nav-btn">nav-메인메뉴 만들기</a>
+            </form>
+            <form name="modeForm" onsubmit="return false">
+                <select name="setViewMode" id="">
+                    <option value="mobile">모바일</option>
+                    <option value="desktop">데스크탑</option>
+                </select>
+                <a href="javascript:void(0)" class="view-mode-btn">가로형 세로형 변환</a>
+            </form>
+            <form name="subForm" onsubmit="return false">
+                <!-- 해당 위치의 mainmenu를 찾아서 -->
+                <input type="text" name="mainname" placeholder="메인 메뉴명을 입력하세요">
+                <!-- 그 아래에 submenu를 만들기 -->
+                <input type="text" name="subname" placeholder="서브 메뉴명을 입력하세요">
+                <a href="javascript:void(0)" class="sub-menu-btn">nav-서브메뉴 만들기</a>
             </form>
         </footer>
     </div>
@@ -69,19 +92,104 @@
             const menuArr = settings.split(' ');
             console.log(menuArr);
             // 3. 반복문을 통해 li태그에 붙여넣기
-            for(let i=0;i<menuArr.length;i++){
-            const liEl = document.createElement('li');  // li태그 생성
-            liEl.innerHTML=menuArr[i];  
-            mainMenuEl.appendChild(liEl);   // 마지막 요소로 붙임
-            }
+            // for(let i=0;i<menuArr.length;i++){
+            // const liEl = document.createElement('li');  // li태그 생성
+            // liEl.innerHTML=menuArr[i];  
+            // mainMenuEl.appendChild(liEl);   // 마지막 요소로 붙임
+            // }
             // 3-1. 배열함수를 이용(forEach)해서 자식 노드(li)추가
             // split하며 배열이 생성됨 => 배열 함수 사용 가능
             menuArr.forEach((str)=>{
                 const liEl = document.createElement('li');  // li태그 생성
-                liEl.innerHTML=str;  
-                mainMenuEl.appendChild(liEl); 
+                const aEl = document.createElement('a');    // a태그 생성
+                aEl.setAttribute('href','javascript:void(0)');
+                aEl.innerHTML=str; 
+
+                // li - a(자식) 추가
+                liEl.appendChild(aEl);
+
+                mainMenuEl.appendChild(liEl);
+                
             })
         });
+
+        // View mode btn
+        const viewModebtnEl = document.querySelector('.view-mode-btn');
+        viewModebtnEl.addEventListener("click",()=>{
+
+            const form = document.modeForm;
+            const modeOption = form.setViewMode.value;
+            // 값 추출 확인
+            console.log('modeOption :',modeOption);
+
+            const wrapperEl = document.querySelector('.wrapper');
+            // if문 사용(모바일/데스크탑 판별)
+            if(modeOption === "mobile"){
+                // 모바일
+                wrapperEl.style.width='380px';
+                wrapperEl.style.margin='0 auto';
+            }else if(modeOption === "desktop"){
+                // 데스크탑
+                wrapperEl.style.width='100%';
+                wrapperEl.style.margin='0 auto';
+            }else{
+
+            }
+        });
+
+        // 서브메뉴 만들기
+        const subMenuBtnEl = document.querySelector('.sub-menu-btn');
+        subMenuBtnEl.addEventListener("click",()=>{
+            // subForm특정
+            const form = document.subForm;
+            // 각 클래스의 폼의 값 추출
+            const mainname = form.mainname.value;
+            const subname = form.subname.value;
+            console.log(mainname,subname);
+
+            // 메인 메뉴 찾기
+            const mainMenuLiEls = document.querySelectorAll('.main-menu>li'); // 배열 형태로 해당 선택자를 불러옴
+            // 요소들 선택 확인
+            console.log(mainMenuLiEls);
+            // 배열함수를 이용
+            // const findAEl = mainMenuLiEls.find((el)=>{return el.textContent.trim('') === mainname});
+            mainMenuLiEls.forEach((el)=>{
+                if(el.textContent.trim()===mainname){
+                    console.log(el);
+
+                    const liEl = el.parentNode;
+                    console.log(liEl);
+
+                    // 서브메뉴 만들기
+                    // 공백으로 자르기
+                    const submenuArr = subname.split(' ');
+                    // ul생성 > li생성 > a생성 > 연결
+                    // ul만들고 class명 입힘
+                    const ulEl =document.createElement('ul');
+                    ulEl.classList.add('sub-menu');
+
+                    // 뭐가 반복됨,, 찾아봐,,
+                    submenuArr.forEach(str=>{
+                        const newLi = document.createElement('li');
+                        ulEl.classList.add('sub-menu');
+                        submenuArr.forEach(str=>{
+                            const newLi = document.createElement('li');
+                            const newA = document.createElement('a');
+                            newA.setAttribute('href','javascript:void(0)');
+                            newA.innerHTML=str;
+
+                            newLi.appendChild(newA);
+                            ulEl.appendChild(newLi);
+                        })
+                        liEl.appendChild(ulEl);
+                    })
+                    
+                }   
+            })
+            console.log(mainMenuLiEls);
+
+        });
+
 
         // 1+
         const menuArr = settings.split(' ');
@@ -97,6 +205,8 @@
                                           // 태그의 제일 마지막에 계속 붙여넣는 거
         }
 
+
+        // 배열 함수/ 노드CRUD/ 이벤트/ 동기비동기
         // 그으러며어어어어언 li 요소 여러개 지정해두고 원하는 li 골라서 메뉴 만들기도 이런거고낭
         
     </script>
