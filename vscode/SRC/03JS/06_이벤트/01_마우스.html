@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <hr/>
+    <div class="d2"></div>
+    <hr/>
+    <div class="d3"></div>
+
+    <script>
+        // ### click ###
+        const d1El = document.querySelector('.d1');
+        var cnt=0;  // 클릭 카운트 
+        d1El.addEventListener('click',(e)=>{    // 이벤트 객체 : e, 이벤트 관련 요소들을 보여줌(이벤트 발생 좌표 등등)
+            // console.log('clicked',e);
+            console.log('clicked',e.target);    // 이벤트가 일어난 태그 표시
+            d1El.innerHTML=`<h1>${++cnt}<h1>`
+        });
+
+        // 숨겨서 사용(closure) : 숨겨진 채로, 내부적으로만 값이 보여짐. 내부적으로 데이터 관리가 필요하면 사용
+        function clickHandler(){
+            let cnt =0;
+            function addCnt(node){  // 숨겨진 내용을 보여주고 싶다면? node사용
+                cnt++;
+                node.innerHTML=`<h3> 클로저 내 CNT : ${++cnt}<h3>`; // 표시를 위한 로직
+                console.log('clicked',cnt);
+            }
+            return {addCnt:addCnt}; // 이너 함수 addCnt가 addCnt 이름으로 리턴됨  // 하나 return시 return addCnt만 써도 됨
+        }
+        const addCnt = clickHandler().addCnt;
+        const d2El = document.querySelector('.d2');
+        d2El.addEventListener('click',()=>{
+            addCnt(d2El);
+        });
+
+
+        // ### mouseenter : 마우스 진입
+        // ### mouseover : 마우스 머물 때
+        // ### mouseleave : 마우스 나갈 때
+        // ### click
+        // ### double click
+        // ### contextmenu : 우클릭 
+        // 유사한 이벤트의 경우 우선순위에 따라 이벤트가 먹히기도 함 ( mouseenter-mouseover ) 
+        const d3El = document.querySelector('.d3');
+        d3El.addEventListener('mouseenter',()=>{d3El.innerHTML=`<h3>enter</h3>`});
+        d3El.addEventListener('mouseover',()=>{d3El.innerHTML=`<h3>over</h3>`});
+        d3El.addEventListener('mouseleave',()=>{d3El.innerHTML=`<h3>leave</h3>`});
+        d3El.addEventListener('click',()=>{d3El.innerHTML=`<h3>click</h3>`});
+        d3El.addEventListener('dblclick',()=>{d3El.innerHTML=`<h3>double click</h3>`});
+        d3El.addEventListener('contextmenu',()=>{d3El.innerHTML=`<h3>우클릭</h3>`});
+        d3El.addEventListener('contextmenu',(e)=>{
+            e.preventDefault(); // 우클릭 창 없애는 키
+            d3El.innerHTML=`<h3>우클릭</h3>`
+        });
+
+
+        // ### 드래그, 드랍
+    </script>
+</body>
+</html>

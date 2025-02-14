@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ### 콜백함수(Call Back) ###
+        // 함수를 호출하는 시점이 바뀌어진 형태의 함수
+        // 기존 방식 : 사용자(개발자)가 함수를 직접 정의 -> 정의된 함수를 호출(Call)하여 결과를 반환받는 방식
+        // Callback : 콜백 함수에 인자로 로직이 담긴 함수를(함수 주소)를 전달하여 콜백 함수로부터 처리된 결과를
+        //            반환받는 방식
+
+        // call : 함수를 실행하는 용어
+        // back : 안보이는 곳, 뒷 스테이지 같은 느낌
+
+        // A[함수 생성]-실행 : call
+        // B[함수 생성]<-또 다른 함수를 받을 수 있음. 로직을 인자로 받을 수 있음 => 이때 받아온 함수 : 그 받아온 함수를 만든 애가 정의
+        //              .map((=>{})) 이게 한 예. 인자에 로직을 넣잖아
+        //              == 로직이 담긴 함수를 인자로 받아 실행
+
+
+        // 일반 함수
+        console.log('# 일반 함수 -------------');
+        function func(n1,n2){
+            console.log("func(n1,n2)...call");
+            return n1+n2;
+        };
+
+        const v1 = func(10,20); // call-by-value    // 값(value) 전달을 통한 함수 직접 실행(call)
+        console.log("v1 :",v1);
+
+
+        // 콜백 함수
+        console.log('# callback 함수 -------------');
+        function callBackFunc(n1,n2,logic){     // 함수 이름 : 공간의 문자 형태의 주소
+                                                // logic : 로직의 이름, 함수에 접근하기 위한 주소 이름
+            console.log("callbackfunc...start");
+            const v = logic(n1,n2);
+            console.log("v",v);
+            console.log("callbackfunc...start");
+        };
+        callBackFunc(100,200,func);
+
+
+        // callback 함수로 map 만들기
+        console.log('# callback함수로 map만들기 -------------');
+        [100,200,300,400].map(()=>{});      // map 함수의 기본 형태
+
+        function customMap(array,func){     // array : 배열, func : logic
+            // map : 배열을 재구성
+            let tmp = [];       // 변할 수 있어야 하니까 let
+            for(let i=0;i<array.length;i++){
+                const item = array[i];      // 아이템을 꺼내는 작업
+                const reNewItem = func(item); // 꺼낸 아이템을 reNewItem의 인자로 전달
+                tmp.push(reNewItem); // item들을 tmp에 저장
+            }
+            return tmp; // 배열을 리턴
+        }
+        arr = [
+            {id: '1111', name:'홍길동', age: 55, addr:'서울'},
+            {id: '2222', name:'최길동', age: 33, addr:'대구'},
+            {id: '3333', name:'윤길동', age: 30, addr:'인천'},
+            {id: '4444', name:'문길동', age: 29, addr:'창원'}
+        ];
+
+        const r_val = customMap(arr, (item)=>{return {id:item.id, name:item.name}});    // func함수를 인자로 받음, 우리는 인자에 함수를 넣기만 함, call은 함수가 알아서 함
+        console.log(r_val);
+
+        const r_val2 = customMap(arr,(item)=>{return {name:item.name, addr:item.addr}});    // return{} : 배열 형태를 돌려받을거다
+        console.log(r_val2);
+
+
+        // callback + closure
+        console.log('# callback, closure함수로 map만들기 -------------');
+        function callBackFunc3(array){  // 외부 배열을 받음
+            let tmp = [];   // state 상태 정보, 내부 배열 생성
+            // inner function
+            function map(logic){
+                for(let i=0; i<array.length; i++){
+                const item = array[i];      
+                const reNewItem = logic(item); // 함수명 일치시키기
+                tmp.push(reNewItem); 
+            }
+            return tmp;
+            };
+            return {
+                map : map   // 내부함수명 : 외부함수명
+            }
+        };
+        const r_val3 = callBackFunc3(arr).map((item)=>{return {'아이디':item.id,'나이':item.age} });
+        console.log(r_val3);
+
+
+        // 정렬
+        console.log('# 정렬 -------------');
+        // 정렬 : 선택 정렬 / 
+        function callback3(array, func) {
+            let tmp = 0; //임시저장 
+            for (i = 0; i < array.length - 1; i++) {
+                for (j = i + 1; j < array.length; j++) {
+                    if (func(array[j], array[i]) <= 0) {
+                        tmp = array[i];
+                        array[i] = array[j];
+                        array[j] = tmp;
+                    }
+                }
+            }
+        }
+        arr2 = [10, 2, 4, 5, 1, 3, 7, 6]
+        callback3(arr2, (a, b) => { return b - a })
+        console.log(arr2)
+
+        function callback4(array) {
+            let tmp = 0; //임시저장 
+            function sort(func) {
+                for (i = 0; i < array.length - 1; i++) {
+                    for (j = i + 1; j < array.length; j++) {
+                        if (func(array[j], array[i]) <= 0) {
+                            tmp = array[i];
+                            array[i] = array[j];
+                            array[j] = tmp;
+                        }
+                    }
+                }
+            }
+            return { sort: sort }
+        }
+        arr3 = [4, 2, 12, 5, 4, 7]
+        callback4(arr3).sort((a, b) => a - b) 
+        console.log(arr3)
+
+
+        // 필터
+        console.log('# callback, closure함수로 필터 -------------');
+        // function callBackFunc3(array){  // 외부 배열을 받음
+        //     let tmp = [];   // state 상태 정보, 내부 배열 생성
+        //     // inner function
+        //     function map(logic){
+        //         for(let i=0; i<array.length; i++){
+        //         const item = array[i];      
+        //         const reNewItem = logic(item); // 함수명 일치시키기
+        //         tmp.push(reNewItem); 
+        //     }
+        //     return tmp;
+        //     };
+        //     return {
+        //         map : map   // 내부함수명 : 외부함수명
+        //     }
+        // };
+        // const r_val3 = callBackFunc3(arr).map((item)=>{return {'아이디':item.id,'나이':item.age} });
+
+        // let arr3 = [1, "60", 90, 'gu', 70, null ,true ,50 ,{name:'얍',age:44} ,6];
+        // let filtered_arr1 = arr3.filter((item)=>{return typeof item == "number"});
+
+        function callBackFunc5(array){  // 배열을 받음
+            let tmp = [];   // 내부 배열 생성, 값 받을 배열
+
+            function filter(logic){
+                for(i=0;i<array.length;i++){
+                    const item = array[i];
+                    if(item === logic(item)){
+                        const reNewItem = item;
+                        tmp.push(reNewItem);
+                    }
+                };
+                return tmp;
+            }
+            return{filter:filter}
+        };
+        let arr4 = [1, "60", 90, 'gu', 70, null ,true ,50 ,{name:'얍',age:44} ,6];
+        callBackFunc5(arr4).filter((item)=>{typeof item == 'number'});
+        console.log(arr4)
+
+    </script>
+</body>
+</html>
