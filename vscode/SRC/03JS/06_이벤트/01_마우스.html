@@ -10,6 +10,52 @@
             height: 300px;
             border: 1px solid;
         }
+        .d4{
+            width: 500px;
+            height: 500px;
+            padding: 10px;
+            margin: 10px;
+            border: 5px dashed salmon;
+            position: relative;
+            color: darksalmon;
+        }
+        .d4::after{
+            content: '+';
+            font-size: 7rem;
+            font-weight: 900;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .preview{
+            width: 150px;
+            height: 510px;
+            border: 1px solid rgb(187, 187, 187);
+            margin-top: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;  /* 자동 스크롤 생성 */
+            flex-direction: column;
+            justify-content: start;
+            gap: 5px;
+        }
+        .preview::-webkit-scrollbar{
+            display: none;
+            /* 스크롤바 기능은 하지만 표시는 안됨 */
+        }
+        .drag-block{
+            border: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: left;
+            align-items: start;
+        }
     </style>
 </head>
 <body>
@@ -18,7 +64,11 @@
     <div class="d2"></div>
     <hr/>
     <div class="d3"></div>
-
+    <hr/>
+    <div class="drag-block">
+        <div class="d4"></div>
+        <div class="preview"></div>
+    </div>
     <script>
         // ### click ###
         const d1El = document.querySelector('.d1');
@@ -66,7 +116,110 @@
         });
 
 
-        // ### 드래그, 드랍
+        // ### 드래그, 드랍 ###
+        // 백엔드랑 연결지을 수 있는 이벤트, 알아두기
+        // dragstart    : 드래그 시작 (마우스를 클릭해서 끌어당김, 데이터 전달 설정)
+        // drag         : 드래그 중
+        // dragenter    : 드래그가 대상 영역 위로 이동 시 (요소가 드랍의 대상이 될 때)
+        // dragover     : 드래그가 대상 영역 위에 있는 동안 (요소가 드랍의 대상이 될 때)
+        // dragleave    : 드래스사 대상 영역에서 벗어남 (요소가 드랍의 대상이 될 때)
+        // dragend      : 드래그 종료
+        // drop         : 드랍처리 (마우스를 뗌, 데이터를 가져와 처리)
+
+        let maxSize = 1024*1024 *1;     // 최대 업로드 가능 사이즈(1MB)
+        function isValid(file){     // 유효성 체크 함수
+            // 이미지 파일만 걸러 올릴 수 있게 해야함
+            // 파일의 유형 표현 : type (데이터의 유형/확장자)
+            // 유효성 체크 작업중 == 나중에는 함수로 뺌
+
+            // 이미지 파일인지 판별
+            if(!file.type.startsWith("image/")){       // .startsWith() == 첫번째로 들어오는 문자열 판별
+                alert("이미지 파일만 업로드 가능합니다.")
+                return false;       // 유효성 체크 실패
+                // 사이즈가 maxSize를 초과하는지 판별
+            }else if(file.size>=(1024*1024*1)){  // 파일 정보 중 size == byte사이즈, 10mb로 제한을 원함
+                // 1024 == 1kb 1024*1024 == 1mb << 숫자 형태의 수치 == 바뀔 가능성이 있음(수정가능성). 변수 처리하기.
+                alert("파일 업로드의 최대 사이즈는 1MB입니다.")
+                return false;       // 유효성 체크 실패
+            }else{return true;}
+        }
+        const d4El = document.querySelector('.d4');
+        // d4El.addEventListener('dragenter',(e)=>{
+        //     e.preventDefault();     // 기본 기능 끄고 작업
+        //     console.log('dragenter',e)
+        // });
+        // d4El.addEventListener('dragover',(e)=>{
+        //     e.preventDefault();
+        //     console.log('dragover',e)
+        // });
+        // d4El.addEventListener('dragleave',(e)=>{
+        //     e.preventDefault();
+        //     console.log('dragleave',e)
+        // });
+        // d4El.addEventListener('dragend',(e)=>{
+        //     e.preventDefault();
+        //     console.log('dragend',e)
+        // });
+        // d4El.addEventListener('drop',(e)=>{
+        //     e.preventDefault();
+        //     console.log('drop',e)
+        // });
+
+        // 프로필 이미지 등 잡을때 드래그 드랍 사용하면 되겠다..
+        // 이미지 올리기랑 이미지 위치 옮기기 작업 할 예정
+        // dragenter 혹은 dragover
+        d4El.addEventListener('dragover',(e)=>{
+            e.preventDefault();
+            d4El.style.border="5px dashed lightgray";
+            d4El.style.color="lightgray";
+            console.log('dragover',e.target)
+        });
+         d4El.addEventListener('drop',(e)=>{
+            e.preventDefault();
+            console.log('drop',e)
+            d4El.style.border="5px dashed darksalmon";
+            d4El.style.color="darksalmon";
+         });
+        d4El.addEventListener('dragleave',(e)=>{
+            e.preventDefault();
+            console.log('dragleave',e)
+            d4El.style.border="5px dashed darksalmon";
+            d4El.style.color="darksalmon";
+        });
+
+        d4El.addEventListener('drop',(e)=>{
+             e.preventDefault();
+             console.log('drop',e)
+             console.log('drop',e.target)
+             console.log('drop',e.dataTransfer) // 처음 시작 위치?
+            // 여러 파일 드래그시 처리
+            // 반복문 처리
+             console.log('drop',e.dataTransfer.files)       // 파일 정보를 하나만 받아 꺼냄
+            // 해당부터 반복 처리 ㄱ
+            // 파일 2개시 file.legnth가 2가 되는걸 볼 수 있음
+            const files = e.dataTransfer.files;
+            for(let i=0; i<files.length;i++){
+                console.log('drop',e.dataTransfer.files[i])    // 최종적으로 봐야할 위치?
+            
+                const file = e.dataTransfer.files[i];
+
+                // 유효성 확인(FN)
+                if(!isValid(file)) // 작성 라인이 하나면 {} 중괄호 생략가능, 유효하지 않은 데이터가 들어온다면~!
+                    return;
+                // 유효한 데이터 입력 시 미리보기로 이미지 보여주기
+                const previewEl = document.querySelector('.preview');
+                // 이미지 붙이려면? 이미지를 새로 만들어야지
+                const newImgEl = document.createElement('img');
+                // 소스 경로? file정보를 경로로 만들어 주는 작업 필요 > url 문자 객체(파일을 알아서 url 주소로 만들어줌)
+                newImgEl.src=URL.createObjectURL(file);
+                // 이미지의 기본 스타일링
+                // 새 노드 생성시 .style을 적용할 수 없음 > 기본 스타일링이 없기 때문에, 하단 형태로 접근하기
+                // 기존 생성 노드면 .style이 먹힘
+                newImgEl.setAttribute('style','width:100%; objext-fit:contain;');
+                previewEl.prepend(newImgEl);
+            } 
+         });
+
     </script>
 </body>
 </html>
