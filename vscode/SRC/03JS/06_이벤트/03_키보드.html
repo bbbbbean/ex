@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    KEYUP : <input id="input1"><br/>
+    <p id="p1"></p>
+    <hr/>
+
+    KEYDOWN : <input id="input2"><br/>
+    <p id="p2"></p>
+    <hr/>
+
+    KEYPRESS : <input id="input3"><br/>
+    <p id="p3"></p>
+    <hr/>
+
+    <script>
+        // 키보드를 입력할 때 발생하는 이벤트
+        // 영문 입력을 기준으로 하는 이벤트
+        // ### KEYUP        : 키보드가 올라올 때
+        // ### KEYDOWN      : 키보드가 내려갈 때
+        // ### KEYPRESS     : 키보드를 계속 누를 때
+
+        // KEYUP
+        // keyup : 제어문자(shift, tab 등등)도 인식, 대문자 처리가 힘듦(제대로 인식 못함, 아스키코드 값이 안맞음 => 소대문자 구별 못함)
+        //       : 한글 문자 인식 못함
+        //       : 누른 상태에서는 인식 못함, 올라올 때 인식
+        const keyupEl = document.querySelector('#input1'); // input 요소
+        const p1El = document.querySelector('#p1');    // p요소
+        
+        keyupEl.addEventListener('keyup',(e) => { 
+            console.log('keyup', e);
+            console.log('keyup', e.key);    // 
+            console.log('keyup', e.keycode);
+            p1El.innerHTML=e.key + " " + e.keycode;
+        })
+
+        // KEYDOWN
+        // keydown : 대소문자 구별 못함
+        //         : 한글 인식 못함
+        //         : 누를 때부터 인식
+        const keydownEl = document.querySelector('#input2')
+        const p2El = document.querySelector('#p2')
+
+        keydownEl.addEventListener('keydown', (e)=>{
+            console.log('keydown',e)
+            console.log('keydown',e.key)
+            console.log('keydown',e.keycode)
+            p2El.innerHTML = e.key + " " + e.keycode;
+        })
+
+        // KEYPRESS
+        // keypress : 대소문자 구분
+        //          : 제어문자 인식 안함
+        //          : 한글 인식 못함
+        const keypressEl = document.querySelector('#input3')
+        const p3El = document.querySelector('#p3')
+        
+        keypressEl.addEventListener('keypress', (e)=>{
+            console.log('keypress',e)
+            console.log('keypress',e.key)
+            console.log('keypress',e.keycode)
+            p3El.innerHTML = e.key + " " + e.keycode;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 5000px;
+            margin: 0;
+            padding: 0;
+            width: 8000px;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        
+        document.addEventListener('scroll',(e)=>{
+            // 세로축 확인
+
+            // 만들어진 스크롤의 위치정보, 스크롤 길이 등등 확인
+            // window.scrollY : viewport를 기준으로 가장 위쪽 부분의 세로축 위치
+            console.log('scroll',window.scrollY);
+
+            // document의 documentElement(문서 요소 전체 확인 가능) 안의 scrollHeight : 전체 높이
+            console.log('scrollHeight',document.documentElement.scrollHeight);
+
+            // document.documentElement.scrollTop == window.scrollY
+            // 아래거 대신 window.scrollY를 쓰자
+            // scrollTop : 값을 촘촘하게 읽어냄 -> 부하옴 ==> 후에 이벤트의 감시 주기를 낮출 수 있음
+            console.log('scrollTop',document.documentElement.scrollTop);
+
+
+            // 가로축 확인
+            console.log('scrollX',window.scrollX);
+            console.log('scrollWidth',document.documentElement.scrollWidth);
+            console.log('scrollLeft',document.documentElement.scrollLeft);
+        })
+
+        
+    </script>
+</body>
+</html>

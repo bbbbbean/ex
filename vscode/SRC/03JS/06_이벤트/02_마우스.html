@@ -146,7 +146,7 @@
             newDivEl.addEventListener('mousedown',movingHandler);   // 뒤에 함수를 넣어 함수 호출 가능
 
             newDivEl.classList.add('item');     // 해당 요소에 클래스 이름 추가
-            boardEl.appendChild(newDivEl);  // boardEl에 newDivEl 자식으로 추가
+            boardEl.appendChild(vnewDiEl);  // boardEl에 newDivEl 자식으로 추가
 
             newDivEl.setAttribute('style',`left:${e.offsetX}px; top:${e.offsetY}px;`) // 여기에 board로부터의 위치 좌표인 offset을 넣으면 해당 위치에 아이템이 생성됨, 새 태그에 스타일 지정시 해당 폼
             // 여백에 할때는 잘되는데 요소 겹치면 튐, 오ㅐ? - 겹치는 부분에서는 offset 좌표를 잘 인식 못한댕..
@@ -181,8 +181,8 @@
 //        let offsetX = 0;
 //        let offsetY = 0;
         // 만들어진 요소에 걸어야함
-        // const newDivEl = document.createElement('div');     // 137번 줄
-        // 상단 코드에서 만들어짐 ==> 위 요소를 기준으로 걸기 or 보드를 기준으로 걸기
+//         const newDivEl = document.createElement('div');     // 137번 줄
+        // 상단 코드에서 만들어짐 ==> 요소를 기준으로 걸기 or 보드를 기준으로 걸기
         // 여기서는 보드를 기준으로 걸기 ==> 보드를 기준으로 걸면 타겟을 잡기 힘들어짐
         // 요소를 기준으로 걸기로 변경,.. 추가된 노드에 걸기
         const movingHandler = (e)=>{ // 마우스를 클릭했을 때 이벤트(좌우 무방)
@@ -221,8 +221,11 @@
             // clientXY : 뷰포트 기준
             targetnode.style.left=`${e.clientX - 200 - 15}px`; // 200 : sidebar값, 15 : margin값
             targetnode.style.top=`${e.clientY - 10}px`; // 눌러보면서 적당한 위치 잡기
-            // 위치 잘못 잡으면 radius가 높게 들어간 애들은 클릭이 안됨
+            // 위치 잘못 잡으면 radius가 높게 들어간 애들은 클릭이 안됨(허공만을 클릭하게 돼,,)
+            // offset으로 잡으면 top, left 0으로 계속 잡히는 에러 발생스,, 
         }
+
+       
         
     </script>
 </body>

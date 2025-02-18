@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="chk-block">
+        <input type="checkbox" id="chk">
+        <label for="chk">체크박스</label>
+    </div>
+    <script>
+        const chkEl = document.querySelector('#chk');
+        chkEl.addEventListener('change',(e)=>{
+            console.log('change :',e);  // target의 checked 확인하기
+            if(e.target.checked){
+                document.querySelector('.chk-block label').style.color='red';
+            }else{
+                document.querySelector('.chk-block label').style.color='black';
+            }
+        });
+    </script>
+</body>
+</html>
+
+<!-- 이중 for문,,,,,,,,,,,,,,? tr만드는거 하나 td만드는거 하나-->

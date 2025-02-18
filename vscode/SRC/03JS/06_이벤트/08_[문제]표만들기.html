@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{width :50px;height:50px;border : 1px solid gray;}
+        input{width:90%; height:100%;outline:none;border:0px;}
+    </style>
+
+</head>
+<body>
+        
+    <input id="rownum" placeholder="행의개수입력" style="width:200px;">
+    <input id="colnum" placeholder="열의개수입력" style="width:200px;">
+    <button onclick="makemap()">생성</button>
+
+    <hr>
+    <table id="tbl">
+        <tbody>
+            
+        </tbody>
+    </table>
+
+    <script>
+        // // 클릭,, 하면 생성 - 버튼을 누르면 table의 tbody에 생성
+        // const rownum = document.querySelector('#rownum');
+        // const colnum = document.querySelector('#colnum');
+        // const tBody = document.querySelector('#tbl tbody')
+        
+        // const makemap = ()=>{
+        //     while(tBody.firstChild){
+        //         tBody.removeChild(tBody.firstChild);
+        //     };
+
+        //     const putRownum = rownum.value; // 행 갯수
+        //     const putColnum = colnum.value; // 열 갯수
+        //     //console.log(putRownum,putColnum)
+
+        //     // 행 생성, 반복문 > 넣은 수만큼 행 태그 생성
+        //     for(i=0;i<putRownum;i++){
+        //         const newRowEl = document.createElement('tr');
+        //         // tBody에 행 태그 생성
+        //         tBody.appendChild(newRowEl);
+        //         for(j=0;j<putColnum;j++){
+        //             const newCowEl = document.createElement('td');
+        //             // tBody의 tr태그안에 td태그 생성
+        //             newRowEl.appendChild(newCowEl);
+        //             newCowEl.innerHTML = `<span>${1+j}</span>`
+        //         }
+        //         // 각 칸에 i를 더하면,, 나올텐데,,
+        //     }
+        //     // 중앙 값 td에 배경색 회색 깔기
+        // }
+        // // 클릭 이벤트..
+        // const tdEl = document.querySelector('#tbl td');
+        // tdEl.addEventListener('click',(e)=>{
+        //     // td요소에 백그라운드 컬러 스타일 지정
+        //     tdEl.setAttribute('style','background-color:gray;')
+        // })
+// ==========================================================================
+        // State
+        // 중심 위치 지정을 위한 위치값 저장용 변수
+        let curX = 0;
+        let curY = 0;
+        let selextedNode=null;
+
+        // 중심 위치에 배경색 넣기, 선택 위치에 배경색 넣기위한 함수
+        const selectedStyle = (xPos,yPos)=>{
+            if(selextedNode){
+                // 이전에 선택된 노드가 있는 경우
+                deselectedStyle(selextedNode);  // 스타일링 해제
+            }else{
+                //이전에 선택된 노드가 없는 경우
+                selextedNode = document.getElementById(`${xPos}|${yPos}`);
+                selextedNode.style.backgroundColor='red'
+            }
+        }
+        const deselectedStyle = (node)=>{
+            node.style.backgroundColor='white'
+        }
+
+        const makemap = () => {
+            const row = document.querySelector('#rownum').value;    // tr
+            const col = document.querySelector('#colnum').value;    // td
+            // console.log(row,col);
+            const tbodyEl = document.querySelector('#tbl tbody');
+
+
+            // 기존 내용 초기화
+            while(tbodyEl.firstChild){
+                tbodyEl.removeChild(tbodyEl.firstChild)
+            }
+
+            // 테이블 생성
+            for(i=0;i<row;i++){
+                const trEl = document.createElement('tr');
+
+                for(j=0;j<col;j++){
+                    const tdEl = document.createElement('td');
+
+                    // 생성되는 시점에서 이벤트 추가해야함.. 아..!
+                    tdEl.addEventListener('click',(e)=>{
+                        console.log('클릭노드',tdEl)
+                        const id = tdEl.getAttribute('id')
+                        const xPos = id.split('|')[0];
+                        const yPos = id.split('|')[1];
+                        selectedStyle(xPos,yPos);
+                    })
+
+                    tdEl.innerHTML=`(${j}, ${i})`;  // 테이블 내 좌표 출력
+
+                    // 위치 속성 추가를 위한
+                    // 1 ) 속성값 추가
+                    //tdEl.setAttribute('data-row',i);
+                    //tdEl.setAttribute('data-col',j);
+                    // 2 ) id 추가
+                    tdEl.setAttribute('id',`${j}|${i}`)
+
+                    trEl.appendChild(tdEl); 
+                }
+                tbodyEl.appendChild(trEl);
+            }
+
+            // 기본 cur 위치
+            // 반올림 나오면 올림 처리 : ceil
+            curX = Math.ceil(col/2 - 1);
+            curY = Math.ceil(row/2 - 1);
+            // 초기 선택된 위치 스타일링
+            selectedStyle(curX,curY);
+        }
+
+        // 어떤 데이터를 어떤식으로 저장할지..
+        // 어떤식으로 처리할지.....
+        // click, 체크박스 change 이벤.. 
+        // 드래그 드랍은 선택..
+    </script>
+</body>
+</html>

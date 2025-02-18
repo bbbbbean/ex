@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    input : <input id="input1"><br/>
+    <p id="p1"></p>
+    <hr/>
+
+    composition start : <input id="input2"><br/>
+    <p id="p2"></p>
+    <hr/>
+
+    composition updata : <input id="input3"><br/>
+    <p id="p3"></p>
+    <hr/>
+
+    composition end : <input id="input4"><br/>
+    <p id="p4"></p>
+    <hr/>
+    <!-- 타자게임 이런거 만들 수 있음 -->
+    
+    <script>
+        // 키보드를 입력할 때 발생하는 이벤트
+        // 한글 입력 최적화가 된 이벤트
+        // ### input                : 텍스트 입력이 완료될 때 발생(한글포함)
+        // ### compositionstart     : 한글 조합 시작 시 발생
+        // ### compositionupdate    : 한글 조합 중 발생(현재 조합 상태를 확인)
+        // ### compositionend       : 한글 조합 완료 시 발생(완성된 글자 확인)
+
+        // INPUT
+        const inputEl = document.querySelector('#input1'); // input 요소
+        const p1El = document.querySelector('#p1');    // p요소
+        
+        inputEl.addEventListener('input',(e) => { 
+            console.log('input', e);
+            p1El.innerHTML=e.data;
+        })
+
+        // COMPOSITIONSTART
+        const compositionstartEl = document.querySelector('#input2'); // input 요소
+        const p2El = document.querySelector('#p2');    // p요소
+        
+        compositionstartEl.addEventListener('compositionstart',(e) => { 
+            console.log('compositionstart', e);
+            console.log('compositionstart', e.target.value);
+            p2El.innerHTML=e.data;
+        })
+
+        // COMPOSITIONUPDATE : 사용하기 괜찮. 받아쓰기, 타자게임 이런거 만들 때
+        const compositionupdateEl = document.querySelector('#input3'); // input 요소
+        const p3El = document.querySelector('#p3');    // p요소
+        
+        compositionupdateEl.addEventListener('compositionupdate',(e) => { 
+            console.log('compositionupdate', e);
+            console.log('compositionupdate', e.target.value);
+            p3El.innerHTML=e.data;
+        })
+
+        // COMPOSITIONEND
+        const compositionendEl = document.querySelector('#input4'); // input 요소
+        const p4El = document.querySelector('#p4');    // p요소
+        
+        compositionendEl.addEventListener('compositionend',(e) => { 
+            console.log('compositionend', e);
+            console.log('compositionend', e.target.value);
+            p4El.innerHTML=e.data;
+        })
+
+    </script>
+</body>
+</html>
