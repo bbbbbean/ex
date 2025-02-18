@@ -38,22 +38,22 @@
                 tbl.removeChild(tbl.firstChild);
             }
 
-            let cnt=1;
+            let cnt=1;                          // 칸마다 번호 출력용 변수
             for(let i=1; i<=row;i++){
                 let tr = document.createElement('tr')
                 
                 for(let j=1;j<=col;j++){
                     let td = document.createElement('td')
                     td.setAttribute("id",i+"|"+j)
-                    td.addEventListener('click',()=>{
+                    td.addEventListener('click',()=>{   // 클릭 이벤트는 해당 태그가 만들어진 시점 아래에
                         console.log('clicked',i+"|"+j);
                         changeWhite(curX,curY)  //현재 위치의 좌표 td에 white
                         changeBlack(i,j)        //이동할 위치의 좌표 td에 gray
                         curX=i;                 //현재 위치 변경
                         curY=j;                 //현재 위치 변경
                     })
-                    td.innerText=cnt++;
-                    tr.appendChild(td)
+                    td.innerText=cnt++;         // 칸에 1을 더하고
+                    tr.appendChild(td)          // 칸 생성
                 }
                 tbl.appendChild(tr)
             }
@@ -61,7 +61,7 @@
             //기본위치
             curX = Math.ceil(row/2);
             curY = Math.ceil(col/2);
-            changeBlack(curX,curY);
+            changeBlack(curX,curY);         // curX와 Y에 중심 위치 대입
         }
 
         function changeBlack(xPos,yPos){
@@ -74,10 +74,11 @@
         document.addEventListener('keydown',(e)=>{
 
             console.log(e.keyCode)
-            if(e.keyCode===37){
+            // 상하좌우 이동키값을 확인하고 해당 키값마다 이벤트 분기 만들기
+            if(e.keyCode===37){ 
                 //LEFT : 37
                 changeWhite(curX,curY);
-                (curY-1<=1) ? curY=1 : curY--;
+                (curY-1<=1) ? curY=1 : curY--;  // 0,1은 1에 머물고 아니라면 Y-1씩 해라
                 changeBlack(curX,curY)
             }
             if(e.keyCode===39){

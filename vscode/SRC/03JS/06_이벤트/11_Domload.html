@@ -60,34 +60,34 @@
                 // 외부로 부터 너비 정보를 받아 처리
                 if(width<768)
                 {
-                // 모바일 처리
-                ballEl.className='ball ball-480px';
+                    // 모바일 처리
+                    ballEl.className='ball ball-480px';
                 }else if(width<1280)
                 {
-                // 태블릿 처리
-                ballEl.className='ball ball-768px';
+                    // 태블릿 처리
+                    ballEl.className='ball ball-768px';
                 }else
                 {
-                // 데스크탑 처리
-                ballEl.className='ball ball-1280px';
+                    // 데스크탑 처리
+                    ballEl.className='ball ball-1280px';
                 }
             }
 
             const width = window.innerWidth;
             const ballEl = document.querySelector('.ball');
             flexibleBall(width,ballEl);
+
+            // 반응형 처리할 때..
+            // window 사이즈가 바뀔때 동작이니까 window
+            window.addEventListener('resize',() => {  // e는 선택
+                const width = window.innerWidth;
+                const ballEl = document.querySelector('.ball');
+                flexibleBall(width,ballEl);
+            })
             
         })
 
-        // 반응형 처리할 때..
-        // window 사이즈가 바뀔때 동작이니까 window
-        window.addEventListener('resize',()=>{  // e는 선택
-            const width = window.innerWidth;
-            const ballEl = document.querySelector('.ball');
-            flexibleBall(width,ballEl);
-        })
-
-
+        
         // 이벤트는 기본적으로 리스너가 있어야함 -> 감지기가 있어야 함
         // 대상 노드와 코드 처리도 있어야
     </script>
