@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            width: 120px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-weight: 900;
+            margin: 5px;
+            padding: 5px;
+            border-right: 2px solid;
+            border-bottom: 2px solid;
+            border-radius: 3px;
+            transition: .1s;
+            cursor: pointer;
+        }
+        .btn--bg0{background-color: rgb(255, 80, 80); color: #fff; border-right: 1px solid black; border-bottom: 1px solid black;}
+        .btn--bg1{background-color: rgb(255, 175, 28); color: #fff; border-right: 1px solid black; border-bottom: 1px solid black;}
+        .btn--bg2{background-color: rgb(255, 242, 54); color: #fff; border-right: 1px solid black; border-bottom: 1px solid black;}
+        .btn--bg3{background-color: rgb(43, 199, 95); color: #fff; border-right: 1px solid black; border-bottom: 1px solid black;}
+        .btn--bg4{background-color: rgb(45, 178, 255); color: #fff; border-right: 1px solid black; border-bottom: 1px solid black;}
+        .btn--bg5{background-color: rgb(41, 68, 139); color: #fff; border-right: 1px solid black; border-bottom: 1px solid black;}
+        .btn--bg6{background-color: rgb(80, 53, 131); color: #fff; border-right: 1px solid black; border-bottom: 1px solid black;}
+        .btn--bg7{background-color: rgb(255, 122, 155); color: #fff; border-right: 1px solid black; border-bottom: 1px solid black;}
+    </style>
+</head>
+<body>
+    <div class="btn">BUTTON_1</div>
+    <div class="btn">BUTTON_2</div>
+    <div class="btn">BUTTON_3</div>
+    <div class="btn">BUTTON_4</div>
+    <div class="btn">BUTTON_5</div>
+    <div class="btn">BUTTON_6</div>
+    <div class="btn">BUTTON_7</div>
+    <div class="btn">BUTTON_8</div>
+    <script>
+        // 전체 요소 찾기
+        const btnEls = document.querySelectorAll('.btn');
+        btnEls.forEach((btn,idx)=>{ // 각각의 버튼에 인덱스 부여
+            console.log(idx,btn);
+            // 각각에 마우스 hover가 될 때 class 부여
+            btn.addEventListener('mouseover',()=>{
+                btn.classList.add(`btn--bg${idx}`);
+            })
+            btn.addEventListener('mouseleave',()=>{
+                btn.classList.remove(`btn--bg${idx}`);
+            })
+        })
+    </script>
+</body>
+</html>

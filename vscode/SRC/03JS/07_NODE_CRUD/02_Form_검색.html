@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+        <input type="text">
+        <input type="text">
+    </form>
+    <form action="" name="joinForm">
+        <input type="text" name="userid">
+        <input type="text" name="username">
+    </form>
+    <form action="">
+        <input type="text">
+        <input type="text">
+    </form>
+
+
+    <script>
+        // 폼이 많을 수도 있음 ex. 쇼핑몰
+
+        // 전체 폼 찾기
+        const formEls = document.forms;
+        console.log(formEls); // HTMLCollection(3) [form, form, form]
+
+        // 개별 폼 찾기 => 각 폼에 인덱스 번호가 부여되어 있음, 해당 번호로 찾기
+        // 개별 폼 접근 ([index])
+        console.log(formEls[0]);
+        console.log(formEls[1]);
+        console.log(formEls[2]);
+        // 개별 폼 내의 자식 노드 접근 ([index:부모요소][index:자식요소])
+        console.log(formEls[0][0]); // 자식의 첫번째 요소
+        console.log(formEls[1][0]); // 자식의 첫번째 요소
+        console.log(formEls[2][1]); // 자식의 두번째 요소
+        // 노드에 접근해 내용 넣기 가능
+        formEls[0][0].value="홍길동";
+        formEls[2][1].value="15";
+
+        // name이 부여되어 있으면 바로 검색, value 추가 가능
+        const formEl = document.joinForm;
+        formEl.userid.value='덤보';
+        formEl.username.value='코끼리';
+    </script>
+</body>
+</html>

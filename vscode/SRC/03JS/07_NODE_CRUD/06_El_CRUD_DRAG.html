@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- google icon -->
+    <!-- 실제 작업시엔 받아서 하기 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=backspace" />
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+    
+    <style>
+        .item{
+            min-width: 500px;
+            /* height: 35px; */
+            margin: 5px;
+            padding: 8px;
+            border: 1px solid rgb(100, 100, 100);
+            border-radius: 3px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        .item>.left{
+            /* border: 1px solid; */
+            width: calc(100% - 30px);
+            height: 100%;
+            font-size: .8rem;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+        .item>.right{
+            width: 30px;
+            height: 100%;
+            /* border: 1px solid; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(128, 128, 128);
+        }
+        .item>.right>span{
+            cursor: pointer;
+        }
+        .item>.right:hover>span{
+            color: rgb(255, 96, 117);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <input type="text" class="input"><span> | </span><button class="btn">입력</button>
+    <hr/>
+    <div class="container"></div>
+
+
+    <script>
+        // 투두리스트처럼 만들기
+
+        // DOM LOAD : 초기 로드
+        document.addEventListener('DOMContentLoaded',()=>{
+
+            // 요소 검색
+            const inputEl = document.querySelector('.input');
+            const btnEl = document.querySelector('.btn');
+            const containerEl = document.querySelector('.container');
+
+            // 드래그&드랍 swap을 위한 임시 요소 저장 변수 tmp
+            // 위치 정보도 담을 예정 == 오브젝트 형으로 저장
+            let tmpNode = {}; // {node : node, yPos : positionValue}  세로축으로만 이동하니까 yPos
+
+            // 이벤트 처리
+            // 입력 버튼을 눌렀을 때 요소가 나오게 함
+            btnEl.addEventListener('click',()=>{
+                console.log('clicked');  // 잘 눌리는지 확인
+                // 내용 칸과 삭제 버튼 만들 예정 (내용이 길고 복잡하면~ 함수로 빼)
+                // createNode('input에 입력된 값'); << 하려면? input에 입력된 값을 추출해야함
+                const text = inputEl.value;
+                createNode(text);
+                inputEl.value = '';     // 텍스트를 노드로 전달하고나면 입력칸이 비워져야함
+            });
+
+            // 함수
+            function createNode(text){  // 문자열이 전달되면 해당 노드가 만들어짐
+                // 유효성 검사
+                if(!isValid(text)){ // false가 들어온다면
+                    return;
+                }
+
+                // 노드 생성
+                // div > left(text, 문장용),right(icon,삭제용)
+                const divEl = document.createElement('div');
+                const leftEl = document.createElement('div');
+                const rightEl = document.createElement('div');
+                // 삭제 아이콘용 span 생성
+                // <span class="material-symbols-outlined">backspace</span>
+                const deleteEl = document.createElement('span');
+                deleteEl.classList.add('material-symbols-outlined');
+                deleteEl.innerHTML='backspace';
+
+                // 노드 속성 추가 - 드래그가 가능하게
+                divEl.setAttribute('draggable',true)
+
+                // 데이터 처리
+                leftEl.innerHTML=text;
+
+                // 이벤트 처리 - 삭제
+                deleteEl.addEventListener('click',(e)=>{
+                    console.log('delete btn clicked',e.target);
+                    deleteNode(e.target);
+                })
+
+                // 이벤트 처리 - 드래그&드랍 (dragstart, daragover, drop)
+                // swap : 임시 공간 필수 > 임시에 a를 담아 뒀다가 꺼내서 바꿔치는 것
+                divEl.addEventListener('dragstart',(e)=>{
+                    console.log('dragstart',e);
+                    console.log('dragstart',e.target);
+                    tmpNode = {"node":e.target,"yPos":e.pageY};
+                    console.log(tmpNode)
+                })
+                divEl.addEventListener('dragover',(e)=>{
+                    //console.log('dragover',e.target);
+                    e.preventDefault();
+                })
+                divEl.addEventListener('drop',(e)=>{
+                    console.log('drop',e);
+                    console.log('drop',e.target);
+                    // node1.before(node2) > 노드1 위에 노드2 배치 
+                    // node1.after(node2) > 노드1 밑에 노드2 배치
+
+                    // 타겟이 누구인지 판단 집은 것(a)을 기존에 있던 것(b)에 놓음 > a가 b아래로 가는거
+                    const curNode = e.target;
+                    // 상위 노드 탐색('.item 탐색')
+                    const targetedItemnode = curNode.closest('.item'); // 하위노드 > 상위노드 가장 가까운 선택자를 가지는 탐색???????
+                    // console.log(targetedItemnode)
+                    // y포지션의 값을 비교해 아래로 내릴땐 after 위로 올릴땐 before를 쓰게 만들기
+                    if(tmpNode.yPos<e.pageY){  
+                        targetedItemnode.after(tmpNode.node);   // item 아래에 위치 시키겠다
+                    }else{
+                        targetedItemnode.before(tmpNode.node);   // item 위에 위치 시키겠다
+                    }
+                })
+
+                // 스타일링(class 추가)
+                divEl.classList.add('item');
+                leftEl.classList.add('left');
+                rightEl.classList.add('right');
+
+                // 노드 연결 (위에서 부터 row>high)
+                // rightEl의 자식으로 deleteEl 붙임
+                rightEl.appendChild(deleteEl);
+
+                // divEl의 자식으로 leftEl, rightEl 연결
+                divEl.appendChild(leftEl);
+                divEl.appendChild(rightEl);
+                
+                // 컨테이너의 자식으로 divEl 연결
+                containerEl.appendChild(divEl);
+            }
+            function deleteNode(btn){  // 누르면 해당 행 삭제
+                const itemEl = btn.parentNode.parentNode;
+                console.log(itemEl);
+                itemEl.remove();
+            }
+
+            // 공백은 입력이 되지 않게 유효성체크 함수
+            // ** 데이터 입력 부분에서는 반드시 유효성 검사를 해야함!
+            function isValid(text){
+                const regex = /^[0-9]/;
+                if(text.trim()==='' || text.trim()===null){ // 공백을 잘라냈을 때 공백이거나 값이 없으면
+                    console.error('inValid error','공백은 입력 할 수 없습니다.')
+                    alert("내용을 입력해주세요");
+                    return false;
+                }else if(regex.test(text)){     // 첫문자로 숫자는 못쓴다 이런거 원한다면? 정규 표현식 사용
+                    console.error('inValid error','첫문자로 숫자를 입력 할 수 없습니다.')
+                    alert("첫문자로 숫자를 입력 할 수 없습니다.");
+                    return false;
+                }
+                return true;
+            }
+
+        })
+    </script>
+</body>
+</html>

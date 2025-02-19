@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>List_1</li>
+        <li id="li-2">List_2</li>
+        <li class="item">List_3</li>
+        <li>List_4</li>
+        <li id="li-5">List_5</li>
+        <li>List_6</li>
+        <li class="item">List_7</li>
+        <li class="item">List_8</li>
+    </ul>
+
+    <script>
+        // 요소 : 하나의 태그 이런 단위 (<div></div>)
+        // 노드 : 대상 단위
+
+        // Node 검색 : 문서 내에서 특정 위치를 찾는 방법 
+        // 1 ) getElementById('id명')
+        // 뒤에 s가 붙어있으면 여러 요소 선택
+        const li2El = document.getElementById('li-2');
+        li2El.style.backgroundColor="orange";    // -뒤 소문자는 대문자로 치환 : ex. font-size == fontSize
+        li2El.style.fontSize="2rem";
+        // querySelector('선택자') : 선택자에 어떤 종류의 선택자가 올 지 모르기때문에 -> 모든 가능성을 열어두고 있기 때문에 #, .등 어떤 형식인지 말해줘야함
+        // 해당 선택자의 첫번째 요소만 선택이 됨 == 단일 노드만 찾음
+        const itemEl = document.querySelector('.item')
+        itemEl.style.color="green";
+        itemEl.style.fontWeight="900";
+        // querySelectorAll : 해당 선택자 전체 검색
+        const itemEls = document.querySelectorAll('.item')  // 유사 배열
+        console.log(itemEls);   // 쓸 수 있는 명령어 확인 가능 (forEach, length, values 등등)
+        itemEls.forEach((item)=>{
+            item.style.border="3px solid";
+            item.style.margin="20px 0";
+        })
+
+        // 2 ) getElementsByTagName('태그명')
+        const liEls = document.getElementsByTagName('li')
+        console.log(liEls); // 유사 배열, 쓸 수 있는 함수에 제한이 있음
+        // liEls.forEach((item)=>{console.log(item)}) // liEls.forEach is not a function == forEach 사용불가
+
+        // *+ ) 유사 배열을 배열로 변환 (Array.from()) --> 길이가 있어야 하고 각 요소에 인덱스 번호가 있어야 변환 가능
+        const liEls2 = Array.from(liEls);
+        console.log(liEls2);    // 배열로 나옴 => 배열 함수 사용가능
+        liEls2.forEach((item)=>{
+            console.log(item);
+        })
+    </script>
+</body>
+</html>
