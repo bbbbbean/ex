@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Lodash cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        body{height: 8000px; margin: 0;}
+    </style>
+</head>
+<body>
+
+
+    <script>
+        // Lodash : 인기있는 라이브러리 중 하나
+        // Lodash는 _로 들고옴
+        console.log(_);
+        // throttle : 이벤트 감시 시간 간격 제어 - 부하를 낮출 수 있음
+        window.addEventListener('scroll',_.throttle((e)=>{console.log(window.scrollY)},100))
+    </script>
+</body>
+</html>

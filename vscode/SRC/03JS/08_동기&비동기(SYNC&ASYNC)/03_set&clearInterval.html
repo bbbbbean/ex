@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 1280px;
+            height: 800px;
+            border: 1px solid;
+            margin: 0 auto;
+
+            display: flex;
+            justify-content: space-between;
+        }
+        .box>.main-thread{
+            width: 300px;
+            height: 100%;
+            border: 1px solid;
+        }
+        .box>.sub1-thread{
+            width: 300px;
+            height: 100%;
+            border: 1px solid;
+        }
+        .box>.sub2-thread{
+            width: 300px;
+            height: 100%;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="box">
+    <div class="main-thread"></div>
+    <div class="sub1-thread"></div>
+    <div class="sub2-thread"></div>
+</div>
+
+    <script>
+        // 비동기 요청 처리 함수?
+        // xhr등등 : 멀라,, 검색해봐,,요청처리함수,, 
+
+        const mainThreadEl = document.querySelector('.main-thread')
+        const sub1ThreadEl = document.querySelector('.sub1-thread')
+        const sub2ThreadEl = document.querySelector('.sub2-thread')
+
+        // Main Thread 반복 동작
+        let cnt=0;
+        setInterval(()=>{
+            mainThreadEl.innerHTML += `Main Thread...${++cnt}<br/>`;
+        },1000)
+
+        // Promise 비동기 처리객체
+        // 성공과 실패의 경우를 나눠 처리가능 
+        function sub_process_executor(val){ // 요청
+            return new Promise((resolve,reject)=>{  // (성공,실패)
+                // 해야할 일
+                setTimeout(()=>{
+                    resolve(val);   // 비동기 요청 성공 시에 전달되는 (then이하로 받기)
+                },3000);
+            });
+        }
+        // sub1-thread 동작
+        sub_process_executor(1)  // promise 객체를 리턴중임, 응답값
+                                .then((response)=>{
+                                    console.log(response);
+                                    sub1ThreadEl.innerHTML = `sub-thread${response}`
+                                })  // 성공시
+                                .catch((error)=>{console.log(error);})   // 실패시
+
+        // sub2-thread 동작
+        sub_process_executor(2)  // promise 객체를 리턴중임, 응답값
+                                .then((response)=>{
+                                    console.log(response);
+                                    sub2ThreadEl.innerHTML = `sub-thread${response}`
+                                })  // 성공시
+                                .catch((error)=>{console.log(error)})   // 실패시
+
+        // sub1과 sub2가 동시에 처리되는 걸 볼 수 있음
+        // 비동기 : 우선 순위를 정하지 않으면 동시 처리 됨 >> 순서를 정하고 싶다면? 우선 순위 지정해주기
+        //          특정 예약어 await와 async 사용
+
+        // async, await = 비동기처리 순서를 지정
+        // async 예약어 : 해당 함수가 비동기적인 처리를 하는 프로세스임을 암시
+        // await 예약어 : async 블럭 내부에서 사용되며 비동기 작업이 완료시까지 대기하는 예약어
+
+        async function sub_process_func() {
+            
+        }
+
+    </script>
+</body>
+</html>

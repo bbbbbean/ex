@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="d1"></div>
+    <button onclick="start()">예약 실행</button>
+    <button onclick="stop()">예약 취소</button>
+
+    <script>
+        let id = null;
+        const start = ()=>{
+            const d1El = document.querySelector('.d1');
+            
+            id = setTimeout(()=>{    // 어떠한 처리를 3초후에 실행할 것
+                d1El.innerHTML='setTimeOut result';
+            },3000);
+            console.log('id',id)
+            // 해당 작업은 비동기 => 3초간 다른 작업을 요청해도 처리 가능
+            // 분리된 스레드는 메인에서 통제가능해야함 -> 고유 id 값을 돌려받아 해당 id에 통제
+        }   
+
+        const stop = ()=>{
+            clearTimeout(id);
+        }
+
+
+
+    </script>
+</body>
+</html>

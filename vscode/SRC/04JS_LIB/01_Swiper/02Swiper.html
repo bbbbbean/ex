@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        *{box-sizing: border-box;}
+        body{margin: 0;}
+        .wrapper{}
+        .wrapper>header{
+            height: 100px;
+            border: 1px solid;
+        }
+        .wrapper>header>.top-header{
+            height: 40px;
+            border: 1px solid;
+
+            display: flex;
+            justify-content: space-between;
+        }
+        .wrapper>header>.top-header>.left{
+            border: 1px solid;
+            width: 300px;
+            height: 100%;
+        }
+        .wrapper>header>.top-header>.left>.swiper{
+            height: 100%;
+        }
+        .wrapper>header>.top-header>.left .swiper-slide{
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .wrapper>header>.top-header>.right{
+            border: 1px solid;
+        }
+        .wrapper>header>nav{
+            height: calc(100% - 40px);
+        }
+
+
+        .wrapper>main{}
+        .wrapper>main>section{}
+
+        /*  */
+        .wrapper>main>section.banner-section{
+            min-height: 720px;
+            border: 1px solid;
+        }
+        .wrapper>main>section.banner-section>.swiper{
+            height: 100%;
+
+        }
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper{
+            height: 100%;
+        }
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide{
+            height: 100%;
+        }
+        .banner-section>.swiper .swiper-pagination{}
+        .banner-section>.swiper .swiper-pagination>.swiper-pagination-bullet{
+            width: 20px; height: 3px;
+            border-radius: 0;
+            background-color: rgb(255, 255, 255);
+            opacity: 0.5;
+        }
+        .banner-section>.swiper .swiper-pagination>.swiper-pagination-bullet-active{
+            background-color: rgb(255, 88, 88);
+        }
+        .banner-section>.swiper .swiper-button-next,
+        .banner-section>.swiper .swiper-button-prev{
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            /* background-color: black; */
+            padding: 5px;
+            border-radius: 50%;
+        }
+        .banner-section>.swiper .swiper-button-prev::after,
+        .banner-section>.swiper .swiper-button-next::after{
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+        .wrapper>main>section.banner-section .swiper-scrollbar{
+            background-color: #fff;
+        }
+
+        /* 멀티 */
+        .multi-slider-banner{
+            height: 300px;
+            padding: 10px 30px;
+        }
+        .multi-slider-banner>.swiper{
+            height: 100%;
+        }
+        .multi-slider-banner>.swiper>.swiper-wrapper{
+            height: 100%;
+        }
+        .multi-slider-banner>.swiper>.swiper-wrapper>.swiper-slide{
+            height: 100%;
+            border: 1px solid;
+
+            border-radius: 3px;
+            margin: 0 5px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <header>
+            <div class="top-header">
+                <div class="left">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">공지1</div>
+                            <div class="swiper-slide">공지2</div>
+                            <div class="swiper-slide">공지3</div>
+                            <div class="swiper-slide">공지4</div>
+                            <div class="swiper-slide">공지5</div>
+                            <div class="swiper-slide">공지6</div>
+                            <div class="swiper-slide">공지7</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right"></div>
+            </div>
+            <nav></nav>
+        </header>
+        <main>
+            <!-- 일반 슬라이드 -->
+            <section class="banner-section">
+                <!-- Slider main container -->
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide"><img src="./images/curri_01.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./images/curri_02.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./images/curri_03.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./images/curri_04.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./images/curri_05.jpg" alt=""></div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </section>
+            <!-- 멀티슬라이드 -->
+            <section class="multi-slider-banner">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">Slide 1</div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide">Slide 4</div>
+                        <div class="swiper-slide">Slide 5</div>
+                        <div class="swiper-slide">Slide 6</div>
+                        <div class="swiper-slide">Slide 7</div>
+                        <div class="swiper-slide">Slide 8</div>
+                        <div class="swiper-slide">Slide 9</div>
+                        <div class="swiper-slide">Slide 10</div>
+                        <div class="swiper-slide">Slide 11</div>
+                        <div class="swiper-slide">Slide 12</div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </section>
+
+        </main>
+        <footer></footer>
+    </div>
+    <script>
+        const swiper_banner = new Swiper('.wrapper>main>section.banner-section>.swiper', {
+            // Optional parameters
+            direction: 'horizontal', // vertical : 수직, horizontal : 수평
+            autoplay:{  // 자동 스와이프
+                delay: 3000,
+                pauseOnMouseEnter : true,
+            },
+            loop: true,
+
+            effect : 'slide',    // 기본옵션 : slide, fade : 제자리에서 사라지고 나타나는 효과, cube : 제자리 회전 변화, coverflow: 큐시트 넘기는 듯이 넘어감
+                               // flip : cube랑 비슷하게 제자리 넘기기 효과
+
+//            mousewheel : true,
+//            slidesPerView:3,    // 한번에 표시할 슬라이더의 갯수
+//            spaceBetween:10,   // 슬라이드 사이 간격, 잘 안씀, 정렬 어긋남
+//            speed : 200,        // 애니메이션 전환 속도
+//            centeredSlides : true,  // ?? 멀티할때 보쟤
+
+
+            // If we need pagination
+            pagination: {
+                el: '.wrapper>main>section.banner-section .swiper-pagination',
+                clickable : true,   // 불릿 클릭시 이동
+                type : 'bullets',   // bullets : 기본형태, fraction : 숫자형태, progressbar : 진행 막대형
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.wrapper>main>section.banner-section .swiper-button-next',
+                prevEl: '.wrapper>main>section.banner-section .swiper-button-prev',
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.wrapper>main>section.banner-section .swiper-scrollbar',
+            },
+        });
+
+        const swiper = new Swiper('.multi-slider-banner .swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            autoplay:{
+                delay: 3000,
+                pauseOnMouseEnter : true,
+                disableOnInteraction : false,    // 기본값 false, true 시 상호작용 후 autoplay 취소됨, 멈춤
+            },
+            loop: true,
+
+            slidesPerView:5,
+            centeredSlides : true,  // 가운데 시작인가
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.multi-slider-banner .swiper-button-next',
+                prevEl: '.multi-slider-banner .swiper-button-prev',
+            },
+        });
+
+        const swiper_top = new Swiper('.left .swiper', {
+            // Optional parameters
+            direction: 'vertical',
+            autoplay:{
+                delay: 3000,
+            },
+            loop: true,
+            effect:'slide',
+            mousewheel: true,
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 1280px;
+            height: 800px;
+            border: 1px solid;
+            margin: 0 auto;
+
+            display: flex;
+            justify-content: space-between;
+        }
+        .box>.main-thread{
+            width: 300px;
+            height: 100%;
+            border: 1px solid;
+        }
+        .box>.sub1-thread{
+            width: 300px;
+            height: 100%;
+            border: 1px solid;
+        }
+        .box>.sub2-thread{
+            width: 300px;
+            height: 100%;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="box">
+    <div class="main-thread"></div>
+    <div class="sub1-thread"></div>
+    <div class="sub2-thread"></div>
+</div>
+
+    <script>
+        const mainThreadEl = document.querySelector('.main-thread')
+        const sub1ThreadEl = document.querySelector('.sub1-thread')
+        const sub2ThreadEl = document.querySelector('.sub2-thread')
+
+        // Main Thread 반복 동작
+        let cnt=0;
+        setInterval(()=>{
+            mainThreadEl.innerHTML += `Main Thread...${++cnt}<br/>`;
+        },1000)
+
+        // Promise 비동기 처리객체
+        function sub_process_executor(val){
+            return new Promise((resolve,reject)=>{
+                // 해야할 일
+                setTimeout(()=>{
+                    resolve(val); 
+                },3000);
+            });
+        }
+
+        // async, await = 비동기처리 순서를 지정
+        // async 예약어 : 해당 함수가 비동기적인 처리를 하는 프로세스임을 암시
+        // await 예약어 : async 블럭 내부에서 사용되며 비동기 작업이 완료시까지 대기하는 예약어
+
+        async function sub_process_func() {
+            await sub_process_executor(1)   // 순서 지정
+                        .then((response)=>{sub1ThreadEl.innerHTML = `sub-thread${response}`})
+                        .catch(()=>{})
+
+            await sub_process_executor(2)   // 순서 지정
+                        .then((response)=>{sub2ThreadEl.innerHTML = `sub-thread${response}`})
+                        .catch(()=>{})
+        }
+        sub_process_func();
+        // 메인 실행 후 3초 뒤 1번이 실행 -> 그 후 3초 뒤 2번이 실행 됨을 볼 수 있음
+
+    </script>
+</body>
+</html>
+</body>
+</html>
