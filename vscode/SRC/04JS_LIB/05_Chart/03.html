@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/중구맛집.js"></script>
+
+</head>
+<body>
+    
+    <div style="width: 800px;border: 1px solid;margin: 0 auto; padding: 20px;">
+        <!-- canvas : 도형 등 그림그리는 도구 제공 태그, 시각화 자료나 지도 등 다 canvas 태그 -->
+        <canvas id="myChart"></canvas> 
+    </div>
+
+    <script>
+        console.log('중구맛집',중구맛집)
+        // 카테고리 분포도 파이차트에 나타내기
+        // 1. 데이터 추출 - 카테고리별
+        // 2. 카테고리별 식당 카운트
+        
+        // 전체 길이 확인
+        function extractDataSet(param){
+            // 총 갯수
+            const total = param.total;
+            console.log('total',total);
+            // 데이터 추출
+            const data = param.data;
+            // 음식 카테고리 필터 Map
+            const cat = data.map((item)=>{return item.FD_CS})   // item의 카테고리(FD_CS)만 반환
+                            .sort((a,b)=>{return a.localeCompare(b)})   // 카테고리 이름별로 정렬
+                            .reduce((acc,item)=>{
+                                if(acc[item]!==undefined)
+                                    acc[item]++;    // 바보짓을,, 그만하자,, []위치 확인 잘하기
+                                else{
+                                    acc[item]=0;
+                                }
+                                return acc;
+                            },{})
+            console.log('category',cat)
+            
+            // keys, values 따로 분류
+            const keys = Object.keys(cat);
+            const values = Object.values(cat);
+            console.log(keys)
+            console.log(values)
+
+            return {    // 여러개 반환 원할 시 객체로 묶어 반환
+                "keys":keys,
+                "values":values
+            }
+        }
+
+        function drawChart(title,obj,tag, type){      // tag : 차트 여러개 만들 경우 어떤 차트에 적용할 건지 특정을 위함
+        // 해당 위치에 넣어주기                         // type : 표 비주얼 타입
+
+            const ctx = document.getElementById(tag);
+            let data = {
+                labels: obj.keys,
+                datasets: [
+                    {
+                        label: title,
+                        data: obj.values,
+                        borderWidth: 1,
+                        // backgroundColor:['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        // borderColor:['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+                    }
+                    ]
+                };
+    
+            let options = {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        // max : 100,
+                        min : 0,
+                        tixks : {
+                            stepSize : 2
+                            }
+                        },
+                    // x:  {
+                    //     stacked : true,
+                    //     barPerxentage : 1.0,
+                    //     categoryPerxentage : 1.0
+                    // }
+                },
+                onClick : (event,chartEl)=>{
+                    console.log('clicked',chartEl)
+                }
+            };
+      
+            new Chart(ctx, {
+                type: type,
+                data: data,  // 내용이 많아질 경우 = 변수로 빼서 대입
+                options: options
+            });
+        }
+
+        const result = extractDataSet(중구맛집);
+        console.log(result);    // 키와 값으로 반환 확인 가능
+        drawChart('중구맛집',result,'myChart','pie')
+
+
+
+    </script>
+</body>
+</html>

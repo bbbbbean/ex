@@ -97,11 +97,15 @@
             </div>
             <div class="item">
                 <label>메뉴명 : </label>
-                <input type="text" name="주문번호" />
+                <select class="select-menu" name="selectMenu">
+                    <option value="" selected>메뉴를 선택해주세요</option>
+                    <!-- <option value=""></option> -->
+                </select>
             </div>
             <div class="item">
                 <label>가격 : </label>
-                <input type="text" name="주문번호" />
+                <!-- <input type="text" name="menupriceOption" /> -->
+                <div id="menupriceOption" style="width: 170px;height: 18px;border: 1px solid;"></div>
             </div>
             <div class="item">
                 <label>수량 : </label>
@@ -126,19 +130,19 @@
             </div>
             <div class="item">
                 <label>메뉴명 : </label>
-                <input type="text" name="주문번호" />
+                <input type="text" name="메뉴명" />
             </div>
             <div class="item">
                 <label>가격 : </label>
-                <input type="text" name="주문번호" />
+                <input type="text" name="가격" />
             </div>
             <div class="item">
                 <label>수량 : </label>
-                <input type="text" name="주문번호" />
+                <input type="text" name="수량" />
             </div>
             <div class="item">
                 <label>지불금액</label>
-                <input type="text" name="주문번호" />
+                <input type="text" name="지불금액" />
             </div>
         </div>
     </div>
@@ -194,13 +198,27 @@
             
             const form = document.form1;
             const selectedRestorant = form.selectRestorant.value;
-            console.log(selectedRestorant);
             
             // 다 요소로 가르기
             const restorantEl = RenewaledMenu.find((item)=>{
                 return item.BZ_NM===selectedRestorant
             });
             console.log(restorantEl)
+
+            // 메뉴명
+            const menuEls = restorantEl.MNU;    // [전체 메뉴 배열[각 메뉴 배열]]
+            console.log('menuEls',menuEls)
+            console.log(menuEls[0][0])  // 메뉴 - 앞 0을 바꾸면서 꺼낸 값을 빼낼 수 있다면,,, (i=0;i<menuEls.length,i++)으로 꺼내..
+                                        // 가격은? 메뉴 선택했어.. i야,, 거기의 1번째면 좋겠지만 가격이 여러개잖아..  
+            for(let i=0;i<menuEls.length;i++){
+                const selectMenu = document.querySelector('.select-menu');
+                const menuOption = document.createElement('option');
+
+                menuOption.innerHTML = menuEls[i][0];
+                selectMenu.appendChild(menuOption)
+            }
+
+            const selectMenuPrice = document.querySelector('#menupriceOption')
 
             const restorantMenuBlock = document.querySelector('.restorant-menu-block');
             restorantMenuBlock.innerHTML=restorantEl.MNU;

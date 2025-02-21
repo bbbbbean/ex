@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+<body>
+
+    <div style="width: 800px;border: 1px solid;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+    <script>
+        const ctx = document.getElementById('myChart');
+        
+        let data = {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [
+//                    {
+                    // label: 'djdjdjdj',
+                    // data: [90, 19, 3, 5, 2, 3],
+                    // borderWidth: 1,
+                    // backgroundColor:['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    // borderColor:['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+//                    },
+                    {
+                        label: 'red',
+                        data: [12, 0, 0, 0, 0, 0],
+                        borderWidth: 1,
+                        backgroundColor:'Red',
+                        borderColor:'black'
+                    },{
+                        label: 'Blue',
+                        data: [0, 45, 0, 0, 0, 0],
+                        borderWidth: 1,
+                        backgroundColor:'Blue',
+                        borderColor:'black'
+                    },{
+                        label: 'Yellow',
+                        data: [0, 0, 85, 0, 0, 0],
+                        borderWidth: 1,
+                        backgroundColor:'Yellow',
+                        borderColor:'black'
+                    },{
+                        label: 'Green',
+                        data: [0, 0, 0, 56, 0, 0],
+                        borderWidth: 1,
+                        backgroundColor:'Green',
+                        borderColor:'black'
+                    },{
+                        label: 'Purple',
+                        data: [0, 0, 0, 0, 74, 0],
+                        borderWidth: 1,
+                        backgroundColor:'Purple',
+                        borderColor:'black'
+                    },{
+                        label: 'Orange',
+                        data: [0, 0, 0, 0, 0, 14],
+                        borderWidth: 1,
+                        backgroundColor:'Orange',
+                        borderColor:'black'
+                    }
+                    ]
+                };
+    
+        let options = {
+                animations: {
+                    tension: {
+                        // 라인에 걸면 해파리 같음
+                        // duration : 3000,
+                        // easing : 'linear',
+                        // from: 1,
+                        // to: 0,
+                        // loop: true
+                    },
+                    y: {
+                            duration : 1000,
+                            easing : 'linear',
+                            loop : true,
+                        }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,   // Y축 값을 0부터 시작하겠냐, y축 단위는 설정 x시 data 정보에 따라 자동으로 맞춰 출력
+                        max : 100,
+                        min : 0,
+                        tixks : {
+                            stepSize : 10
+                            }
+                        },
+                    x:  {
+                        stacked : true,
+                        barPerxentage : 1.0,
+                        categoryPerxentage : 1.0
+                    }
+                },
+                onClick : (event,chartEl)=>{
+                    console.log('clicked',chartEl)
+                }
+            };
+      
+        new Chart(ctx, {
+            type: 'bar', // 단일 데이터 가능 bar: 기본, line, pie, doughnut / 복수 데이터 요구 bubble, scatter, heatmap
+            data: data,  // 내용이 많아질 경우 = 변수로 빼서 대입
+            options: options
+        });
+    </script>
+</body>
+</html>
