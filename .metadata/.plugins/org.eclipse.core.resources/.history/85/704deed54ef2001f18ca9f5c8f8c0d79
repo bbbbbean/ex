@@ -1,0 +1,20 @@
+package Ch01;
+
+public class C01SystemOut {
+	public static void main(String[] args) {
+		
+		// System.out.print()
+		System.out.print("HELLOWORLD");
+//		운영체제.outstream(출력장치, 모니터).기능(내용);
+		
+		System.out.print("HELLOWORLD");
+		System.out.print("HELLOWORLD");
+		System.out.print("HELLOWORLD");
+		System.out.print("HELLOWORLD");
+		System.out.print("HELLOWORLD");
+		
+		
+		
+		
+	}
+}

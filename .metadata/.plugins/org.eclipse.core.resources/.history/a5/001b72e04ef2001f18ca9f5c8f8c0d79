@@ -1,0 +1,23 @@
+package Ch01;
+
+public class C01SystemOut {
+	public static void main(String[] args) {
+		
+		// System.out.print()
+		System.out.print("HELLOWORLD");
+//		운영체제.outstream(출력장치, 모니터).기능(내용);
+		
+		// \n : 개행, 줄바꿈
+		// \b : 백스페이스
+		// \t : 탭길이(기본 8칸)만큼 커서 이동
+		System.out.print("HELLOWORLD\n");
+		System.out.print("HELLOWORLD\n");
+		System.out.print("HELLOWORLD\n");
+		System.out.print("HELLOWORLD\n");
+		System.out.print("HELLOWORLD\n");
+		
+		
+		
+		
+	}
+}
