@@ -1,0 +1,13 @@
+package Ch02;
+
+// 원시형태의 자료형 : 숫자냐 문자냐
+// 1byte : byte / 2byte : short, char(양수값만 지원) / 4byte : int - 기본 / 8byte : long 
+// char : 숫자, 문자 == 2진 데이터로 변환 저장, 숫자도 한문자도 담을 수 있음. 단일 문자 == 양수로만 지원 ==> 양수, 문자열을 위한 단위 필요해짐
+
+
+
+public class C04자료형 {
+	public static void main(String[] args) {
+		
+	}
+}
