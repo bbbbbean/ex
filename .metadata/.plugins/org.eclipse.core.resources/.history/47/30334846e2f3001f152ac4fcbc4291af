@@ -1,0 +1,32 @@
+package Ch03;
+
+public class C04TypeChange {
+	public static void main(String[] args) {
+		
+		// 정수 연산식 (int보다 작은 변수자료형(short, char, byte))
+		// int로 자동 형변환
+		
+		byte x = 10;
+		byte y = 20;
+		// byte result1 = x + y;	// Type mismatch: cannot convert from int to byte
+								// + 연산 요청이 오면 -> x의 자료형이 int로 변환 == int + int
+		byte result1_1 = (byte)(x + y);	// 덧셈 처리 후 변환
+		
+		int result1_2 = x + y;
+		System.out.println(result1);
+		
+		
+		
+		// 정수 연산식 (int보다 큰 변수자료형(long))
+		// 큰 타입으로 자동 형 변환
+		
+		byte var1 = 10;
+		int var2 = 100;
+		long var3 = 1000L;	
+		int result2 = var1 + var2 + var3;
+		
+		long result2_2 = var1 + var2 + var3;
+		System.out.println(result2);
+		
+	}
+}

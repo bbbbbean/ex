@@ -1,0 +1,28 @@
+package Ch04;
+
+import java.util.Scanner;
+
+public class C03Scanner {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("입력 : ");
+		String s1 = sc.next();	
+		String s2 = sc.next();
+		String s3 = sc.next();
+		System.out.printf("문자열 : %s %s %s\n",s1,s2,s3);
+
+		sc.nextLine(); // 버퍼 비우기
+		
+		System.out.println("문자열 입력(띄어쓰기 포함) : ");
+		String str2 = sc.nextLine();
+		System.out.println("문자열 : " + str2);
+		
+		
+		
+		
+		
+		
+	}
+}

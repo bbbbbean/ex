@@ -25,16 +25,16 @@
 	
 	
 	맞는 코드인지 틀린 코드인지 확인 
-	byte var = 200;							(x)
-	char var='AB';							(x)
-	char var=65;							(o)
-	long var=50000000000;					(x)	
-	float var = 3.14						(o)
+	byte var = 200;							(x)		byte var = (byte)200; : 문법상 문제X, 대신 데이터 손실 일어남
+	char var= 'AB';							(x)		한단어
+	char var= 65;							(o)		
+	long var= 50000000000;					(x)		500억이란 숫자는 int에 담기지 못함, long var=50000000000L;
+	float var = 3.14						(x)		실수의 기본 자료형 double, float var = 3.14f
 	double var = 100.0						(o)
-	String var = "나의직업은 "개발자" 입니다.";	(x)
-	boolean var = 0;						(o)
-	int v2 = 1e2;							(o)
-	float =1e2f;							(o)
+	String var = "나의직업은 "개발자" 입니다.";	(x)		꾸밈용 "" 등을 쓰려면 앞에 \를 붙여 탈출문자임을 표현
+	boolean var = 0;						(x)		자바에서는 true, false 예약어가 있음. 0,1 표시는 C에서만 쓰기
+	int v2 = 1e2;							(x)		1e2 : 실수형, double v2 = 1e2;
+	float = 1e2f;							(x)		변수 지정이 빠짐
 	
 	
 	
