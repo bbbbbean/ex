@@ -1,0 +1,112 @@
+package Ch06;
+
+import java.util.Scanner;
+
+public class C01IF {
+	public static void main(String[] args) {
+		// 분기문 -> 조건식 잘 짓기~~ 
+		
+		// 단순 if문
+//		Scanner sc = new Scanner(System.in);
+		
+//		System.out.println("나이 : ");
+//		int age = sc.nextInt();
+//		
+//		if(age >= 8) 
+//			System.out.println("학교에 다닙니다.");	// 라인이 하나면 중괄호 생략 가능
+//		System.out.println("첫번째 IF 코드 블럭 종료");
+//		
+//		if(age < 8) {
+//			System.out.println("학교에 다니지 않습니다.");}
+//		System.out.println("두번째 IF 코드 블럭 종료");
+//		
+//		System.out.println("프로그램을 종료합니다.");
+//		sc.close();
+		
+		// if-else문
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.println("나이 : ");
+//		int age = sc.nextInt();
+//		
+//		if(age >= 8) 
+//			System.out.println("학교에 다닙니다.");	// 참
+//		else
+//			System.out.println("학교에 다니지 않습니다.");	// 거짓
+//
+//		System.out.println("프로그램을 종료합니다.");
+//		sc.close();
+		
+		
+		System.out.println("문제1 풀기");
+		// 문제1
+		// 정수 한개 값을 입력 받아 3의 배수이면 해당 수를 출력하세요
+		// 3의 배수이면서 5의 배수라면 출력 -
+		
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.println("정수를 입력하세요 : ");
+//		int num = sc.nextInt();
+//		
+//		if(num%3 == 0 && num%5 == 0) {
+//			System.out.println(num+"은/는 3과 5의 배수입니다.");
+//		}else if(num%3 == 0){
+//			System.out.println(num+"은/는 3의 배수입니다.");
+//		}else {
+//			System.out.println("-");
+//		};
+//		
+//		if(num%3==0) {
+//			System.out.println(num+"은/는 3의 배수입니다.");
+//			if(num%5==0) {
+//				System.out.println(num+"은/는 5의 배수입니다.");
+//			}
+//		}else {
+//			System.out.println("-");
+//		};
+//		
+//		sc.close();
+		
+		
+		System.out.println("문제2 풀기");
+		// 문제2
+		Scanner scan = new Scanner(System.in);
+		
+		// 2-1. 두개의 정수를 입력받아 큰 수 출력
+		// 정수 입력받기
+//		System.out.println("정수 2개를 입력하세요. (띄어쓰기로 구분) : ");
+//		int num1=scan.nextInt();
+//		int num2=scan.nextInt();
+//		// 큰 수 출력
+//		if(num1<num2) {
+//			System.out.println(num2+"이/가 더 큰 수입니다.");
+//		}else {
+//			System.out.println(num1+"이/가 더 큰 수입니다.");
+//		};
+		
+		
+		// 2-2. 세개의 정수를 입력받아 큰 수 출력
+		// 정수 입력받기
+		System.out.println("정수 3개를 입력하세요. (띄어쓰기로 구분) : ");
+		int num1=scan.nextInt();
+		int num2=scan.nextInt();
+		int num3=scan.nextInt();
+		// 큰 수 판별
+		if(num1-num2<0 && num2-num3<0) {
+			System.out.println(num3+"이/가 가장 큰 수입니다.");
+		}else if(num1-num2<0 && num2-num3>0) {
+			System.out.println(num2+"이/가 가장 큰 수입니다.");
+		}else {
+			System.out.println(num1+"이/가 가장 큰 수입니다.");
+		}
+		
+		
+		// 2-3. 세개의 정수를 입력받아 해당수의 합과 평균을 출력
+		
+		// 2-4. 입력한 수가 짝수이고, 3의 배수라면 출력
+		// 		입력한 수가 홀수이고, 5의 배수라면 출력
+		
+		
+		
+	}
+}

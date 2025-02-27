@@ -1,0 +1,50 @@
+package Ch06;
+
+import java.util.Scanner;
+
+public class C01IF {
+	public static void main(String[] args) {
+		// 분기문 -> 조건식 잘 짓기~~ 
+		
+		// 단순 if문
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("나이 : ");
+//		int age = sc.nextInt();
+//		
+//		if(age >= 8) 
+//			System.out.println("학교에 다닙니다.");	// 라인이 하나면 중괄호 생략 가능
+//		System.out.println("첫번째 IF 코드 블럭 종료");
+//		
+//		if(age < 8) {
+//			System.out.println("학교에 다니지 않습니다.");}
+//		System.out.println("두번째 IF 코드 블럭 종료");
+//		
+//		System.out.println("프로그램을 종료합니다.");
+//		sc.close();
+		
+		// if-else문
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("나이 : ");
+		int age = sc.nextInt();
+		
+		if(age >= 8) 
+			System.out.println("학교에 다닙니다.");	// 라인이 하나면 중괄호 생략 가능
+		else
+			System.out.println("학교에 다니지 않습니다.");
+
+		System.out.println("프로그램을 종료합니다.");
+		sc.close();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

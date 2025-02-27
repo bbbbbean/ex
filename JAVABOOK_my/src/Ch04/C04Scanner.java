@@ -22,7 +22,7 @@ public class C04Scanner {
 		
 		
 		System.out.println("문제 2번");
-		// Scanner를 이용해서 이름, 주미번호 앞 6자리 , 전화번호를 키보드에서
+		// Scanner를 이용해서 이름, 주민번호 앞 6자리 , 전화번호를 키보드에서
 		// 입력받고 출력하는 코드를 작성해보세요
 		
 		System.out.println("[필수 정보 입력]\n1. 이름 : ");

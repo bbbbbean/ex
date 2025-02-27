@@ -1,5 +1,7 @@
 package Ch05;
 
+import java.util.Scanner;
+
 public class C01Basic {
 	public static void main(String[] args) {
 		
@@ -12,13 +14,23 @@ public class C01Basic {
 		System.out.println("a-b="+ (a - b));
 		System.out.println("a*b="+ (a * b));
 		System.out.println("b/a="+ (b / a)); //나누기 - 몫
-		System.out.println("a%b="+ (a % b));//나누기 - 나머지(1.짝홀수구분, 2.배수구분, 3.자리수제한, 4.끝자리구하기)
+		System.out.println("a%b="+ (a % b)); //나누기 - 나머지(1.짝홀수구분, 2.배수구분, 3.자리수제한, 4.끝자리구하기)
 		System.out.println("-a="+ -a);
 		
 		//문제	
 //		두수를 입력 받아 두수의 합/차/곱을 출력하는 프로그램을 만들어보세요
 //		Scanner 를 사용합니다
 		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("두 정수를 입력하세요");
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		if(m>n) {
+			int tmp = n;
+			n=m;
+			m=tmp;
+		}
+		System.out.printf("합 : %d, 차 : %d, 곱 : %d\n",n+m,n-m,n*m);
 
 		
 		//-------------------------

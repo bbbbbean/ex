@@ -1,0 +1,24 @@
+package Ch06;
+
+import java.util.Scanner;
+
+public class C03Switch {
+	public static void main(String[] args) {
+		// 콘솔창에서 메뉴만들기
+		
+		Scanner sc = new Scanner(System.in);
+		int num = 0;
+		
+		while(true) {
+			System.out.println("-----< Join Menu >-----");
+			System.out.println("1. 이메일 인증");
+			System.out.println("2. 개인정보 입력");
+			System.out.println("3. 회원가입 요청");
+			System.out.println("4. 종료");
+			System.out.println("-----< Join Menu >-----");
+			System.out.print("번호 입력 : ");
+			
+		}
+		
+	}
+}
