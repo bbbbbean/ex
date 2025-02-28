@@ -1,0 +1,103 @@
+package Ch07;
+
+import java.util.Scanner;
+
+public class C02While {
+	public static void main(String[] args) {
+		
+		// 2단~9단 출력
+//		int dan = 2;
+//		while(dan<10) {
+//			System.out.println(dan+"단");
+//			int i=1;
+//			while(i<10) {
+//				System.out.printf("%d X %d = %d\n",dan,i,dan*i);
+//				i++;
+//			}
+//			dan++;
+//			System.out.println();
+//		}
+		
+		
+		// 2단~9단 역순 출력 (2x9, 2x8, 2x7 ... )
+//		int dan = 2;
+//		while(dan<10) {
+//			System.out.println(dan+"단");
+//			int i=9;
+//			while(i>0) {
+//				System.out.printf("%d X %d = %d\n",dan,i,dan*i);
+//				i--;
+//			}
+//			dan++;
+//			System.out.println();
+//		}
+
+		
+		// 9단~2단 역순 출력
+//		int dan = 9;
+//		while(dan>1) {
+//			System.out.println(dan+"단");
+//			int i=9;
+//			while(i>0) {
+//				System.out.printf("%d X %d = %d\n",dan,i,dan*i);
+//				i--;
+//			}
+//			dan--;
+//			System.out.println();
+//		}
+		
+		
+		// 2단~N단 출력
+//		Scanner sc = new Scanner(System.in);
+//		// n 입력받기
+//		System.out.println("정수 n을 입력하세요 : ");
+//		int n = sc.nextInt();
+//		int dan = 2;
+//		while(dan<=n) {
+//			System.out.println(dan+"단");
+//			int i=1;
+//			while(i<10) {
+//				System.out.printf("%d X %d = %d\n",dan,i,dan*i);
+//				i++;
+//			}
+//			System.out.println();
+//			dan++;
+//		}
+//		sc.close();
+		
+		
+		// N단~M단 출력(N<M, N<9, M<9)
+		Scanner sc = new Scanner(System.in);
+		// n,m 입력받기
+		System.out.println("정수 두개를 입력하세요");
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		
+		// 조건 검사
+		if( n<1 || n>9 || m<1 || m>9) {
+			System.out.println("1~9사이의 정수를 입력하세요");
+		}
+		
+		if(m<n) {
+			int tmp=m;
+			m = n;
+			n = tmp;
+		}
+		// 구구단 시작
+		int dan = n;
+		int i=1;
+		while(dan<=m) {
+			System.out.println(dan+"단");
+			while(i<10) {
+				System.out.printf("%d X %d = %d\n",dan,i,dan*i);
+				i++;
+			}
+			dan++;
+		}
+		
+		
+		
+		
+	}
+}
+ 
