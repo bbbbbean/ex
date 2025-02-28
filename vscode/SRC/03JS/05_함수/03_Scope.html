@@ -62,8 +62,9 @@
         const L1 = ()=>{
             console.log('L1...',this);
         }
-        L1(); // Window {} : Dom 객체보다 상위, this 예약어가 포함된 객체
-              // 상위 스코프(window객체)의 'this'를 가져옴
+        L1(); 
+        // Window {} : Dom 객체보다 상위, this 예약어가 포함된 객체
+        // 상위 스코프(window객체)의 'this'를 가져옴
         
         // - 렉시컬(Lexical) 스코프(Object내의 기능에서) 확인 : this-----------
         const person = {
