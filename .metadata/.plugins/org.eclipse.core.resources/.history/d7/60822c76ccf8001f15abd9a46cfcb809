@@ -1,0 +1,16 @@
+package Ch08;
+
+class C07Simple{
+	
+	int sum() {
+		
+		return 0;
+	}
+	
+}
+
+public class C07가변인자 {
+	public static void main(String[] args) {
+		
+	}
+}

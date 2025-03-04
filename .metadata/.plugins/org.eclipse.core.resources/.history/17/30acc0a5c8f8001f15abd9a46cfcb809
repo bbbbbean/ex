@@ -1,0 +1,38 @@
+package Ch08;
+
+// 생성자 메서드
+// 특수한 형태의 메서드
+// 객체 생성시 한번만 호출되는 메서드
+// -> 객체 생성에 관여하는 메서드
+// 생성된 객체 내에서는 사용이 불가능
+// 객체 생성시에 필요한 메모리 공간 형성과 "초기값 부여"에 사용
+// 생성자 메서드 이름은 클래스 이름과 동일하며 반환 자료형은 가지지 않는다
+
+class C08Simple{
+	// 속성
+	int n1;
+	double n2;
+	boolean n3;
+	String n4;
+	
+	public C08Simple(int n1) {
+		System.out.println("C08Simple(int n1) 생성자 호출");
+	}
+	public C08Simple(int n1,double n2) {
+		System.out.println("C08Simple(int n1,double n2) 생성자 호출");
+	}
+	public C08Simple(int n1,double n2,boolean n3) {
+		System.out.println("C08Simple(int n1,double n2,boolean n3) 생성자 호출");
+	}
+	public C08Simple(int n1,double n2,boolean n3,String n4) {
+		System.out.println("C08Simple(int n1,double n2,boolean n3,String n4) 생성자 호출");
+	}
+
+}
+
+
+public class C08constructorMain {
+	public static void main(String[] args) {
+		
+	}
+}

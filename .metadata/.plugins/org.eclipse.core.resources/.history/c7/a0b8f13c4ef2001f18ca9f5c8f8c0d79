@@ -1,9 +1,0 @@
-package Ch01;
-
-public class C01SystemOut {
-	public static void main(String[] args) {
-		
-		// System.out.print()
-		System.out.println("HELLOWORLD");
-	}
-}

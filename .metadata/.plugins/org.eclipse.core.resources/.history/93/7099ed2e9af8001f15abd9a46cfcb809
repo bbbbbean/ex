@@ -1,0 +1,10 @@
+package Ch07;
+
+public class C05기타반복처리 {
+	public static void main(String[] args) {
+		
+		// Collection 객체를 이용 - 저장
+		List<String> lists = new ArrayList();
+		
+	}
+}

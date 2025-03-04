@@ -1,0 +1,16 @@
+package Ch08;
+
+class C07Simple{
+	
+	int sum(int ...arg) {	// ...arg : 파라미터 갯수가 미정일 때, 몇개의 값이든 받는 인자 -> 지정 자료형만 받음
+		System.out.println(arg);
+		return 0;
+	}
+	
+}
+
+public class C07가변인자 {
+	public static void main(String[] args) {
+		
+	}
+}
