@@ -1,0 +1,43 @@
+package Ch09;
+
+// 민감한 데이터 : private 설정
+// 접근 한정자
+// 멤버 클래스의 접근 범위 제한을 위한 예약어
+
+// public		: 모든 클래스에서 접근 가능
+// private		: 해당 클래스에서만 접근 가능
+// protected	: 상속 관계를 가지는 경우에 접근 가능
+// default(기본)	: 동일 채키지에 속한 클래스에서 접근 가능
+
+class C01Person{
+	private String name;
+	int age;
+	String addr;
+	
+	
+	public C01Person(String name, int age, String addr) {
+		this.name = name;
+		this.age = age;
+		this.addr = addr;
+	}
+	
+	// getter 함수 (데이터를 외부로 변환)
+	public String getName() {
+		return this.name;
+	}
+	
+}
+
+
+public class C01정보은닉 {
+	public static void main(String[] args) {
+		
+		C01Person person1 = new C01Person("홍길동",17,"대구");
+		// private : 생성자를 통해 생성할때부터 데이터를 저장해야함
+//		person1.name="홍";	// 그냥은 접근 불가
+		// getter 함수로 접근해야 함
+		
+		
+		
+	}
+}

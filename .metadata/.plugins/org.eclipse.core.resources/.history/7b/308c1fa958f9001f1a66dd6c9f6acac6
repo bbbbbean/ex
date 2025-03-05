@@ -1,0 +1,55 @@
+package Ch08;
+
+class TV{
+	String brand;
+	int year;
+	int size;
+	
+	TV(String brand,int year,int size){
+		brand=this.brand;
+		year=this.year;
+		size=this.size;
+	}
+	
+	public void show() {
+		System.out.printf("%s에서 만든 %d년 %d인치",name,year,size);
+	}
+}
+
+
+public class C09Ex {
+	public static void main(String[] args) {
+		// package Ch08Ex;
+		//
+		// public class C00문제 {
+		//--------------------------------------------
+		// 문제 - 이것이자바다
+		//--------------------------------------------
+		// https://scksk.tistory.com/6
+		
+		// 클래스 기본문제
+		// 1~7번 확인하기 
+		
+		// 12번-16번 확인하기
+		
+		//--------------------------------------------
+		// 추가(명품자바)
+		//--------------------------------------------
+		// https://security-nanglam.tistory.com/213
+		
+		System.out.println("문제1");
+//		자바 클래스를 작성하는 연습을 해보자. 다음 main() 메소드를 실행하였을 때 예시와 같이 출력되도록 TV 클래스를 작성하라.
+//
+//		public static void main(String[] args) {
+//		   TV myTV = new TV("LG", 2017, 32); //LG에서 만든 2017년 32인치
+//		   myTV.show();
+//		}
+//		LG에서 만든 2017년형 32인치 TV
+		
+		//--------------------------------------------
+		// 추가
+		//--------------------------------------------
+		// https://iu-corner.tistory.com/entry/JAVA-%EC%9E%90%EB%B0%94-%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%97%B0%EC%8A%B5-%EB%AC%B8%EC%A0%9C-%EB%AA%A8%EC%9D%8C-1
+
+	}
+}

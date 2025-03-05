@@ -1,0 +1,12 @@
+package Ch09;
+
+public class C05StringClass {
+	public static void main(String[] args) {
+		
+		String str1 = "Java Powerful";
+		String str2 = new String("java programming");
+		String str3 = str1+str2;
+		String str4 = str1.concat(str2)n;
+		
+	}
+}

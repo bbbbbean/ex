@@ -1,0 +1,24 @@
+package Ch10;
+import java.util.Scanner;
+
+// 리스트 : 동적 확장 가능, 선호
+// 배열 : 동적 확장 불가능, 고정된 크기, 선호 X
+
+
+public class C01ArrayMain {
+	public static void main(String[] args) {
+	
+		Scanner sc = new Scanner(System.in);
+		
+		int [] arr1 = new int[5];
+		System.out.println("5개의 값을 입력하세요");
+		arr1[0] = sc.nextInt();
+		arr1[1] = sc.nextInt();
+		arr1[2] = sc.nextInt();
+		arr1[3] = sc.nextInt();
+		arr1[4] = sc.nextInt();
+		
+		System.out.println("배열 길이"+arr1.length);
+		
+	}
+}
