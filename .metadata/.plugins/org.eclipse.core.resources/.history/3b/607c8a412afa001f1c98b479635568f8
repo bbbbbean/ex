@@ -1,0 +1,7 @@
+package Ch11;
+
+public class C01StaticMain {
+	public static void main(String[] args) {
+		
+	}
+}

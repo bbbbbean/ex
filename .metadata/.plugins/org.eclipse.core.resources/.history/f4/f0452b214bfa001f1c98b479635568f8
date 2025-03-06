@@ -1,0 +1,26 @@
+package Ch12;
+
+class Point2D{
+	int x;
+	int y;	
+}
+
+class Point3D extends Point2D{
+	int z;
+}
+
+
+
+
+public class C01InheritanceMain {
+	public static void main(String[] args) {
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

@@ -1,0 +1,23 @@
+package Ch11;
+
+class C02Simple{
+	static int n1;
+	int n2;
+	
+	void fun1(){	// 일반 멤버 함수 == 문제 없음
+		n1=100;
+		n2=200;
+	}
+	static void fun2(){
+		// 
+		n1=100;
+		n2=200;
+	}
+	
+}
+
+public class C02StaticMain {
+	public static void main(String[] args) {
+		
+	}
+}

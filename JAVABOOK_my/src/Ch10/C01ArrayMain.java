@@ -68,8 +68,5 @@ public class C01ArrayMain {
 		
 		
 		
-		
-		
-		
 	}
 }

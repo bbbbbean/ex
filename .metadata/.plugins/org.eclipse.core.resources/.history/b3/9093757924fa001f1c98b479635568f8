@@ -1,0 +1,52 @@
+package Ch10;
+
+import java.util.Scanner;
+
+// 5개의 정수값을 입력 받아 int형 배열에 저장하고
+// 최대값, 최소값, 전체합을 출력합니다.
+
+// 5명 학생의 국영수 점수를 입력 받아 2차원 배열에 저장
+// 각 학생의 국영수 점수의 합/평균을 구하고
+// 각 과목당 합/평균을 구해보세요
+
+public class C06Ex {
+	public static void main(String[] args) {
+		
+		// 점수, 정수 입력받기
+		Scanner sc = new Scanner(System.in);
+		int [][] test=new int[5][3];
+		System.out.println("5명 학생의 국영수 점수를 입력하세요");
+		for(int i=0;i<5;i++) {
+			for(int j=0;j<3;j++) {
+				test[i][j]=sc.nextInt();
+			}
+		}
+		
+		// 각 학생의 국영수 점수의 합 == 열의 합 == [1][i]
+		for(int i=0;i<test[i].length;i++) {
+			int sum=0;
+			for(int j=0;j<test.length;j++) {
+				sum+=test[j][i];
+			}
+			System.out.println(i+"합"+sum);
+		}
+		// 국영수 평균
+		int kor_sum;
+		for(int i=0;i<test.length;i++) {
+			int kor_sum=0;
+			kor_sum+=test[i][0];
+		}
+		int eng_sum;
+		for(int i=0;i<test.length;i++) {
+			int eng_sum=0;
+			eng_sum+=test[i][0];
+		}
+		int kor_sum;
+		for(int i=0;i<test.length;i++) {
+			int kor_sum=0;
+			kor_sum+=test[i][0];
+		}
+		
+		
+	}
+}

@@ -1,0 +1,21 @@
+package Ch11;
+
+class C01simple{
+	
+	int num1;
+	int num2;
+	
+	public C01simple() {
+		num1=0;
+		num2=0;
+	}
+	
+	
+}
+
+
+public class C01StaticMain {
+	public static void main(String[] args) {
+		
+	}
+}

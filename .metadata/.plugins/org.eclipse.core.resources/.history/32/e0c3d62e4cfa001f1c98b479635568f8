@@ -1,0 +1,18 @@
+package Ch12;
+
+
+public class C02InheritanceMain {
+	public static void main(String[] args) {
+		
+		Point3D ob1 = new Point3D();
+		ob1.x = 10;
+		ob1.y = 20;
+		ob1.z = 30;
+		
+		System.out.println(ob1);
+		
+		
+		
+		
+	}
+}
