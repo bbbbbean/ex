@@ -1,4 +1,4 @@
-package Ch14;
+package Ch13ex;
 
 public class Won2Euro extends Converter{
 	// 1유로 1562원
