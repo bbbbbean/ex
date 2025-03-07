@@ -1,0 +1,24 @@
+package Ch13;
+
+// 일반 클래스 상속 관계
+class Super1{
+	void func() {}
+}
+class Sub1{
+	void func() {System.out.println("Overrided-Sub1.func() call");}	
+}
+
+
+// 추상 클래스 상속 관계
+class Super2{
+	
+}
+class Sub2{
+	
+}
+
+public class C01AbstractMain {
+	public static void main(String[] args) {
+		
+	}
+}

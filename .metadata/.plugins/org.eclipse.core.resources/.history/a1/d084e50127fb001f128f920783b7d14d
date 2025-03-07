@@ -1,0 +1,37 @@
+package Ch13;
+
+// 다중 상속
+// 일반 상속	 : 다중 상속 불가능
+// interface : 다중 상속 가능
+
+
+
+interface A{
+	void ab();
+}
+interface B{
+	void ab();
+}
+
+class C{
+	
+}
+class D{
+
+}
+class E extends C implements A,B{
+	
+}
+
+
+
+public class C05InterfaceMain {
+
+	public static void main(String[] args) {
+//		C c  =  new C();
+//		c.a();
+//		
+//		A a = c;
+//		a.a();
+	}
+}

@@ -1,0 +1,32 @@
+package Ch12;
+
+class C08Super{
+	// 메서드에 집중
+	void func1() {
+		System.out.println("C08Super.func1() call");
+	}
+}
+class C08Sub extends C08Super{
+	
+	void func2() {
+		System.out.println("C08Sub.func2() call");
+	}
+	
+}
+
+
+public class C08UpDownCastingMain {
+	public static void main(String[] args) {
+		// 
+		C08Super ob1 = new C08Super();		// No-casting
+		ob1.func1();
+		
+		System.out.println("-------------------------");
+		C08Sub ob2 = new C08Sub();			// No-casting
+		ob2.func1();
+		ob2.func2();
+		
+		System.out.println("-------------------------");
+		C08Super ob3 = new C08Sub();
+	}
+}

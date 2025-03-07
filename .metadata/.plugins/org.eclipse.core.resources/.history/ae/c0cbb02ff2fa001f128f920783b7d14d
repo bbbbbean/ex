@@ -1,0 +1,135 @@
+package Ch12;
+
+// 각 클래스에 모든 인자를 받는 생성자
+// toString
+class A{
+	int a;
+
+	public A(int a) {
+		super();
+		this.a = a;
+	}
+
+	@Override
+	public String toString() {
+		return "A [a=" + a + "]";
+	}
+}
+
+class B extends A{
+	int b;
+
+	public B(int a, int b) {
+		super(a);
+		this.b = b;
+	}
+
+	@Override
+	public String toString() {
+		return "B [b=" + b + ", a=" + a + "]";
+	}	
+}
+
+class C extends A{
+	int c;
+
+	public C(int a, int c) {
+		super(a);
+		this.c = c;
+	}
+
+	@Override
+	public String toString() {
+		return "C [c=" + c + ", a=" + a + "]";
+	}
+}
+class D extends B{
+	int d;
+
+	public D(int a, int b, int d) {
+		super(a, b);
+		this.d = d;
+	}
+
+	@Override
+	public String toString() {
+		return "D [d=" + d + ", b=" + b + ", a=" + a + "]";
+	}
+
+	
+	}
+class E extends B{
+	int e;
+
+	public E(int a, int b, int e) {
+		super(a, b);
+		this.e = e;
+	}
+
+	@Override
+	public String toString() {
+		return "E [e=" + e + ", b=" + b + ", a=" + a + "]";
+	}
+
+	
+	}
+class F extends C{
+	int f;
+
+	public F(int a, int c, int f) {
+		super(a, c);
+		this.f = f;
+	}
+
+	@Override
+	public String toString() {
+		return "F [f=" + f + ", c=" + c + ", a=" + a + "]";
+	}
+
+	
+	}
+class G extends C{
+	int g;
+
+	public G(int a, int c, int g) {
+		super(a, c);
+		this.g = g;
+	}
+
+	@Override
+	public String toString() {
+		return "G [g=" + g + ", c=" + c + ", a=" + a + "]";
+	}
+
+	
+	}
+
+
+public class C07UpDownCastingMain {
+	public static void UpDownCastingFunc(A obj) {
+		// 용도 : A-G 모든 객체를 받아 속성 출력
+		// 모든 객체의 공통 객체인 A로 받기
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		A ob1 = new A(10);
+		B ob2 = new B(10,20);
+		C ob3 = new C(30,40);
+		D ob4 = new D(50,60,70);
+		E ob5 = new E(80,90,100);
+		F ob6 = new F(110,120,130);
+		G ob7 = new G(140,150,160);
+		
+		UpDownCastingFunc(ob1);
+		UpDownCastingFunc(ob2);
+		UpDownCastingFunc(ob3);
+		UpDownCastingFunc(ob4);
+		UpDownCastingFunc(ob5);
+		UpDownCastingFunc(ob6);
+		UpDownCastingFunc(ob7);
+		
+	}
+}

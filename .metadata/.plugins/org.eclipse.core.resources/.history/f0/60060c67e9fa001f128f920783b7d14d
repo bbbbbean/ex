@@ -1,0 +1,16 @@
+package Ch12;
+
+class Super{
+	int n1;
+}
+
+class Sub{
+	int n2;
+}
+
+
+public class C06UpDownCastingMain {
+	public static void main(String[] args) {
+		
+	}
+}

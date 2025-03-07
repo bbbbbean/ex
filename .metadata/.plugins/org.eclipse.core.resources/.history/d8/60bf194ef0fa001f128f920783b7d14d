@@ -1,0 +1,15 @@
+package Ch12;
+
+class A{}
+class B{}
+class C{}
+class D{}
+class E{}
+class F{}
+
+
+public class C07UpDownCastingMain {
+	public static void main(String[] args) {
+		
+	}
+}

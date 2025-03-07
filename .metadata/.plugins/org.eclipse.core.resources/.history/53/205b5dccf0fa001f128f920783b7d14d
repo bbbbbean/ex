@@ -1,0 +1,35 @@
+package Ch12;
+
+// 각 클래스에 모든 인자를 받는 생성자
+// toString
+class A{
+	int a;
+	
+	}
+class B extends A{
+	int b;
+	}
+class C extends A{
+	int c;
+	}
+class D extends B{
+	int d;
+	}
+class E extends B{
+	int e;
+	}
+class F extends C{
+	int f;
+	}
+class G extends C{
+	int g;
+	}
+
+
+public class C07UpDownCastingMain {
+	public static void main(String[] args) {
+
+		
+		
+	}
+}

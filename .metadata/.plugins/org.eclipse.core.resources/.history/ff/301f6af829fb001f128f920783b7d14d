@@ -1,0 +1,101 @@
+package Ch13.Team_interface.이조;
+
+public class Mul implements Calculation{
+
+	@Override
+	public void sum(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sum(int... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sum(double... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sum(String... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sub(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sub(int... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sub(double... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sub(String... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mul(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mul(int... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mul(double... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mul(String... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void div(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void div(int... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void div(double... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void div(String... arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

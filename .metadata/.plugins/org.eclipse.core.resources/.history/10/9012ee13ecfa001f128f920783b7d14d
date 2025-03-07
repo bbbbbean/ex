@@ -1,0 +1,24 @@
+package Ch12;
+
+class Super{
+	int n1;
+}
+
+class Sub extends Super{
+	int n2;
+}
+
+
+public class C06UpDownCastingMain {
+	public static void main(String[] args) {
+		
+		// NoCasting : 자료형의 일치
+		// 부모는 부모, 자식은 자식으로 생성
+		Super ob1 = new Super();
+		ob1.n1 = 10;
+		
+		Sub ob2 = new Sub();
+		ob2.n1 = 10;
+		ob2.n2 = 20;
+	}
+}
