@@ -1,0 +1,24 @@
+package Ch08_ex;
+
+
+// 홍길동이 사과 장수에게 사과를 구매한다
+// 홍길동(고객), 사과장수(판매자) - 객체
+// 사과 개수 - 속성
+// 보유 금액 - 속성
+// 구매하기 - 고객의 기능
+
+class Buyer{
+	
+}
+class Seller{
+	
+}
+
+public class ex_02 {
+	public static void main(String[] args) {
+		
+		
+		
+		
+	}
+}

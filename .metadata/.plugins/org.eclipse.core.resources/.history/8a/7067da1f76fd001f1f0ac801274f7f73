@@ -1,0 +1,34 @@
+package Ch15;
+
+public class C04ExceptionMain {
+	public static void main(String[] args) {
+		
+		String str = null;
+		try {
+			str.toString();				// Null Exception
+		
+		int arr[] = {10,20,30};
+			arr[5] = 100;				// Bound Exception
+			Integer.parseInt("a1234");	// Parse Exception
+			
+		Animal animal = new Dog();
+		Cat yummi = (Cat)animal;	// Cast Exception
+			
+		}catch(NullPointerException e) {
+			System.out.println("예외 발생 : "+e);
+		}catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println("예외 발생 : "+e);
+		}catch(NumberFormatException e) {
+			System.out.println("예외 발생 : "+e);
+		}catch(ClassCastException e) {
+			System.out.println("예외 발생 : "+e);
+		}
+		
+		System.out.println("Hello World");
+		
+		
+	}
+}
+
+
+

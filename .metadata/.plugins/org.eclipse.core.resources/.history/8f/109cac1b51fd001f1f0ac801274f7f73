@@ -1,0 +1,26 @@
+package Ch14;
+
+import java.util.Date;
+
+public class C05DateMain {
+	public static void main(String[] args) {
+		// 시험에 무조건 나옴 -- 암기하듯 외우기
+		// 두가지 중에 하나 선택 : Date, Calendar
+		
+		// Date
+		Date d1 = new Date();
+		System.out.println(d1);
+		System.out.println(d1.getYear());
+		System.out.println(d1.getMonth());
+		System.out.println(d1.getDay());
+		System.out.println(d1.getHours());
+		System.out.println(d1.getMinutes());
+		System.out.println(d1.getSeconds());
+		System.out.println(d1.getTime());
+		
+		
+		
+		
+		
+	}
+}

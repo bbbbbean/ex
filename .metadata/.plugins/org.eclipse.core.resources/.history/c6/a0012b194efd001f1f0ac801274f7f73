@@ -1,0 +1,38 @@
+package Ch14;
+
+class C03Simple{
+	int n;
+	C03Simple(int n){
+		this.n = n;
+	}
+	
+	@Override	// equals함수 : 기존 위치 값(객체의 메모리주소값) 비교 -> n의 값 비교로 재정의
+	public boolean equals(Object obj) {
+		// int n에 접근하기 위해 downCasting 필요
+		if(obj instanceof C03Simple) {
+			C03Simple down = (C03Simple)obj;
+			
+			return this.n == down.n;
+		}
+	
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return this.n;
+	}
+	
+	
+	
+}
+
+public class C03ObjectMain {
+	public static void main(String[] args) {
+		C03Simple ob1 = new C03Simple(1);
+		System.out.println(ob1.toString());	// Ch14.C03Simple@2ff4acd0
+		
+		C03Simple ob2 = new C03Simple(9);
+		System.out.println(ob1.toString());	// Ch14.C03Simple@2ff4acd0
+	}
+}

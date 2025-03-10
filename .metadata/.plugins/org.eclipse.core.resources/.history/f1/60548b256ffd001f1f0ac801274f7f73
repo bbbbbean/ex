@@ -1,0 +1,12 @@
+package Ch15;
+
+public class C01NullpointerExceptionMain {
+	public static void main(String[] args) {
+		
+		String str = null;
+		System.out.println(str.toString());
+		System.out.println("Hello Wolrd");
+		System.out.println("Hello Wolrd");
+		
+	}
+}

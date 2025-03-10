@@ -1,0 +1,19 @@
+package Ch14;
+
+import java.util.Scanner;
+
+// ********중요?
+// 데이터 -> 문자열 -> "2025-01-01 HH:MM:SS" 웹에서 받은 데이터 포멧(형태) -> DB 저장시 정제 필요 / DB종류마다 형태가 다름
+
+
+
+public class C06SimpleDateFormatMain {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("YYYY/MM/DD 입력 : ");
+		String ymd = sc.next();
+		
+		
+	}
+}

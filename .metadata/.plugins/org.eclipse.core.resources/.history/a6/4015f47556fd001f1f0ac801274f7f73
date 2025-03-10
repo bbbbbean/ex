@@ -1,0 +1,27 @@
+package Ch14;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+// ********중요?
+// 데이터 -> 문자열 -> "2025-01-01 HH:MM:SS" 웹에서 받은 데이터 포멧(형태) -> DB 저장시 정제 필요 / DB종류마다 형태가 다름
+
+
+
+public class C06SimpleDateFormatMain {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("YYYY/MM/DD 입력 : ");
+		String ymd = sc.next();
+		
+		// 포매터 객체 생성(입력용)
+		SimpleDateFormat fmtin = new SimpleDateFormat("yyyy/MM/dd");	// y,M,d,h,m,s
+		System.out.println(ymd);
+		Date date = fmtin.parse(ymd);
+		System.out.println(date);
+		
+		
+	}
+}
