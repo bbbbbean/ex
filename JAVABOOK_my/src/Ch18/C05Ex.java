@@ -21,22 +21,22 @@ class GUI extends JFrame{
 	public GUI(String title) {
 		super(title);
 		
-		setBounds(100,100,447,610);
+		setBounds(100,100,467,610);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		
 		// 버튼 설정
-		JButton btn1 = new JButton("파일로 저장"); 
+		JButton btn1 = new JButton("파일로저장"); 
 		JButton btn2 = new JButton("1:1 요청"); 
-		JButton btn3 = new JButton("대화 기록 보기"); 
+		JButton btn3 = new JButton("대화기록보기"); 
 		JButton input = new JButton("입력");
 		
-		btn1.setBounds(320,10,100,30);
-		btn2.setBounds(320,50,100,30);
-		btn3.setBounds(320,90,100,30);
-		input.setBounds(320,520,100,40);
+		btn1.setBounds(320,10,120,30);
+		btn2.setBounds(320,50,120,30);
+		btn3.setBounds(320,90,120,30);
+		input.setBounds(320,520,120,40);
 		
 		// 텍스트 영역 설정
 		JTextArea area1 = new JTextArea();
