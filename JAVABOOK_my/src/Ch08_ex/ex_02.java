@@ -37,7 +37,6 @@ class Buyer{
 		// seller에게 money 전달 리턴되는 사과 개수 누적
 		appleCnt+=seller.receive(money); 
 	}
-	
 }
 class Seller{
 	private int myMoney;

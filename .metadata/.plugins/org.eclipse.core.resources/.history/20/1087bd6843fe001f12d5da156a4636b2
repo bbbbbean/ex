@@ -1,0 +1,17 @@
+package Ch17;
+
+public class C08PropertiesMain {
+	public static void main(String[] args) {
+		
+		// class 경로 정보들 확인
+		String classPath = System.getProperty("java.class.path");
+		System.out.println("classPath"+classPath);
+		
+		String dirPath = System.getProperty("user.dir");
+		System.out.println("dirPath"+dirPath);
+		
+		String packagePath = C08PropertiesMain.class.getPackageName();
+		System.out.println("dirPath"+dirPath);
+		
+	}
+}

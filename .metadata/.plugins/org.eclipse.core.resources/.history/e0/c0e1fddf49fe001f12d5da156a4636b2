@@ -1,0 +1,51 @@
+package Ch18;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+// 클래스가 관리가 편함 -> 클래스화 시키기
+class C04GUI extends JFrame{
+	
+	public C04GUI(String title) {
+		// Frame
+		// 프레임의 기본 옵션
+		super(title);
+		setBounds(100,100,500,500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
+		// panel
+		JPanel panel = new JPanel();
+		// panel 배경색 변경
+//		Color col = new Color(71,20,0);	// rgb 컬러코드
+//		panel.setBackground(col);
+		panel.setLayout(null);
+		
+		// Component
+		JButton btn1 = new JButton("BTN01");
+		btn1.setBounds(10, 10, 100, 30);
+		
+		// panel에 component 추가
+		panel.add(btn1);
+		
+		
+		// Frame에 Panel 삽입
+		add(panel);
+	}
+	
+	
+}
+
+
+
+public class C04SwingMain {
+	public static void main(String[] args) {
+		new C04GUI("네번째 프레임입니다.");	
+		
+		
+		
+		
+	}
+}

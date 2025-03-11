@@ -1,7 +1,0 @@
-package Ch08;
-
-public class C07가변인자 {
-	public static void main(String[] args) {
-		
-	}
-}

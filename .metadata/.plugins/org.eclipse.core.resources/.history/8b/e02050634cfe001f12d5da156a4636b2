@@ -1,0 +1,47 @@
+package Ch18;
+
+import javax.swing.JFrame;
+
+class GUI extends JFrame{
+	
+	//Component 참조변수명
+	//textarea = area1
+	//textarea's scroll = scroll1
+	//파일로저장 : btn1
+	//1:1요청 : btn2
+	//대화기록보기 : btn3
+	//입력 : input
+	//textfield : txt1
+	
+	public GUI(String title) {
+		super(title);
+		
+		setBounds(100,100,800,500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+}
+
+
+public class C05Ex {
+
+	public static void main(String[] args) {
+		
+
+		
+	}
+
+}

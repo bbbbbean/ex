@@ -1,0 +1,18 @@
+package Ch17;
+
+import java.util.Map;
+
+// Map**
+
+public class C06MapMain {
+	public static void main(String[] args) {
+		Map<String,Integer> map = new HashMap();
+		
+		// 추가
+		map.put("aaa", 1111)
+		
+		
+		
+		
+	}
+}

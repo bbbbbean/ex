@@ -1,0 +1,29 @@
+package Ch16;
+
+
+class C04Animal{
+	String name;
+}
+class Panda extends C04Animal{
+	
+	// 생성자
+	public Panda() {
+		super();
+	}
+	
+	
+
+}
+class Tiger extends C04Animal{
+	
+}
+
+
+
+public class C04GenericMain {
+	public static void main(String[] args) {
+		
+		
+		
+	}
+}

@@ -1,0 +1,16 @@
+package Ch17;
+
+import java.util.HashSet;
+
+
+public class C04Ex {
+	public static void main(String[] args) {
+		
+		// 1 ) 1~45까지 숫자 6개를 랜덤으로 받아(Random 클래스 이용) set에 저장 / 출력
+		// 2 ) 저장된 set 오름차순 정렬 - stream 함수 사용
+		
+		Set<String> random = new HashSet();
+		
+		
+	}
+}

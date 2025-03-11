@@ -1,0 +1,22 @@
+package Ch16;
+
+
+class Animal{
+	String name;
+}
+class Panda{
+	
+}
+class Tiger{
+	
+}
+
+
+
+public class C04GenericMain {
+	public static void main(String[] args) {
+		
+		
+		
+	}
+}

@@ -1,0 +1,47 @@
+package Ch16;
+
+// 함수
+
+class Animal{
+	String name;
+}
+class Panda extends Animal{
+
+	public Panda(String name) {
+		this.name=name;
+	}
+
+	@Override
+	public String toString() {
+		return "Panda [name=" + name + "]";
+	}
+}
+
+class Tiger extends Animal{
+	public Tiger(String name) {
+		this.name=name;
+	}
+
+	@Override
+	public String toString() {
+		return "Tiger [name=" + name + "]";
+	}
+}
+
+
+
+public class C04GenericMain {
+	
+	// Generic
+	public static <T> void PrintByGeneric(T [] arr) {
+	// public static void PrintByGeneric(동물 클래스 [] arr)
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		
+		
+	}
+}
