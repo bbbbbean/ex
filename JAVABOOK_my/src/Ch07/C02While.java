@@ -308,45 +308,45 @@ public class C02While {
 //			i++;
 //		}
 		
-//		Scanner sc = new Scanner(System.in);
-//		while(true) {
-//			System.out.println("정수를 입력하세요");
-//			int n = sc.nextInt();
-//			if(n%2==0) {
-//				System.out.println("홀수만 입력 가능합니다.");
-//			}else {
-//				int i=0;
-//				while(i<n) {
-//					
-//					if(i<(n+1)/2) {
-//						int j=0;
-//						while(j<(n/2)-i) {
-//							System.out.print(" ");
-//							j++;
-//						}
-//						int star=0;
-//						while(star<=2*i) {
-//							System.out.print("*");
-//							star++;
-//						}
-//					}else {
-//						int j=0;
-//						while(j<i-(n/2)) {
-//							System.out.print(" ");
-//							j++;
-//						}
-//						int star=0;
-//						while(star<(2*n-1)-(2*i)) {
-//							System.out.print("*");
-//							star++;
-//						}
-//					}
-//					System.out.println();
-//					i++;
-//				}
-//				break;
-//			}
-//		}
+		Scanner sc = new Scanner(System.in);
+		while(true) {	// 홀수만 입력 가능하게 판별위한 루프
+			System.out.println("정수를 입력하세요");
+			int n = sc.nextInt();
+			if(n%2==0) {	// 짝수의 경우
+				System.out.println("홀수만 입력 가능합니다.");
+			}else {	// 홀수가 들어온 경우
+				int i=0;
+				while(i<n) {	// 입력한 수 만큼 줄 출력
+					if(i<(n+1)/2) {	// 중심점 잡기
+						int space=0;	// 공백
+						while(space<(n/2)-i) {
+							System.out.print(" ");
+							space++;
+						}
+						int star=0;	// 별
+						while(star<2*i+1) {
+							System.out.print("*");
+							star++;
+						}
+					}else {
+						int space=0;	// 공백
+						while(space<=i-((n+1)/2)) {
+							System.out.print(" ");
+							space++;
+						}
+						int star=0;		// 별
+						while(star<(2*n-1)-(2*i)) {	
+							System.out.print("*");
+							star++;
+						}
+					}
+					System.out.println();
+					i++;
+				}
+				break;	// 완료 후 종료
+			}
+		}
+		sc.close();
 		
 
 				
@@ -441,47 +441,47 @@ public class C02While {
 //		}
 		
 		// 높이 n일 경우
-		Scanner sc = new Scanner(System.in);
-		while(true) {
-			System.out.println("정수 n을 입력하세요");
-			int n = sc.nextInt();
-			if(n%2==0) {
-				System.out.println("홀수를 입력하세요");
-			}else {
-				int i = 0;
-				
-				while(i<n) {
-					if(i<(n+1)/2) {
-						int space = 0;
-						while(space<=i-1) {
-							System.out.print(" ");
-							space++;
-						}
-						int star = 0;
-						while(star<=(n-1)-(i*2)) {
-							System.out.print("*");
-							star++;
-						}
-						System.out.println();
-						i++;
-					}else {
-						int space = 0;
-						while(space<=(n-2)-i) {
-							System.out.print(" ");
-							space++;
-						}
-						int star = 0;
-						while(star<=2*i-(n-1)){
-							System.out.print("*");
-							star++;
-						}
-						System.out.println();
-						i++;
-					}
-				}
-				break;
-			}
-		}
+//		Scanner sc = new Scanner(System.in);
+//		while(true) {
+//			System.out.println("정수 n을 입력하세요");
+//			int n = sc.nextInt();
+//			if(n%2==0) {
+//				System.out.println("홀수를 입력하세요");
+//			}else {
+//				int i = 0;
+//				
+//				while(i<n) {
+//					if(i<(n+1)/2) {
+//						int space = 0;
+//						while(space<=i-1) {
+//							System.out.print(" ");
+//							space++;
+//						}
+//						int star = 0;
+//						while(star<=(n-1)-(i*2)) {
+//							System.out.print("*");
+//							star++;
+//						}
+//						System.out.println();
+//						i++;
+//					}else {
+//						int space = 0;
+//						while(space<=(n-2)-i) {
+//							System.out.print(" ");
+//							space++;
+//						}
+//						int star = 0;
+//						while(star<=2*i-(n-1)){
+//							System.out.print("*");
+//							star++;
+//						}
+//						System.out.println();
+//						i++;
+//					}
+//				}
+//				break;
+//			}
+//		}
 		
 		
 		

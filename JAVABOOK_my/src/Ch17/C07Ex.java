@@ -14,11 +14,11 @@ public class C07Ex {
 	public static void setMap( Map<String,Object> params ) {
 	// Object를 value 형태로 넣으면? 모든 객체를 다 받아낼 수 있음
 		//params console에 출력
-		//params를 map 에 저장 
+		//params를 map 에 저장
 		for(String key:params.keySet()) {
 			Object value = params.get(key);
 			map.put(key, value);
-			System.out.println(key+" : "+value);
+			System.out.println(key+" : "+(value instanceof String[]?Arrays.toString((String[])value):value));
 		}
 	}
 	

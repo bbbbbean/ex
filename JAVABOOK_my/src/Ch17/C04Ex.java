@@ -1,6 +1,8 @@
 package Ch17;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -35,7 +37,9 @@ public class C04Ex {
 		
 		// 3 )
 		List<Integer> list = new ArrayList(set);
-		Collection
+		Collections.sort(list);
+		for(int num : list)
+			System.out.print(num+" ");
 		
 		
 		

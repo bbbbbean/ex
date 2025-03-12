@@ -22,6 +22,7 @@ public class C06MapMain {
 		// 확인
 		System.out.println("SIZE : "+map.size());
 		System.out.println("단건 : "+map.get("bbb"));
+		System.out.println("단건 : "+map.get("ddd"));
 		
 		
 		// for

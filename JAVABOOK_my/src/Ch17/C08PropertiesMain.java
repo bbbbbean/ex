@@ -32,5 +32,7 @@ public class C08PropertiesMain {
 		String password = properties.getProperty("password");
 		
 		System.out.printf("%s %s %s\n",url,username,password);
+		
+		
 	}
 }
