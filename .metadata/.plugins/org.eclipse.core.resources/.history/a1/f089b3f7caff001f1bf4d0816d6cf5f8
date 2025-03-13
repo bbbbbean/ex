@@ -1,0 +1,14 @@
+package Ch19;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.Reader;
+
+public class C02ReaderMain {
+	public static void main(String[] args) throws Exception {
+		
+		Reader fin = new FileReader("C:\\IOTEST\\test1.txt");
+		
+		
+	}
+}

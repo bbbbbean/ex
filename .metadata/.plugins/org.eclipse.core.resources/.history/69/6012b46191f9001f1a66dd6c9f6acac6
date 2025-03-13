@@ -1,7 +1,0 @@
-package Ch10;
-
-public class C02ArrayMain {
-	public static void main(String[] args) {
-		
-	}
-}

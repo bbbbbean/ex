@@ -1,0 +1,23 @@
+package Ch19;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+public class C05FileInputStreamMain {
+	public static void main(String[] args) throws Exception {
+		
+		InputStream fin = new FileInputStream("C:\\IOTEST\\data.csv");
+		StringBuffer stringBuffer = new StringBuffer();
+		
+		// fin.read() 확인
+		while(true) {
+			int data = fin.read();
+			if(data==-1) break;
+			
+			System.out.println((char)data);
+		}
+		
+		
+	}
+}

@@ -1,0 +1,29 @@
+package Ch19;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+
+// 문자 스트림(Char, 2byte)
+// 바이트 스트림(byte, 1byte)
+
+// 파일에 내용을 저장할 예정
+
+public class C01WritenMain {
+	public static void main(String[] args) throws Exception {
+		
+		// 업캐스팅
+		// 작성 : 실행하면 해당 위치에 write로 쓰인 문구 적힌 test1.txt 생겨있음
+//		Writer fout = new FileWriter("C:\\IOTEST\\test1.txt",false); // 아래 내용 바꾸고 실행 시 덮어쓰기
+		Writer fout = new FileWriter("C:\\IOTEST\\test1.txt",true); // 아래 내용 바꾸고 실행 시 이어쓰기
+		fout.write("TEST1\n");
+		fout.write("TEST2\n");
+		fout.write("TEST3\n");
+		fout.write("TEST4\n");
+		// 출력스트림 받기
+		fout.flush();
+		fout.close();
+		
+		
+	}
+}

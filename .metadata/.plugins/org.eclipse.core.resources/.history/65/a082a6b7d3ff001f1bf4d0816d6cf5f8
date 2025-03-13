@@ -1,0 +1,15 @@
+package Ch19;
+
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+public class C05FileInputStreamMain {
+	public static void main(String[] args) {
+		
+		InputStream fin = new FileInputStream("data.csv");
+		
+		
+		
+		
+	}
+}

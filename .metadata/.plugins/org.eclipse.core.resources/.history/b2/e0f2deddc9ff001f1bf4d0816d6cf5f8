@@ -1,0 +1,17 @@
+package Ch19;
+
+// 문자 스트림(Char, 2byte)
+// 바이트 스트림(byte, 1byte)
+
+// 파일에 내용을 저장할 예정
+
+public class C01WritenMain {
+	public static void main(String[] args) {
+		
+		// 업캐스팅
+		File fi = new FileWriter(C:\IOTEST);
+		
+		
+		
+	}
+}

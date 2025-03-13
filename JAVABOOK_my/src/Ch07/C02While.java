@@ -315,6 +315,7 @@ public class C02While {
 			if(n%2==0) {	// 짝수의 경우
 				System.out.println("홀수만 입력 가능합니다.");
 			}else {	// 홀수가 들어온 경우
+				System.out.println("높이 : "+n);
 				int i=0;
 				while(i<n) {	// 입력한 수 만큼 줄 출력
 					if(i<(n+1)/2) {	// 중심점 잡기

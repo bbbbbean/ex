@@ -1,0 +1,9 @@
+package Ch19;
+
+public class C03FileCopyMain {
+	
+	private static String fileDir = "C:\\IOTEST";
+	public static void main(String[] args) {
+		
+	}
+}
