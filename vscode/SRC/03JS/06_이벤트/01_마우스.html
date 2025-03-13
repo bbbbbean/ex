@@ -74,7 +74,7 @@
         const d1El = document.querySelector('.d1');
         var cnt=0;  // 클릭 카운트 
         d1El.addEventListener('click',(e)=>{    // 이벤트 객체 : e, 이벤트 관련 요소들을 보여줌(이벤트 발생 좌표 등등)
-            // console.log('clicked',e);
+            console.log('clicked',e);
             console.log('clicked',e.target);    // 이벤트가 일어난 태그 표시
             d1El.innerHTML=`<h1>${++cnt}<h1>`
         });

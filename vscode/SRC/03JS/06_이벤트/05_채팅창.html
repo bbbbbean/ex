@@ -9,32 +9,51 @@
     </style>
 </head>
 <body>
-    KEYDOWN : <input id="input2"><br/>
+    KEYDOWN : <input id="input2"><br>
     <p id="p2"></p>
-    <hr/>
+    <hr>
 
-    <script>
+    <!-- <script>
         const keydownEl = document.querySelector('#input2')
         const p2El = document.querySelector('#p2')
 
-        keydownEl.addEventListener('keydown', (e)=>{
-            console.log('keydown',e)
-            console.log('keydown',e.key)
-            console.log('keydown',e.keycode)
+        keydownEl.addEventListener('keydown', (e) => {
+            console.log('keydown', e)
+            console.log('keydown', e.key)
+            console.log('keydown', e.keycode)
             // p2El.innerHTML = e.key + " " + e.keycode;
 
             // 입력을 하고 나서 엔터를 치면 입력한 값이 저장되게 하기
             // 엔터에 대한 이벤트
-            if(e.keycode === 13){   // 엔터 키코드가 13
+            if(e.keycode===13){   // 엔터 키코드가 13
                 const text = keydownEl.value;   // 친 문자열
                 // 문자열 p태그에 넣어 주기
                 const newEl = document.createElement('div');
-                newEl.innerHTML = text;
+                newEl.innerHTML=text;
                 p2El.prepend(newEl);    // prepend 이거 뭐더라..
-                keydownEl.value = "";   // 엔터 친 뒤 값 초기화
+                keydownEl.value="";   // 엔터 친 뒤 값 초기화
             }
         })
         
+    </script> -->
+
+    <script>
+        const keydownEl = document.querySelector('#input2')
+        const p2El = document.querySelector('#p2')
+        keydownEl.addEventListener('keydown', (e) => {
+            console.log('keydown', e)
+            console.log('keydown', e.key)
+            console.log('keydown', e.keyCode)
+            // p2El.innerHTML = e.key + " " + e.keyCode;
+            if(e.keyCode===13){
+                const text = keydownEl.value;
+                const newEl = document.createElement('div');
+                newEl.innerHTML=text;
+                p2El.prepend(newEl);
+                keydownEl.value="";
+            }
+
+        })
     </script>
 </body>
 </html>
