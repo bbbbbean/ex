@@ -1,0 +1,17 @@
+package Ch19;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class C09URLStreamMain {
+	public static void main(String[] args) throws Exception {
+		
+		URL url = (new URL("https://n.news.naver.com/article/662/0000063734?cds=news_media_pc&type=editn")).toURL();
+		
+		
+		
+		
+		
+		
+	}
+}

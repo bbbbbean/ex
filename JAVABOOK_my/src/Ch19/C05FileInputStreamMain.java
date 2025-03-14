@@ -16,7 +16,7 @@ public class C05FileInputStreamMain {
 //			int data = fin.read();
 //			if(data==-1) break;
 //			
-////			System.out.print((char)data);
+//			System.out.print((char)data);
 //		}
 //		long eTime = System.currentTimeMillis();
 //		System.out.println("소요시간 : "+(eTime-sTime)+"ms");
@@ -29,7 +29,7 @@ public class C05FileInputStreamMain {
 			int data = fin.read(buf);
 			if(data==-1) break;
 			
-//			System.out.print((char)data);
+			System.out.print((char)data);
 		}
 		long eTime = System.currentTimeMillis();
 		System.out.println("소요시간 : "+(eTime-sTime)+"ms");

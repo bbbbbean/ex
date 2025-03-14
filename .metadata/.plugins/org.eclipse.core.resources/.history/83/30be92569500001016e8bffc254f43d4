@@ -1,0 +1,41 @@
+package Ch19;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+public class C12RestRequestResponseMain {
+	public static void main(String[] args) throws Exception, InterruptedException {
+		// 중요~!
+		// 공공데이터 API : 기상청 등은 키가 필요함
+		
+		// https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=중구
+		// https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC
+		
+		// parameter의 각 역할 설명
+		// ' 필수 파라미터
+		// ' mode: json
+		// ' addr : 지역(중구,동구,남구 등등), 
+		
+		
+		// URL, PARAM 지정
+		String url = "https://www.daegufood.go.kr/kor/api/tasty.html";
+		String mode = "json";
+		String addr = "북구";
+		url += url+"?mode="+mode+"&addr="+addr;
+		
+		// Http Request 객체 생성 : 요청에 필요한 객체
+		HttpRequest httpRequest = HttpRequest.newBuilder()
+									.uri(URI.create(url))	// 속성
+									.GET()	// 속성, 요청방식
+									.build();
+		// Http Request 요청 / 응답 확인 객체
+		HttpClient httpClient = HttpClient.newHttpClient();
+		
+		httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+		
+		
+	}
+}

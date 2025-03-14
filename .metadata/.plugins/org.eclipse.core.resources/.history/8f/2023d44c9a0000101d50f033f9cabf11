@@ -1,0 +1,51 @@
+package Ch19;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class C12RestRequestResponseMain {
+	public static void main(String[] args) throws Exception, InterruptedException {
+		// 중요~!
+		// 공공데이터 API : 기상청 등은 키가 필요함
+		
+		// https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=중구
+		// https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC
+		
+		// parameter의 각 역할 설명
+		// ' 필수 파라미터
+		// ' mode: json
+		// ' addr : 지역(중구,동구,남구 등등), 
+		
+		
+		// URL, PARAM 지정
+		String url = "https://www.daegufood.go.kr/kor/api/tasty.html";
+		String mode = "json";
+		String addr = "북구";
+		url += "?mode="+mode+"&addr="+addr;
+		
+		// Http Request 객체 생성 : 요청에 필요한 객체
+		HttpRequest httpRequest = HttpRequest.newBuilder()
+									.uri(URI.create(url))	// 속성
+									.GET()	// 속성, 요청방식
+									.build();
+		// Http Request 요청 / 응답 확인 객체
+		HttpClient httpClient = HttpClient.newHttpClient();
+		HttpResponse<String> response = 
+		httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());	// (전달할 거, 전달할때 어떤 식으로 커넥트할건지)
+//		System.out.println(response);
+		
+		// 가공 처리 (Class Type vs JSON Type)
+		// - 라이브러리 도움 필요 jackson (databind, core, annotation) 같은 버전으로 다운 받기
+		ObjectMapper objectMapper = new ObjectMapper();
+		
+		// JSON TYPE
+		JsonNode jsonNode = objectMapper.readTree(response.body());
+		
+		
+	}
+}

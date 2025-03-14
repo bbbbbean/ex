@@ -1,0 +1,118 @@
+package Ch19;
+
+import java.util.ArrayList;
+
+public class C13Ex {
+	public static void main(String[] args) {
+		// API 받아오는 작업
+		// OPENWEATHER MAP API 를 이용해서 날씨 정보 받아옵니다 
+		//(https://openweathermap.org/api/one-call-3)
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	private static class Clouds{
+	    public int all;
+	    
+	    Clouds(){}
+	    
+		public Clouds(int all) {
+			super();
+			this.all = all;
+		}
+		
+		public int getAll() {
+			return all;
+		}
+		public void setAll(int all) {
+			this.all = all;
+		}
+	    
+	}
+
+	private static class Coord{
+	    public double lon;
+	    public double lat;
+	    
+	    Coord(){}
+	    
+		public Coord(double lon, double lat) {
+			super();
+			this.lon = lon;
+			this.lat = lat;
+		}
+
+		public double getLon() {
+			return lon;
+		}
+
+		public void setLon(double lon) {
+			this.lon = lon;
+		}
+
+		public double getLat() {
+			return lat;
+		}
+
+		public void setLat(double lat) {
+			this.lat = lat;
+		}
+	    
+	    
+	}
+
+	private static class Main{
+	    public double temp;
+	    public double feels_like;
+	    public double temp_min;
+	    public double temp_max;
+	    public int pressure;
+	    public int humidity;
+	    public int sea_level;
+	    public int grnd_level;
+	}
+
+	private static class Root{
+	    public Coord coord;
+	    public ArrayList<Weather> weather;
+	    public String base;
+	    public Main main;
+	    public int visibility;
+	    public Wind wind;
+	    public Clouds clouds;
+	    public int dt;
+	    public Sys sys;
+	    public int timezone;
+	    public int id;
+	    public String name;
+	    public int cod;
+	}
+
+	private static class Sys{
+	    public String country;
+	    public int sunrise;
+	    public int sunset;
+	}
+
+	private static class Weather{
+	    public int id;
+	    public String main;
+	    public String description;
+	    public String icon;
+	}
+
+	private static class Wind{
+	    public double speed;
+	    public int deg;
+	    public double gust;
+	}
+
+
+
+
+}

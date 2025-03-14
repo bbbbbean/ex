@@ -1,0 +1,39 @@
+package Ch19;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+//크롬서버.jar 다운로드 경로(셀레니움 공식 홈페이지)
+//https://www.selenium.dev/downloads/
+
+//크롬드라이브 다운로드 경로
+//https://googlechromelabs.github.io/chrome-for-testing/#stable
+
+public class C11SelenumAPIMain {
+	
+	private static final String WEB_DRIVER_ID="webdriver.chrome.driver";
+	private static final String WEB_DRIVER_PATH="src/Drivers/chromedriver.exe";
+	
+	public static void main(String[] args) {
+		// 사람이 하는 거랑 동일 = 봇처리 피할 수 있음..?
+		
+		// 브라우저 옵션
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");		// 눈에 보이지 않지만 처리하기 위한 옵션, 백그라운드 실행 옵션
+//		options.addArguments("--no-sandbox");	// 가상화 도구 사용시 다른 자원과의 연결 시 문제가 생길 수 있음 -> 격리화 과정, 리눅스 환경 sendbox 사용 여부 
+		
+		// 브라우저 동작
+		WebDriver driver = new ChromeDriver(options);
+		driver.get("http://www.naver.com");
+		
+		// 특정 위치 요소 선택(키워드 입력하기)
+		WebElement searchEl = driver.findElement(By.id("query"));
+		
+		
+		
+		
+		
+	}
+}

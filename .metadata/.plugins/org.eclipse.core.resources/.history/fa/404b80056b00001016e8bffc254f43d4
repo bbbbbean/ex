@@ -1,0 +1,31 @@
+package Ch19;
+
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URI;
+import java.net.URL;
+
+public class C09URLStreamMain {
+	public static void main(String[] args) throws Exception {
+		
+		// URL url = (new URL("https://n.news.naver.com/article/662/0000063734?cds=news_media_pc&type=editn")).toURI();
+		// url 주소 가져오기
+		URL url = (new URI("https://n.news.naver.com/article/662/0000063734?cds=news_media_pc&type=editn")).toURL(); 
+		InputStream in = url.openStream();
+		
+		OutputStream out = new FileOutputStream("C:\\IOTEST\\index.html");
+		
+		while(true) {
+			int data = in.read();
+			if(data==-1)break;	// 문서 종료시 반복문 종료 설정
+			
+//			System.out.print((byte)data);
+			System.out.print((char)data);
+		}
+		
+		
+		
+		
+	}
+}

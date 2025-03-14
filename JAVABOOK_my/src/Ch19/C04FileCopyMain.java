@@ -9,7 +9,7 @@ import java.io.Writer;
 public class C04FileCopyMain {
 
 	
-	public static void main(String[] args) throws IOException	//args[0] 원본파일 args[1] 대상파일
+	public static void main(String[] args) throws IOException
 	{
 		
 		Reader fin = new FileReader("C:\\IOTEST\\test3.txt");//원본파일
