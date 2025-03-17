@@ -24,7 +24,7 @@ public class C09URLStreamMain {
 		Reader rin = new InputStreamReader(buffIn);					// byte -> char 변환
 		// 결과값인 rin을 read값으로 사용
 		
-		Writer out = new FileWriter("C:\\\\IOTEST\\\\index.html");
+		Writer out = new FileWriter("C:\\IOTEST\\index.html");
 //		OutputStream out = new FileOutputStream("C:\\IOTEST\\index.html");
 		
 		while(true) {

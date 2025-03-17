@@ -1,7 +1,0 @@
-package Ch14;
-
-public class C05DateMain {
-	public static void main(String[] args) {
-		// 시험에 무조건 나옴 -- 암기하듯 외우기
-	}
-}
