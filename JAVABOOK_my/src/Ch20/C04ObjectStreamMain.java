@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 // 객체단위로 데이터를 주고받을 수 있다.
-// 바뀐 구조 구별을 윟 시리얼로 구분하면 좋다
+// 바뀐 구조 구별을 위해 시리얼로 구분하면 좋다
 
 
 class Board implements Serializable{	// 반드시 Serializable과 상속관계 (찾아보기, 직렬화)
@@ -74,12 +74,12 @@ public class C04ObjectStreamMain {
 	
 	
 	public static void main(String[] args) throws Exception{
-		// 통신 ㄸ 자주 사용
+		// 통신 때 자주 사용
 		
 //		FileOutputStream out = new FileOutputStream("C:\\IOTEST\\board.db");	// 다른 컴퓨터로 넘기기도 가능
 //		ObjectOutputStream oout = new ObjectOutputStream(out);
-//		oout.writeObject(new Board(1,"제목1","하2","홍길동",new Date()));;
-//		oout.writeObject(new Board(2,"제목2","하3","남길동",new Date()));;
+//		oout.writeObject(new Board(1,"제목1","하2","홍길동",new Date()));
+//		oout.writeObject(new Board(2,"제목2","하3","남길동",new Date()));
 //		oout.flush();
 //		oout.close();
 //		out.close();

@@ -1,9 +1,0 @@
-package Ch17;
-
-// Map**
-
-public class C06MapMain {
-	public static void main(String[] args) {
-		Map<String,Integer> map = new HashMap();
-	}
-}

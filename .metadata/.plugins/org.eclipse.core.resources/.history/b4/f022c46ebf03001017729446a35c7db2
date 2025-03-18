@@ -1,0 +1,26 @@
+package Ch22;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class C02Client {
+	public static void main(String[] args) throws Exception, IOException {
+		
+		Socket client = new Socket("192.168.16.203",7000);	
+
+		// 대화 주고받기 위한 설정
+		// in, out
+		OutputStream out = client.getOutputStream();
+		DataOutputStream dout = new DataOutputStream(out);
+		InputStream in = client.getInputStream();
+		DataInputStream din = new DataInputStream(in);
+		
+		
+		
+	}
+}

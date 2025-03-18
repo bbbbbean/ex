@@ -28,6 +28,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.text.BadLocationException;
@@ -81,6 +82,171 @@ class Memo{
 	}
 }
 
+class SelectFrame extends JFrame implements MouseListener,ActionListener{
+	// Select 창 - 서브 창
+	// 내용 전달 등 역할이 있음 -> 클래스로 만들어 빼기
+	
+	// C07GUI를 받을 참조변수
+	C07GUI mainUi;
+	
+	// 조회 값을 표시할 테이블 생성
+	JTable table;
+	
+	// 테이블 값이 많아질 때 대비
+	JScrollPane scroll;
+	
+	// 패널
+	JPanel panel;
+	
+	String selectedText;
+	JButton btn1;
+	
+	// C07GUI와 상호작용 해야하니까 연결
+	SelectFrame(C07GUI mainUi){
+		super("SELECT 결과");
+		this.mainUi = mainUi;
+		
+		setBounds(100,100,520,500);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	// 해당 창만 제거 옵션 : DISPOSE_ON_CLOSE
+		
+		setVisible(false);	// select 버튼을 누르면 창이 뜨도록 설정할 예정
+		
+		// panel
+		panel = new JPanel();
+		panel.setLayout(null);
+		
+		// 버튼 설정
+		btn1 = new JButton("가져오기");
+		btn1.setBounds(420,10,70,30);
+		btn1.addActionListener(this);
+		
+		panel.add(btn1);
+		
+		// frame(panel) - 상단에서 패널 생성 후 프레임과 연결
+		add(panel);
+		
+		// event
+		
+		
+		
+	}
+	
+	// select 프레임 생성 후 버튼을 누르면 조회 진행
+	void select(Connection conn, PreparedStatement pstmt, ResultSet rs) {
+		
+		if(scroll!=null) scroll = null;
+		
+		// 버튼 눌렀을 때 테이블 생성
+		// component - 테이블 생성
+		String [] columns = {"ID","TEXT","CREATED_AT"};
+//		String [][] data = {
+//				{"1","A","2025-03-17"}	// 샘플 데이터
+//		}; -> 리스트 스트링 형태 배열로 전환
+		List<String[]>data = new ArrayList();	// 동적 확장을 위해 컬렉션을 써서 배열 단위로 데이터를 받아낸 다음 2차원으로 변환**
+		// 변환은 DB값이 들어 온 뒤 가능 -> 내용 받아온 뒤로 변환 위치 이동
+		
+		// 전체 조회 가져와서 console에 출력
+		try {
+			// sql 준비
+			pstmt = conn.prepareStatement("select * from tbl_memo");
+						
+			// sql 실행
+			List<Memo> list = new ArrayList();
+			Memo memo;
+			rs = pstmt.executeQuery();
+						
+			if(rs != null) {
+				while(rs.next()) {
+//					System.out.print(rs.getInt("id")+" ");
+//					System.out.print(rs.getString("text")+" ");
+//					System.out.print(rs.getTime("createdAt")+"\n");
+//					System.out.print(rs.getTimestamp("createdAt")+"\n");
+								
+					memo = new Memo();
+					memo.setId(rs.getInt("id"));
+					memo.setText(rs.getString("text"));
+					Timestamp timestamp = rs.getTimestamp("createdAt");
+					memo.setCreatedAt(timestamp.toLocalDateTime());	// DB와 JAVA의 시간 포맷이 다름 -> 적절한 포매팅 작업이 필요 / 타임스탬프 이용
+					list.add(memo);
+					
+					// String 형으로 data 삽입 -> String[] 형태라..
+					data.add(new String[] {rs.getString("id"),rs.getString("text"),rs.getString("createdAt")});
+				}
+			}
+			list.forEach(System.out::println);
+			
+			// **2차원으로 변환 / 위치 이동
+			String[][] arr = new String[data.size()][];	// 행의 갯수를 리스트의 갯수로 받기
+			// for문으로 값 복사
+			for(int i=0; i<data.size();i++) {
+				arr[i] = data.get(i);
+			}
+			
+			
+			table = new JTable(arr, columns);	// 2차원 배열 형태 지키며 삽입
+			// table에 이벤트 추가
+			table.addMouseListener(this);
+//			table.setBounds(10, 10, 400, 400);
+					
+			scroll = new JScrollPane(table);
+			scroll.setBounds(10, 10, 400, 400);
+					
+			// panel(component) - 테이블과 패널 연결
+//			panel.add(table);
+			panel.add(scroll);
+						
+		} catch (SQLException e1) {e1.printStackTrace();}finally {
+			try{rs.close();}catch(Exception e2) {}
+			try{pstmt.close();}catch(Exception e2) {}
+		}	
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// 테이블 행 클릭 가능해짐
+		// 어떤 행 클릭했는지 그 위치에 대한 데이터 받아오기
+		int selectedRow = table.getSelectedRow();
+		selectedText = table.getValueAt(selectedRow, 1).toString();	// 변수화
+		System.out.println("Click"+selectedText);
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==btn1) {
+			// mainUI에 selectedText를 전달
+			mainUi.area1.setText(selectedText);
+			// 전달 후 현재 프레임 종료 처리를 원하면 dispose 사용
+//			dispose();
+			
+		}
+	}
+	
+}
+
 class C07GUI extends JFrame implements ActionListener,KeyListener,MouseListener{	// ActionListener 이벤트 추가를 위함
 	
 	// 이벤트 처리를 위해 각 버튼을 특정할 수 있도록 멤버 변수로 전환
@@ -94,15 +260,21 @@ class C07GUI extends JFrame implements ActionListener,KeyListener,MouseListener{
 	JTextField txt1;
 	JTextArea area1;
 	
-	//DB CONN DATA
+	// DB CONN DATA
 	static String id = "root";
 	static String pw = "1234";
 	static String url = "jdbc:mysql://localhost:3306/testdb";
 		
-	//JDBC참조변수
+	// JDBC참조변수
 	static Connection conn = null;
 	static PreparedStatement pstmt = null;
 	static ResultSet rs = null;
+	
+	// SELECT FRAME
+	// 본체(C07GUI)와 서브(SELECT)가 함께 뜨게 설정
+	SelectFrame selectFrame;
+	
+	
 	
 	public C07GUI(String title) throws Exception {
 		super(title);
@@ -119,7 +291,7 @@ class C07GUI extends JFrame implements ActionListener,KeyListener,MouseListener{
 		btn3 = new JButton("INSERT"); 
 		btn4 = new JButton("UPDATE"); 
 		btn5 = new JButton("DELETE"); 
-		btn6 = new JButton("SELECT ONE"); 
+		btn6 = new JButton("SELECT"); 
 		input = new JButton("입력");
 		
 		btn1.setBounds(320,10,120,30);
@@ -179,6 +351,10 @@ class C07GUI extends JFrame implements ActionListener,KeyListener,MouseListener{
 		// DB연결
 		conn = DriverManager.getConnection(url,id,pw);
 		System.out.println("DB Connected");
+		
+		// SELECT FRAME 연결
+		// SELECT FRAME과 상호작용 해야하니까 연결
+		selectFrame = new SelectFrame(this);	// this == C07GUI
 	}
 	
 	
@@ -303,38 +479,12 @@ class C07GUI extends JFrame implements ActionListener,KeyListener,MouseListener{
 			System.out.println("DELETE");
 			
 		}else if(e.getSource()==btn6) {	
-			// 전체 조회 가져와서 console에 출력
-			try {
-				// sql 준비
-				pstmt = conn.prepareStatement("select * from tbl_memo");
-				
-				// sql 실행
-				List<Memo> list = new ArrayList();
-				Memo memo;
-				rs = pstmt.executeQuery();
-				
-				if(rs != null) {
-					while(rs.next()) {
-//						System.out.print(rs.getInt("id")+" ");
-//						System.out.print(rs.getString("text")+" ");
-//						System.out.print(rs.getTime("createdAt")+"\n");
-//						System.out.print(rs.getTimestamp("createdAt")+"\n");
-						
-						memo = new Memo();
-						memo.setId(rs.getInt("id"));
-						memo.setText(rs.getString("text"));
-						Timestamp timestamp = rs.getTimestamp("createdAt");
-						memo.setCreatedAt(timestamp.toLocalDateTime());	// DB와 JAVA의 시간 포맷이 다름 -> 적절한 포매팅 작업이 필요 / 타임스탬프 이용
-						list.add(memo);
-					}
-				}
-				list.forEach(System.out::println);
-				
-			} catch (SQLException e1) {e1.printStackTrace();}finally {
-				try{rs.close();}catch(Exception e2) {}
-				try{pstmt.close();}catch(Exception e2) {}
-				
-			}
+			// 버튼 누르면 Ui창이 뜨게 설정
+			selectFrame.setVisible(true);
+			
+			// 전체 조회 가져와서 Console에 출력
+			selectFrame.select(conn, pstmt, rs);
+			
 			
 		}else{	
 			System.out.println("입력");

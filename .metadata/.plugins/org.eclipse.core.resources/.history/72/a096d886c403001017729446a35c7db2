@@ -1,0 +1,20 @@
+package Ch23;
+
+// 2가지 방식
+// run 인터페이스
+// thread 클래스
+
+
+public class C02ThreadMain {
+	public static void main(String[] args) {
+		
+		// Runnable Interface 스레드 분할
+		// 워커 스레드 생성 -> C02worker
+		
+		
+		// Thread class 스레드 분할
+		
+		
+		
+	}
+}
