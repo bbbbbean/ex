@@ -2,8 +2,9 @@
 <section name="Workbench">
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<section name="java.lang.Class">
-		<item key="replaceBarOpen" value="false"/>
+		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="Reflection"/>
 			<item value="th1"/>
 			<item value="select"/>
 			<item value="String selectedText"/>

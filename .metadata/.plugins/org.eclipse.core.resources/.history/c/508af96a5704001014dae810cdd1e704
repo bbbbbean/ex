@@ -1,0 +1,11 @@
+package Ch24;
+
+public class ServerSendThread implements Runnable{	// 대문자..
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

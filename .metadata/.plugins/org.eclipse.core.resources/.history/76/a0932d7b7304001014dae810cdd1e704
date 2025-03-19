@@ -1,0 +1,8 @@
+package Ex;
+
+import java.util.Scanner;
+
+public class 문제1 {
+	private static Scanner sc = new Scanner(System.in);
+	private static List<String> wordList = new ArrayList<String>();
+}

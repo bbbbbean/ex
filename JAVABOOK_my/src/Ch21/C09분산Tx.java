@@ -15,22 +15,22 @@ import com.mysql.cj.jdbc.MysqlXADataSource;
 public class C09분산Tx {
 	
 	public static void main(String[] args) throws Exception{
-		//트랜잭션은 기본적으로 단일 Connection 에서 여러 Sql처리시 Tx 설정할 수있다
-		//만약 여러 Connection 에서 각기 다른 sql문을 사용할 때 분산된 여러 Connection
-		//의 sql을 하나의 트랜잭션으로 묶어주어야한다
+		// 트랜잭션은 기본적으로 단일 Connection 에서 여러 Sql처리시 Tx 설정할 수있다
+		// 만약 여러 Connection 에서 각기 다른 sql문을 사용할 때 분산된 여러 Connection
+		// 의 sql을 하나의 트랜잭션으로 묶어주어야한다
 		
 		// 앱, 웹 등 : 보통은 다중 접속 상황
 		// 한 기능 안에 여러 DB 연결 상황 - 다중 connection 상황
 		// -> 분산되어 있는 상황에서도 하나로 묶어 관리 : 분산 트랜젝션
 
 		
-        // 첫 번째 DB1에 대한 XADataSource 설정
+        // 첫 번째 DB1에 대한 XADataSource 설정 : 2 phase commit 을 통한 분산 트랜잭션 처리를 위한 표준
         MysqlXADataSource xaDataSource1 = new MysqlXADataSource();
         xaDataSource1.setUrl("jdbc:mysql://localhost:3306/bookdb");
         xaDataSource1.setUser("root");
         xaDataSource1.setPassword("1234");
         
-        // 두 번째 DB2에 대한 XADataSource 설정
+        // 두 번째 DB2에 대한 XADataSource 설정 : 2 phase commit 을 통한 분산 트랜잭션 처리를 위한 표준
         MysqlXADataSource xaDataSource2 = new MysqlXADataSource();
         xaDataSource2.setUrl("jdbc:mysql://localhost:3306/testdb");
         xaDataSource2.setUser("root");

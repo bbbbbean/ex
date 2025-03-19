@@ -1,0 +1,9 @@
+package Ex;
+
+public class BookDto {
+	private Long bookCode;
+	private String bookName;
+	private String publisher;
+	private String isbn;
+	
+}

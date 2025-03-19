@@ -1,0 +1,5 @@
+package Ex;
+
+public class 문제1 {
+	private static Scanner sc = new Scanner(System.in);
+}
