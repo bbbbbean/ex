@@ -41,6 +41,13 @@ class Person {
             return new Person(this);
         }
     }
+
+	@Override
+	public String toString() {
+		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", address=" + address
+				+ "]";
+	}
+    
 }
 
 public class C04빌더패턴 {
@@ -50,6 +57,7 @@ public class C04빌더패턴 {
 				.setAge(30)
 				.setAddress("대구")
 				.build();
+		System.out.println(hong.toString());
 	}
 }
 

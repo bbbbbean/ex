@@ -87,7 +87,6 @@ class MediaAdapter implements MediaPlayer {
 }
 //오디오 플레이어에 미디어 어탭터를 속성으로 넣어둠
 //미디어 플레이어 Inteface를 상속함 -> Play Method 사용가능 -> Overriding 처리
-//
 class AudioPlayer implements MediaPlayer {
     private MediaAdapter mediaAdapter;
 

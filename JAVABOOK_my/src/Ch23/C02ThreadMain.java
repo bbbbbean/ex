@@ -6,7 +6,7 @@ package Ch23;
 
 
 public class C02ThreadMain {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		// Runnable Interface 스레드 분할
 		// 워커 스레드 생성 -> C02worker
@@ -51,6 +51,9 @@ public class C02ThreadMain {
 				e.printStackTrace();
 			}	
 		}
+		
+		
+		
 		
 		
 		

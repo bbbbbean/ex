@@ -1,0 +1,33 @@
+package Ch31;
+
+interface Calculator{
+	int calculator(int num1, int num2);
+}
+
+
+public class C03Lamda {
+	public static void main(String[] args) {
+		// 덧셈 - Calculator add
+		Calculator add = (int num1, int num2)->{return num1+num2;};
+		// 뺄셈 - Calculator sub
+		Calculator sub = (int num1, int num2)->{
+			// 큰 수 에서 작은 수 빼기로??
+			if(num1-num2<0) {
+				int tpm = num1;
+				num1 = num2;
+				num2 = tpm;
+			}
+			return num2-num1;};
+		// 곱셈 - Calculator mul
+		// 나눗셈 - Calculator div
+		
+		
+		// 결과
+		System.out.println(add.calculate(10,20)); // 덧셈
+		System.out.println(sub.calculate(10,20)); // 뺄셈
+		System.out.println(mul.calculate(10,20)); // 곱셈
+		System.out.println(div.calculate(10,20)); // 나눗셈
+		
+		
+	}
+}
