@@ -1,0 +1,19 @@
+1) /etc/login.defs /etc/passwd /boot/grub2/grub.cfg파일을 확인하고 3개의 파일 /backup 디렉토리 생성한 뒤 복사
+
+2)/backup에 있는 3개의 파일 /backup/test디렉토리에 각각 login, pass, grub란 이름으로 이름변경 복사
+
+3) /backup에 test1이라는 파일 /backup/test에 test2라는 파일을 한줄 명령어로 생성
+
+4) /etc/passwd의 위에서 5번째 줄까지 출력(내용출력)
+
+5) /etc/login.defs파일을 아래서부터 12번째 줄까지 출력 (내용출력)
+
+6) /retest 디렉토리 생성 후 /etc안의 표시되는 디렉토리의 목록을 /retest/a에 저장하세요 (리다이렉션)
+
+7) /perm 디렉토리 생성 user10, user20, user30계정 생성 이후 /perm소유자 계정을 user30,  소유 그룹 계정을 user20으로 소유권 변경 하세요
+
+8) /perm 디렉토리에 user10은 접근 가능, 목록보기 가능, 파일 생성 불가 허가권 부여
+/perm 디렉토리에 user20은 접근 가능, 목록보기 불가, 파일 생성 가능 허가권 부여
+/perm 디렉토리에 user30은 접근 불가, 목록보기 불가, 파일 생성 불가 허가권 부여
+
+9) ping 127.0.0.1을 실행할 때 프로세스의 Priority 값을 60으로 설정합니다.
