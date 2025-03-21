@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class C05Limited {
 
 	public static void main(String[] args) {
-		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+		List<Integer> numbers = Arrays.asList(10, 20, 35, 42, 50);
 		List<Integer> limitedNumbers = numbers.stream()
 		                                      .limit(3)
 		                                      .collect(Collectors.toList());

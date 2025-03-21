@@ -1,0 +1,26 @@
+package Ch34;
+
+// 어노테이션 구현할 메인
+
+@CustomAnnotation
+class Simple{
+	String v1;
+	int v2;
+	
+	Simple(){}
+	
+	// toString
+	@Override
+	public String toString() {
+		return "Simple [v1=" + v1 + ", v2=" + v2 + "]";
+	};
+	
+
+
+
+
+}
+
+public class Main {
+
+}

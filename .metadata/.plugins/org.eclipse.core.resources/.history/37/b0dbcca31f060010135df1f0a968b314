@@ -1,0 +1,5 @@
+package Ch34;
+
+public class CustomAnnotation {
+
+}
