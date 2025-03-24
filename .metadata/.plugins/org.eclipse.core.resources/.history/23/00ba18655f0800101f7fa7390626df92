@@ -1,0 +1,29 @@
+package Ch35;
+
+public class Pistol extends Gun{
+	
+	public Pistol(){
+		this.curBullitCnt=0;
+		this.power=20;
+		this.maxBullitCnt=10;
+	}
+	
+	@Override
+	public void fire(Unit unit) {
+		if(curBullitCnt==0) {
+			System.out.println("총알 : 0 재장전 필요");
+			return;
+		}
+		unit.UnderAttack(power);
+		curBullitCnt--;
+	}
+
+	@Override
+	public void reload(int bullit) {
+		if(maxBullitCnt>curBullitCnt+bullit)
+			curBullitCnt+=bullit;
+		else
+			curBullitCnt=maxBullitCnt;
+	}
+
+}

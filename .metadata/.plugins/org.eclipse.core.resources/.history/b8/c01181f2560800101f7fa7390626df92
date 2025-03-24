@@ -1,0 +1,9 @@
+package Ch35;
+
+public abstract class Gun {
+	public int maxBullitCnt;
+	public int power;
+	
+	abstract void fire(Unit unit);
+	abstract void reload(int bullit);
+}

@@ -1,0 +1,11 @@
+package Ch35.building;
+
+public abstract class Building {
+	public int hp;
+	public int sheld;
+	public int ammor;
+	
+	abstract void BuildStructure();
+	abstract void UnderAttack(Unit unit);
+	
+}

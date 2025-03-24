@@ -1,0 +1,29 @@
+package Ch35.building;
+
+import Ch35.unit.Unit;
+
+public abstract class Building {
+	public int hp;		// 체력
+	public int sheld;	// 보호막
+	public int ammor;	// 보호장비
+	
+	// 건물 짓기
+	abstract void BuildStructure();
+	// 공격 당함
+	void UnderAttack(Unit damage) {
+		// amor -> hp:0 -> dead
+		if(amor-damage>0) {
+			amor-=damage;
+		}
+		else if(hp-(damage-amor)>0) {
+				hp-=(damage-amor);
+				amor=0;
+		}else {
+			hp=0;
+			amor=0;
+			isDead = false;
+			System.out.println(type+"전사했습니다");
+		}
+	}
+	
+}

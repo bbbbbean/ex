@@ -1,0 +1,15 @@
+package Ch35.building;
+
+import Ch35.Unit;
+
+public abstract class Building {
+	public int hp;		// 체력
+	public int sheld;	// 보호막
+	public int ammor;	// 보호장비
+	
+	// 건물 짓기
+	abstract void BuildStructure();
+	// 공격 당함
+	abstract void UnderAttack(Unit unit);
+	
+}

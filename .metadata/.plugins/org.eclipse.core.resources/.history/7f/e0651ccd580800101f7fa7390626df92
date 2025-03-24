@@ -1,0 +1,30 @@
+package Ch35;
+
+public class Marine extends Unit {
+	// hp, amor, type
+//	public int base_damage;
+	Gun myGun;
+	
+	void setGun(Gun gun) {
+		this.myGun=gun;
+	}
+	void attack(Unit unit) {
+		// base_damage, gun's power
+		// unit.underAttact에 전달
+		myGun.fire(unit);
+	}
+	
+	@Override
+	public void move() {
+		System.out.println(type+" 이동합니다.");
+	}
+
+	@Override
+	public void UnderAttack(int damage) {
+		// amor -> hp:0 -> dead
+		if(amor-damage>0) {
+			amor-=damage;
+		}
+	}
+
+}
