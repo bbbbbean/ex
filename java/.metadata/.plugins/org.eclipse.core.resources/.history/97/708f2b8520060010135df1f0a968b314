@@ -1,0 +1,14 @@
+package Ch34;
+
+// 어노테이션 구현 메인
+
+class Simple{
+	String v1;
+	int v2;
+	
+	Simple(){};
+}
+
+public class Main {
+
+}

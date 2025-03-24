@@ -1,0 +1,25 @@
+package Ch24;
+
+import java.io.DataInputStream;
+
+public class ServerRecvThread implements Runnable{
+
+	// 수신 : input
+	DataInputStream din;
+	
+	@Override
+	public void run() {
+		while(true) {
+			String recv;
+			
+			// client > server 수신
+			recv = din.readUTF();
+			if(recv.equals("q")) break;
+			System.out.println("[Server] : "+recv);
+							
+			dout.writeUTF(send);
+			dout.flush();	// 버퍼 비우기
+		}
+	}
+
+}

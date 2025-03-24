@@ -1,0 +1,36 @@
+package Ch21;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+//transaction : 더이상 분할이 불가능한 업무 처리의 단위
+// 			  : 하나의 작업을 위해 더이상 분할 될 수 없는 명령들의 모음
+//			  : 한꺼번에 수행되어야 할 일련의 연산모음
+
+
+public class C08Tx {	
+	// DB setup
+	// DB CONN DATA
+	String id = "root";
+	String pw = "1234";
+	String url = "jdbc:mysql://localhost:3306/testdb";		
+					
+	// JDBC 참조변수
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet re = null;
+	
+	public static void main(String[] args) {
+		try {
+			// DB연결
+			
+		}catch(Exception e) {
+			
+		}finally {
+			
+		}
+		
+		
+	}
+}

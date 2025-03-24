@@ -1,0 +1,41 @@
+package Ch35.building;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import Ch35.unit.Marine;
+import Ch35.unit.Medic;
+
+public class Barrack extends Building{
+
+	UnitGenerator marine;
+	UnitGenerator medic;
+	
+	// 속이 찬 다이아몬드
+	public Barrack() {
+		marine = new MarineGenerator();
+		medic = new MedicGenerator();
+	}
+	
+	// 속이 빈 다이아몬드
+	Map<String,UnitGenerator> genetator = new HashMap();
+	void setGenerator(UnitGenerator gen,String type) {
+		genetator.put(type, gen);
+	}
+	
+
+	public Marine getMarine() {
+		UnitGenerator marinGen = generator.get("marine");
+		return null;
+	}
+	public Medic getMedic() {
+		return null;
+	}
+	
+	@Override
+	void BuildStructure() {
+		// 건물 생성 처리
+		
+	}
+	
+}

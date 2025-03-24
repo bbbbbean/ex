@@ -1,0 +1,11 @@
+package Ch35;
+
+public class Unit {
+	int hp;
+	int amor;
+	String type;
+	
+	void move() {};
+	int UnderAttack(int damage) {return -1;};
+	
+}

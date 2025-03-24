@@ -1,0 +1,58 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.4 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.4">
+  <diagram name="페이지-1" id="VY4bB2xwrEwU8oi3JUYf">
+    <mxGraphModel dx="2196" dy="1656" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-1" value="&lt;span style=&quot;font-size: 20px; font-weight: 700; text-align: left;&quot;&gt;매칭 (구장, 인원 모음, 파티 매칭, 심판 연결 ...) - 여러 운동으로 확장가능, 참고할만한 사이트ㅇ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="720" y="988" width="860" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-2" value="회원" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="50" y="87" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-3" value="비회원" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="570" y="87" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-4" value="관리자" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1090" y="87" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-5" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="127" width="490" height="891" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="127" width="490" height="291" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-7" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="127" width="490" height="771" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-8" value="회원정보" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="600" y="585" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-9" value="운동 / 여행&amp;nbsp; / 게임 / 기타 == 취미" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="720" y="585" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-10" value="인증 (로그인, 로그아웃, 회원가입) -- 기본&lt;div&gt;공지사항 -- 게시판 기능도 기본적으로 있음&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=17;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="570" y="438" width="350" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-11" value="매칭 등록, 매칭 삭제, 매칭 수정, 매칭 조회, 매칭 신청&lt;div&gt;정보 수정, 탈퇴&lt;/div&gt;&lt;div&gt;친구 등록, 삭제, 수정, 조회&lt;/div&gt;&lt;div&gt;채팅&lt;/div&gt;&lt;div&gt;위치 (장소 정보) 지정&lt;/div&gt;&lt;div&gt;게시판&lt;/div&gt;&lt;div&gt;검색&lt;/div&gt;&lt;div&gt;참여했던 매칭 조회&lt;/div&gt;&lt;div&gt;매너 점수&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="580" y="689" width="470" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-12" value="ㅁㅁ 는 ㅇㅇ 를 할 수 있다" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="690" y="635" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-13" value="&lt;div&gt;로그인&lt;/div&gt;&lt;div&gt;로그아웃&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;알림 수신&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;매칭 등록&lt;div&gt;매칭 취소&lt;/div&gt;&lt;div&gt;매칭 수정&lt;/div&gt;&lt;div&gt;매칭 리스트, 세부사항 조회&lt;/div&gt;&lt;div&gt;매칭 신청&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;정보 수정&lt;/div&gt;&lt;div&gt;정보 조회 (&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;참여했던 매칭 조회)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;회원 탈퇴&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;친구 신청&lt;/div&gt;&lt;div&gt;친구 등록&lt;/div&gt;&lt;div&gt;친구 삭제&lt;/div&gt;&lt;div&gt;친구 차단(매칭 차단)&lt;/div&gt;&lt;div&gt;친구 목록 수정&lt;/div&gt;&lt;div&gt;친구 목록 조회&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;채팅을 할 수 있음&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;게시판 글을 쓸 수 있음&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;게시판 글을 삭제 (본인)&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;게시판 글을 조회&lt;br&gt;&lt;/div&gt;&lt;div&gt;게시판 글을 수정 (본인)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;매너 점수 조회&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;상대 매너 점수 등록&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;신고&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="142" width="290" height="770" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-14" value="&lt;div style=&quot;font-size: 19px; font-weight: 700; text-align: left;&quot;&gt;위치(장소 정보)지정 - 매칭 설정, 조회 키워드&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1043" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-15" value="회원가입&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;매칭 조회&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;로그인&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="590" y="142" width="100" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="XFpZ7dTew_JIVLUXs7wM-16" value="매칭 등록&lt;div&gt;매칭 삭제&lt;/div&gt;&lt;div&gt;매칭 수정&lt;/div&gt;&lt;div&gt;매칭 조회&lt;/div&gt;&lt;div&gt;매칭 개입&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;알림 보내기&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;회원 정보 수정&lt;/div&gt;&lt;div&gt;회원 정보 조회&lt;/div&gt;&lt;div&gt;회원 정보 삭제&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;사용자 로그 조회&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;친구 차단&lt;/div&gt;&lt;div&gt;친구 목록 수정&lt;/div&gt;&lt;div&gt;친구 목록 조회&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;채팅을 할 수 있음&lt;/div&gt;&lt;div&gt;채팅 차단&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;게시판 글을 쓸 수 있음&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;게시판 글을 삭제&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;게시판 글을 조회&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;매너 점수 조회&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;신고 목록 조회&lt;/div&gt;&lt;div&gt;블랙리스트&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;통계 확인&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1110" y="142" width="220" height="700" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

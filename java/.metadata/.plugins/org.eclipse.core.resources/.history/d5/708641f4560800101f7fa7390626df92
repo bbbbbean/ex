@@ -1,0 +1,21 @@
+package Ch35;
+
+public class Pistol extends Gun{
+	Pistol(){
+		this.power=20;
+		this.maxBullitCnt=10;
+	}
+	
+	@Override
+	void fire(Unit unit) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void reload(int bullit) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

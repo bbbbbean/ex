@@ -1,0 +1,25 @@
+package Ch34;
+
+// 어노테이션 구현 메인
+
+class Simple{
+	String v1;
+	int v2;
+	
+	Simple(){}
+	
+	// toString
+	@Override
+	public String toString() {
+		return "Simple [v1=" + v1 + ", v2=" + v2 + "]";
+	};
+	
+
+
+
+
+}
+
+public class Main {
+
+}

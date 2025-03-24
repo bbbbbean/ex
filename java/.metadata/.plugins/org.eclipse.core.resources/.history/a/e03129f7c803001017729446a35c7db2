@@ -1,0 +1,17 @@
+package Ch23;
+
+public class C03worker1 implements Runnable {
+	
+	C03GUI gui;
+	
+	C03worker1(C03GUI gui){
+		
+	}
+	
+	@Override
+	public void run() {
+		
+		
+	}
+
+}

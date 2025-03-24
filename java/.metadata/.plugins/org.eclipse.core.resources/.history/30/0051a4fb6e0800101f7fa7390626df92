@@ -1,0 +1,5 @@
+package Ch35.building;
+
+public class MarineGenerator implements UnitGenerator{
+
+}

@@ -1,0 +1,20 @@
+package Ch35;
+
+public class Medic extends Unit {
+
+	private int healingPoint;
+	public void Healling(Unit unit) {
+		unit.hp+=healingPoint;
+	}
+	
+	@Override
+	public void move() {
+		
+	}
+
+	@Override
+	public void UnderAttack(int damage) {
+		
+	}
+
+}
