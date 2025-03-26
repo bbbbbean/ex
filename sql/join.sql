@@ -263,8 +263,8 @@ natural join buytbl b;
 -- 별칭 인식 X
 -- on 조건 대신 사용, 조건절의 컬럼 단일화, 이너 조인 형태
 select *
-from usertbl u
-join buytbl b
+from usertbl
+join buytbl
 using(userid); 
 
 
