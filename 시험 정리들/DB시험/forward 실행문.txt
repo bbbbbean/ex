@@ -1,0 +1,126 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Member_Tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Member_Tbl` (
+  `Member_id` INT NOT NULL,
+  `Member_name` VARCHAR(45) NULL,
+  `Member_identity` VARCHAR(45) NULL,
+  `Member_grade` VARCHAR(45) NULL,
+  `Member_addr` VARCHAR(45) NULL,
+  `Member_phone` VARCHAR(45) NULL,
+  PRIMARY KEY (`Member_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Classification_Tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Classification_Tbl` (
+  `Classification_Id` INT NOT NULL,
+  `Classification_name` VARCHAR(45) NULL,
+  PRIMARY KEY (`Classification_Id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Book_Tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Book_Tbl` (
+  `Book_code` INT NOT NULL,
+  `Classification_Id` INT NOT NULL,
+  `book_author` VARCHAR(45) NULL,
+  `book_name` VARCHAR(45) NULL,
+  `publisher` VARCHAR(45) NULL,
+  `isreserve` TINYINT NULL,
+  PRIMARY KEY (`Book_code`),
+  INDEX `fk_Book_Tbl_Classification_Tbl1_idx` (`Classification_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_Book_Tbl_Classification_Tbl1`
+    FOREIGN KEY (`Classification_Id`)
+    REFERENCES `mydb`.`Classification_Tbl` (`Classification_Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Rental_Tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Rental_Tbl` (
+  `Rental_id` INT NOT NULL,
+  `Book_code` INT NOT NULL,
+  `Member_id` INT NOT NULL,
+  PRIMARY KEY (`Rental_id`),
+  INDEX `fk_Rental_Tbl_Member_Tbl_idx` (`Member_id` ASC) VISIBLE,
+  INDEX `fk_Rental_Tbl_Book_Tbl1_idx` (`Book_code` ASC) VISIBLE,
+  CONSTRAINT `fk_Rental_Tbl_Member_Tbl`
+    FOREIGN KEY (`Member_id`)
+    REFERENCES `mydb`.`Member_Tbl` (`Member_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Rental_Tbl_Book_Tbl1`
+    FOREIGN KEY (`Book_code`)
+    REFERENCES `mydb`.`Book_Tbl` (`Book_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Reserve_Tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Reserve_Tbl` (
+  `Rental_id` INT NOT NULL,
+  `Member_Id` INT NOT NULL,
+  `Reserve_order` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Rental_id`, `Member_Id`),
+  INDEX `fk_Reserve_Tbl_Member_Tbl1_idx` (`Member_Id` ASC) VISIBLE,
+  INDEX `fk_Reserve_Tbl_Rental_Tbl1_idx` (`Rental_id` ASC) VISIBLE,
+  CONSTRAINT `fk_Reserve_Tbl_Member_Tbl1`
+    FOREIGN KEY (`Member_Id`)
+    REFERENCES `mydb`.`Member_Tbl` (`Member_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Reserve_Tbl_Rental_Tbl1`
+    FOREIGN KEY (`Rental_id`)
+    REFERENCES `mydb`.`Rental_Tbl` (`Rental_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Appendix_Tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Appendix_Tbl` (
+  `Appendix_id` INT NOT NULL,
+  `Book_code` INT NOT NULL,
+  `Appendix_name` VARCHAR(45) NULL,
+  PRIMARY KEY (`Appendix_id`),
+  INDEX `fk_Appendix_Tbl_Book_Tbl1_idx` (`Book_code` ASC) VISIBLE,
+  CONSTRAINT `fk_Appendix_Tbl_Book_Tbl1`
+    FOREIGN KEY (`Book_code`)
+    REFERENCES `mydb`.`Book_Tbl` (`Book_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
