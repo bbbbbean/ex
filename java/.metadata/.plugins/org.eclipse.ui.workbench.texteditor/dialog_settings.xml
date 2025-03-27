@@ -4,13 +4,14 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="fc"/>
+			<item value="System.out.println"/>
 			<item value="Reflection"/>
 			<item value="th1"/>
 			<item value="select"/>
 			<item value="String selectedText"/>
 			<item value="sc"/>
 			<item value="SELECT 결과"/>
-			<item value="System.out.println"/>
 			<item value="HashCo"/>
 		</list>
 	</section>

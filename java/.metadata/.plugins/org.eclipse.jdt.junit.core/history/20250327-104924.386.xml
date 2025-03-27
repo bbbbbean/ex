@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="DaoTests" project="JAVABOOK_my" tests="3" started="3" failures="0" errors="0" ignored="2">
-  <testsuite name="Ch38.Tests.Dao.DaoTests" time="0.447" displayname="DaoTests" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Dao.DaoTests]">
-    <testcase name="test1" classname="Ch38.Tests.Dao.DaoTests" time="0.0" ignored="true" displayname="test1()" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Dao.DaoTests]/[method:test1()]"/>
-    <testcase name="test2" classname="Ch38.Tests.Dao.DaoTests" time="0.0" ignored="true" displayname="test2()" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Dao.DaoTests]/[method:test2()]"/>
-    <testcase name="test4" classname="Ch38.Tests.Dao.DaoTests" time="0.447" displayname="test4()" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Dao.DaoTests]/[method:test4()]"/>
-  </testsuite>
-</testrun>

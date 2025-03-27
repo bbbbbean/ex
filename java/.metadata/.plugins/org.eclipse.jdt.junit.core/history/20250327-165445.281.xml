@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="ServiceTests" project="JAVABOOK_my" tests="2" started="2" failures="0" errors="0" ignored="1">
-  <testsuite name="Ch38.Tests.Service.ServiceTests" time="0.463" displayname="ServiceTests" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Service.ServiceTests]">
-    <testcase name="test99" classname="Ch38.Tests.Service.ServiceTests" time="0.0" ignored="true" displayname="test99()" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Service.ServiceTests]/[method:test99()]"/>
-    <testcase name="test" classname="Ch38.Tests.Service.ServiceTests" time="0.462" displayname="test()" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Service.ServiceTests]/[method:test()]"/>
-  </testsuite>
-</testrun>
