@@ -1,0 +1,24 @@
+package Ch38.Controller;
+
+// 세부 컨트롤러들을 찾기위한 용도
+
+
+public class FrontController {
+	
+	private Map<String,SubController> map = new HashMao();
+	
+	// 싱글톤 패턴 처리
+	private static FrontController instance;
+	private FrontController() {}
+	public static FrontController getInstance() {
+		if(instance==null)
+			instance = new FrontController();
+		return instance;
+	}
+	
+	// 초기값 처리 함수 : 초기화
+	private void init() {
+		// api문서 정보들 상세한 매핑 정보 ?
+	}
+	
+}

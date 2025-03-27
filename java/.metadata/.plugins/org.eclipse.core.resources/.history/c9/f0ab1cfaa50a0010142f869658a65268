@@ -1,0 +1,21 @@
+package Ch38.Tests.Dao;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import Ch36.Domain.Dao.UserDaoImpl;
+
+class DaoTests {
+
+	@Test
+	void test1() {
+		UserDaoImpl userDaoImpl = UserDaoImpl.getInstance();
+	}
+	
+	@Test
+	void test2() {
+		fail("Not yet implemented");
+	}
+
+}

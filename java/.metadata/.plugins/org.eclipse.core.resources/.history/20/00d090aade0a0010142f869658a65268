@@ -1,0 +1,34 @@
+package Ch38.Domain.Service;
+
+import Ch38.Domain.Dao.UserDaoImpl;
+
+// 회원 가입 등을 위한 유저 서비스
+// 중간에서 묶어줌
+// 유지보수 가능성 고려할 것
+// 시퀀스 다이어그램 : 요청과 응답 도식화, 함수 적는게 좋음
+//			     : 비즈니스 로직을 처리하기 위해 사용자-서비스별 이용관계를 정의하는 부분 
+//				 : 시퀀스 == 순서
+
+public class UserServiceImpl {
+	
+	// DB와 연결 - userDao가 가지고 있음 - 연결
+	private UserDaoImpl userDao;
+	
+	// 싱글톤 패턴 처리
+	// 컨트롤러에서 바로 연결하기 위함
+	private static UserServiceImpl instance;
+	private UserServiceImpl() {
+		
+		userDao = UserDaoImpl.getInstance();
+	};
+	public static UserServiceImpl getInstance() {
+		if(instance == null)
+			instance = new UserServiceImpl();
+		return instance;
+	}
+
+	
+	
+	
+	
+}

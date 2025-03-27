@@ -1,0 +1,33 @@
+package Ch38.Controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+// 사용자 관련 컨트롤러
+
+public class UserController implements SubController {
+
+	// C(1)R(2)U(3)D(4) + 로그인(5), 로그아웃(6)
+	@Override
+	public Map<String, Object> execute(Map<String, Object> params) {
+		System.out.println("[SC]UserController execute Invoke");
+		// 00
+		Map<String,Object> response = new HashMap();
+		Integer serviceNo = (Integer)params.get("serviceNo");
+		if(serviceNo == null) {
+			response.put("status",false);
+			response.put("message","유효하지 않은 서비스 요청입니다");
+			return response;
+		}
+		// 스위치를 써 번호 판별
+		
+		
+		// 01 파라미터 받기(정보 선별, 잘들어왔는가)
+		
+		// 02 유효성 체크(Validation)
+		// 03 관련 서비스 실행
+		// 04 뷰로 이동(or 내용 전달)
+		return null;
+	}
+
+}

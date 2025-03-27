@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DaoTests" project="JAVABOOK_my" tests="2" started="2" failures="1" errors="0" ignored="0">
+  <testsuite name="Ch38.Tests.Dao.DaoTests" time="0.455" displayname="DaoTests" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Dao.DaoTests]">
+    <testcase name="test1" classname="Ch38.Tests.Dao.DaoTests" time="0.444" displayname="test1()" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Dao.DaoTests]/[method:test1()]"/>
+    <testcase name="test2" classname="Ch38.Tests.Dao.DaoTests" time="0.01" displayname="test2()" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Dao.DaoTests]/[method:test2()]">
+      <failure>org.opentest4j.AssertionFailedError: Not yet implemented&#13;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)&#13;
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)&#13;
+	at Ch38.Tests.Dao.DaoTests.test2(DaoTests.java:20)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</failure>
+    </testcase>
+  </testsuite>
+</testrun>

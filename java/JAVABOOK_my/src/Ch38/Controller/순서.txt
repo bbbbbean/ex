@@ -1,0 +1,4 @@
+1. subController - BookController 상속관계
+2. frontController에 API 등록 ( "/book" : new BookController())
+3. BookController의 기본 코드 구현(UserController 참고)
+4. ControllerTests에서 서비스 요청 수 확인

@@ -1,0 +1,7 @@
+package Ch38.Domain.Service;
+
+// 회원 가입 등을 위한 유저 서비스
+
+public class UserServiceImpl {
+
+}

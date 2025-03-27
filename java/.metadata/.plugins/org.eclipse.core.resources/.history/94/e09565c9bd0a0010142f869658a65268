@@ -1,0 +1,41 @@
+package Ch38.Controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class BookController implements SubController {
+
+	@Override
+	public Map<String, Object> execute(Map<String, Object> params) {
+		System.out.println("[SC] BookController execute Invoke");
+		// 00 기본 설정
+		Map<String, Object> response = new HashMap();
+		Integer serviceNo = (Integer)params.get("serviceNo");
+		// 값 입력 X -> null
+		if(serviceNo==null) {
+			response.put("status", false);
+			response.put("message","유효하지 않은 서비스 요청입니다");
+			return response;
+		}
+		// 스위치 사용 번호 판별
+		switch(serviceNo) {
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		default :
+		}
+		
+		
+		
+		
+		
+		
+		return null;
+	}
+
+}

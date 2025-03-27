@@ -1,0 +1,42 @@
+package Ch38.Controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+// 세부 컨트롤러들을 찾기위한 용도
+
+public class FrontController {
+	// 서브컨트롤러 저장 자료구조 ("/endPoint" : 서브컨트롤러 객체)
+	// 서브 컨트롤러 : 인터페이스로 만들 예정
+	private Map<String,SubController> map = new HashMap();
+	
+	// 싱글톤 패턴 처리
+	private static FrontController instance;
+	private FrontController() {
+		System.out.println("[FC] FrontController init");
+		init();
+	}
+	public static FrontController getInstance() {
+		if(instance==null)
+			instance = new FrontController();
+		return instance;
+	}
+	
+	// 초기값 처리 함수 : 초기화
+	private void init() {
+		// 인증 요청 API (ENDPOINT : 서브 컨트롤러 객체 저장)
+		map.put("/user", new UserController());
+		map.put("/book", new BookController());
+	}
+	
+	// View로부터 전달하는 요청 처리
+	// 모든 요청을 받아내기 위함
+	// endpoint : view에서 전달하는 params (/user)
+	public Map<String,Object> execute (Map<String,Object> params){
+		System.out.println("[FC] exrcute invoke");
+		String endPoint = (String)params.get("endPoint");
+		SubController controller = map.get(endPoint);	// upcasting, controller 하위 모든걸 사용하기 위해
+		
+		return controller.execute(params);
+	}
+}

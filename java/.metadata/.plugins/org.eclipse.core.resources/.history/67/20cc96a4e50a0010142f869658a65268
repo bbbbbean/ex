@@ -1,0 +1,21 @@
+package Ch38.Domain.Service;
+
+import Ch38.Domain.Dao.BookDaoImpl;
+
+public class BookServiceImpl {
+	
+	// DB와 연결 - BookDao
+	private BookDaoImpl bookDao;
+	
+	// 싱글톤
+	private static BookServiceImpl instance;
+	private BookServiceImpl() {
+		// DB-BookDao 연결
+		bookDao = BookDaoImpl.getInstance();
+		System.out.println("[SERVICE] BookServiceImpl init");
+	}
+	
+	
+	
+	
+}

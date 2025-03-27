@@ -1,0 +1,145 @@
+package Ch38.Controller;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import Ch38.Domain.Dto.UserDto;
+import Ch38.Domain.Service.UserServiceImpl;
+
+// 사용자 관련 컨트롤러
+
+public class UserController implements SubController {
+	
+	// UserService 연결
+	private UserServiceImpl userService;
+	
+	Map<String,Object> response;
+	
+	public UserController() {
+		try {
+			userService = UserServiceImpl.getInstance();
+		}catch(Exception e) {
+			// 아래 만든 예외 핸들러로 다 보내버리기
+			exceptionHandler(e);
+		}
+		
+	}
+	
+	// C(1)R(2)U(3)D(4) + 로그인(5), 로그아웃(6)
+	@Override
+	public Map<String, Object> execute(Map<String, Object> params) {
+		System.out.println("[SC] UserController execute Invoke");
+		// 00
+		response = new HashMap();
+		Integer serviceNo = (Integer)params.get("serviceNo");
+		// 값이 제대로 들어오지 않은 경우
+		if(serviceNo == null) {
+			response.put("status",false);
+			response.put("message","유효하지 않은 서비스 요청입니다");
+			return response;
+		}
+		// 스위치를 써 번호 판별
+		switch(serviceNo) {
+		case 1:			// C - 회원가입
+			System.out.println("[SC] 회원가입 요청 확인");
+			// DTO단위로 정보 들어옴 (userid, username, password, role(role은 있을수도 없을수도)
+			// 01 파라미터 받기(정보 선별, 잘들어왔는가)
+			// null 유효성 검사, 값이 있다면 형변환
+			String userid = (params.get("userid")!=null)?(String)params.get("userid"):null;
+			String username = (params.get("username")!=null)?(String)params.get("username"):null;
+			String password = (params.get("password")!=null)?(String)params.get("password"):null;	
+			String role = "ROLE_USER";	// 기본값
+			UserDto userDto = new UserDto(userid,username,password,role);
+			
+			// 02 유효성 체크(Validation)
+			boolean isOk = isValid(userDto);
+			System.out.println("[No01 회원가입] : 유효성 검증 확인 : "+isOk);
+			
+			if(!isOk) {
+				response.put("status",false);
+//				response.put("message","유효성 체크 오류");
+				return response;
+			}
+			
+			// 03 관련 서비스 실행
+			// 04 뷰로 이동(or 내용 전달)
+			break;
+		case 2:			// R - 개인 회원 정보 조회
+			System.out.println("[SC] 회원정보 조회 요청 확인");
+			// 01 파라미터 받기(정보 선별, 잘들어왔는가)
+			// 02 유효성 체크(Validation)
+			// 03 관련 서비스 실행
+			// 04 뷰로 이동(or 내용 전달)
+			break;
+		case 3:			// U - 개인 회원 정보 수정
+			System.out.println("[SC] 회원정보 수정 요청 확인");
+			// 01 파라미터 받기(정보 선별, 잘들어왔는가)
+			// 02 유효성 체크(Validation)
+			// 03 관련 서비스 실행
+			// 04 뷰로 이동(or 내용 전달)
+			break;
+		case 4:			// D - 개인 회원 탈퇴
+			System.out.println("[SC] 회원 탈퇴 요청 확인");
+			// 01 파라미터 받기(정보 선별, 잘들어왔는가)
+			// 02 유효성 체크(Validation)
+			// 03 관련 서비스 실행
+			// 04 뷰로 이동(or 내용 전달)
+			break;
+		case 5:			// P - 로그인
+			System.out.println("[SC] 로그인 요청 확인");
+			// 01 파라미터 받기(정보 선별, 잘들어왔는가)
+			// 02 유효성 체크(Validation)
+			// 03 관련 서비스 실행
+			// 04 뷰로 이동(or 내용 전달)
+			break;
+		case 6:			// P - 로그아웃
+			System.out.println("[SC] 로그아웃 요청 확인");
+			// 01 파라미터 받기(정보 선별, 잘들어왔는가)
+			// 02 유효성 체크(Validation)
+			// 03 관련 서비스 실행
+			// 04 뷰로 이동(or 내용 전달)
+			break;
+		default :
+			System.out.println("[SC] 잘못된 서비스번호 요청 확인");
+			response.put("status",false);
+			response.put("message","잘못된 서비스번호 요청입니다");
+		}
+		
+		return response;
+	}
+	
+	private boolean isValid(UserDto userDto) {
+		
+		if(userDto.getUserid()==null || userDto.getUserid().length()<=4) {
+			response.put("error","userid의 길이 : 최소 5자");
+			System.out.println("[INVALID] userid의 길이 : 최소 5자");
+			return false;
+		}
+		if(userDto.getUserid().matches("^[0-9].*")) {
+			response.put("error","userid의 첫문자로 숫자 불가능");
+			System.out.println("[INVALID] userid의 첫문자로 숫자 불가능");
+			return false;
+		}
+		// null 체크 / 데이터(자료)수준에서의 의미있는 데이터가 포함되어있는지 여부
+		// userid는 첫문자가 숫자인지 여부, 길이가 1글자인지 등등
+		// username은 첫문자가 숫자인지 여부
+		// password 복잡도 체크는 business Layer에서 체크(Policy에 의한 처리)
+		return true;
+	}
+	// 예외 처리 함수
+	public Map<String,Object> exceptionHandler(Exception e){
+		// 컨트롤러 마다 처리 or 전역 처리
+		// 여기서는 컨트롤러마다 처리
+		// 예외 처리를 중앙으로 몰아주어야 해서 이렇게 처리
+		// 어떤 예외든 다 받아 정보를 함께 전달하기 위한 함수
+		
+		// response에 예외 객체를 띄워 전달
+		if(response==null) response=new HashMap();
+		
+		response.put("status", false);
+		response.put("message", e.getMessage());
+		response.put("exception", e);
+		return response;
+	}
+}

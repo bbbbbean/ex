@@ -1,7 +1,58 @@
 package Ch38.Domain.Dto;
 
 // 유저 데이터 임시 보관
+// 저장 단위 (Controller <-> Service <-> Dao <-> DB
 
 public class UserDto {
-
+	
+	String userid;
+	String username;
+	String password;	// 해시값으로 저장됨, 테이블 저장 형태 넉넉하게 잡아주기
+	String role;
+	
+	// ** Dto 만들 때 생성자, getter and setter, toString은 기본 옵션
+	// 생성자(디폴트, 모든인자)
+	// 바깥에서도 써야하니까 public 설정
+	public UserDto(){}
+	public UserDto(String userid, String username, String password, String role) {
+		super();
+		this.userid = userid;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
+	
+	// getter and setter
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	// toString
+	@Override
+	public String toString() {
+		return "UserDto [userid=" + userid + ", username=" + username + ", password=" + password + ", role=" + role
+				+ "]";
+	}
+	
 }

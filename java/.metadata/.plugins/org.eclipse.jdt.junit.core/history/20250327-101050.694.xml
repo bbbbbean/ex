@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DaoTests" project="JAVABOOK_my" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="Ch38.Tests.Dao.DaoTests" time="0.29" displayname="DaoTests" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Dao.DaoTests]">
+    <testcase name="test1" classname="Ch38.Tests.Dao.DaoTests" time="0.29" displayname="test1()" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Dao.DaoTests]/[method:test1()]"/>
+  </testsuite>
+</testrun>

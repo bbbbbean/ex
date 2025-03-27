@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ControllerTests" project="JAVABOOK_my" tests="2" started="2" failures="0" errors="0" ignored="1">
+  <testsuite name="Ch38.Tests.Controller.ControllerTests" time="0.012" displayname="ControllerTests" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Controller.ControllerTests]">
+    <testcase name="test99" classname="Ch38.Tests.Controller.ControllerTests" time="0.0" ignored="true" displayname="test99()" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Controller.ControllerTests]/[method:test99()]"/>
+    <testcase name="test" classname="Ch38.Tests.Controller.ControllerTests" time="0.012" displayname="test()" uniqueid="[engine:junit-jupiter]/[class:Ch38.Tests.Controller.ControllerTests]/[method:test()]"/>
+  </testsuite>
+</testrun>
