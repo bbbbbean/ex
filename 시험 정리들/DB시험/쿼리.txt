@@ -1,0 +1,61 @@
+-- Oracle-compatible SQL script (converted from MySQL Forward Engineering)
+
+-- Member_Tbl
+CREATE TABLE Member_Tbl (
+  Member_id NUMBER PRIMARY KEY,
+  Member_name VARCHAR2(45),
+  Member_identity VARCHAR2(45),
+  Member_grade VARCHAR2(45),
+  Member_addr VARCHAR2(45),
+  Member_phone VARCHAR2(45)
+);
+
+-- Classification_Tbl
+CREATE TABLE Classification_Tbl (
+  Classification_Id NUMBER PRIMARY KEY,
+  Classification_name VARCHAR2(45)
+);
+
+-- Book_Tbl
+CREATE TABLE Book_Tbl (
+  Book_code NUMBER PRIMARY KEY,
+  Classification_Id NUMBER NOT NULL,
+  book_author VARCHAR2(45),
+  book_name VARCHAR2(45),
+  publisher VARCHAR2(45),
+  isreserve NUMBER(1),
+  CONSTRAINT fk_Book_Classification FOREIGN KEY (Classification_Id)
+    REFERENCES Classification_Tbl (Classification_Id)
+);
+
+-- Rental_Tbl
+CREATE TABLE Rental_Tbl (
+  Rental_id NUMBER PRIMARY KEY,
+  Book_code NUMBER NOT NULL,
+  Member_id NUMBER NOT NULL,
+  CONSTRAINT fk_Rental_Member FOREIGN KEY (Member_id)
+    REFERENCES Member_Tbl (Member_id),
+  CONSTRAINT fk_Rental_Book FOREIGN KEY (Book_code)
+    REFERENCES Book_Tbl (Book_code)
+);
+
+-- Reserve_Tbl
+CREATE TABLE Reserve_Tbl (
+  Rental_id NUMBER NOT NULL,
+  Member_Id NUMBER NOT NULL,
+  Reserve_order VARCHAR2(45) NOT NULL,
+  PRIMARY KEY (Rental_id, Member_Id),
+  CONSTRAINT fk_Reserve_Member FOREIGN KEY (Member_Id)
+    REFERENCES Member_Tbl (Member_id),
+  CONSTRAINT fk_Reserve_Rental FOREIGN KEY (Rental_id)
+    REFERENCES Rental_Tbl (Rental_id)
+);
+
+-- Appendix_Tbl
+CREATE TABLE Appendix_Tbl (
+  Appendix_id NUMBER PRIMARY KEY,
+  Book_code NUMBER NOT NULL,
+  Appendix_name VARCHAR2(45),
+  CONSTRAINT fk_Appendix_Book FOREIGN KEY (Book_code)
+    REFERENCES Book_Tbl (Book_code)
+);
