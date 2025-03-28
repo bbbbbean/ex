@@ -1,5 +1,6 @@
 package Ch38.Controller;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +28,7 @@ public class FrontController {
 	}
 	
 	// 초기값 처리 함수 : 초기화
-	private void init() {
+	private void init(){
 		// 인증 요청 API (ENDPOINT : 서브 컨트롤러 객체 저장)
 		map.put("/user", new UserController());
 		
@@ -39,7 +40,7 @@ public class FrontController {
 	// 모든 요청을 받아내기 위함
 	// endpoint : view에서 전달하는 params (/user)
 	public Map<String,Object> execute (Map<String,Object> params){
-		System.out.println("[FC] exrcute invoke");
+		System.out.println("[FC] excute invoke");
 		String endPoint = (String)params.get("endPoint");	// 사용자의 요정 endpoint확인
 		SubController controller = map.get(endPoint);	// upcasting, controller 하위 모든걸 사용하기 위해
 		

@@ -5,12 +5,18 @@ import java.util.Map;
 
 import Ch38.Domain.Dto.BookDto;
 import Ch38.Domain.Service.BookServiceImpl;
-import net.bytebuddy.asm.Advice.ExceptionHandler;
 
 public class BookController implements SubController {
 	
 	// BookService 연결
 	private BookServiceImpl bookService;
+	public BookController() {
+		try {
+			bookService = BookServiceImpl.getInstance();
+		}catch(Exception e) {
+			exceptionHandler(e);
+		}
+	}
 
 	Map<String, Object> response;
 	
@@ -48,13 +54,12 @@ public class BookController implements SubController {
 				}
 				
 				// 03 관련 서비스 실행
-				boolean isSuccess = bookService.BookCreate(bookDto); // 서비스 성공 유무 전달
+				boolean isSuccess = bookService.BookRegistration(bookDto); // 서비스 성공 유무 전달
 				// 04 뷰로 이동(or 내용 전달)
 				if(isSuccess) {
 					response.put("status", isSuccess);
 					response.put("message", "책 생성 성공");
 				}
-				
 				
 				break;
 			case 2:	// R - 도서 조회(role - 회원, 사서, 관리자)
@@ -79,7 +84,7 @@ public class BookController implements SubController {
 				// 04 뷰로 이동(or 내용 전달)			
 				break;
 			default :
-				System.out.println("[SC] 잘못된 서비스번호 요청 확인");
+				System.out.println("[SC] ");
 				response.put("status", false);
 				response.put("message", "잘못된 서비스 번호 요청입니다");
 			}

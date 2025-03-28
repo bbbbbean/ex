@@ -7,3 +7,9 @@
 1742786626034	Move compilation units
 1742786701849	Move compilation units
 1742977558854	Rename type 'UserService'
+1743124267263	Copy compilation unit
+1743124288395	Rename type 'UserDaoImpl'
+1743124502979	Extract interface 'BookDao'
+1743124603170	Extract interface 'UserDao'
+1743129031197	Delete element
+1743129053030	Delete element
