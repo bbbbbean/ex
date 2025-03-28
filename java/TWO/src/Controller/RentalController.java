@@ -7,7 +7,7 @@ import Domain.RentalDTO;
 import Service.RentalService;
 
 public class RentalController implements Controller{
-	// rental service 연셜
+	// rental service 연결
 	private RentalService rentalService;
 	public RentalController() {
 		try {

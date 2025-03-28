@@ -25,14 +25,13 @@ public class FrontController {
 		map.put("/rental", new RentalController());
 	}
 	
-	//
 	public Map<String, Object> excute (Map<String, Object> params){
 		System.out.println("excute invoke");
 		String endPoint = (String)params.get("endPoint");
 		Controller controller = map.get(endPoint);
 		return controller.execute(params);
 	}
-	
-	
-	
 }
+
+
+
