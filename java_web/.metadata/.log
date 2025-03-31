@@ -11714,3 +11714,27 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:383)
 	... 39 more
+
+!ENTRY org.eclipse.core.jobs 2 2 2025-03-31 17:27:43.091
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.lsp4e.LanguageServerWrapper$2 RUNNING
+	 at java.base/jdk.internal.misc.Unsafe.park(Native Method)
+	 at java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:221)
+	 at java.base/java.util.concurrent.CompletableFuture$Signaller.block(CompletableFuture.java:1864)
+	 at java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3780)
+	 at java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3725)
+	 at java.base/java.util.concurrent.CompletableFuture.waitingGet(CompletableFuture.java:1898)
+	 at java.base/java.util.concurrent.CompletableFuture.join(CompletableFuture.java:2117)
+	 at org.eclipse.lsp4e.LanguageServerWrapper$2.run(LanguageServerWrapper.java:394)
+	 at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 2 2 2025-03-31 17:27:43.093
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.lsp4e.LanguageServerWrapper$2 RUNNING
+	 at java.base/jdk.internal.misc.Unsafe.park(Native Method)
+	 at java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:221)
+	 at java.base/java.util.concurrent.CompletableFuture$Signaller.block(CompletableFuture.java:1864)
+	 at java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3780)
+	 at java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3725)
+	 at java.base/java.util.concurrent.CompletableFuture.waitingGet(CompletableFuture.java:1898)
+	 at java.base/java.util.concurrent.CompletableFuture.join(CompletableFuture.java:2117)
+	 at org.eclipse.lsp4e.LanguageServerWrapper$2.run(LanguageServerWrapper.java:394)
+	 at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

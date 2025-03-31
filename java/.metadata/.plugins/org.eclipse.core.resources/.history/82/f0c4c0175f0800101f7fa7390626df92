@@ -1,7 +1,0 @@
-package Ch35.building;
-
-public abstract class Building {
-	public int hp;
-	public int sheld;
-	public int ammor;
-}

@@ -1,9 +1,0 @@
-package Ch35;
-
-public class Gun {
-	public int bullitCnt;
-	public int power;
-	
-	void fire(Unit unit) {}
-	void reload(int bullit) {}
-}

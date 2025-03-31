@@ -62,11 +62,34 @@ CREATE TABLE Appendix_Tbl (
 select*from Member_Tbl;
 
 insert into Member_Tbl values(12345678,'a','a','a','a','a');
+insert into Member_Tbl values(11111111,'a','a','a','a','a');
 
 insert into Classification_Tbl values(12345678,'a');
 insert into Book_Tbl values(11111112,12345678,'a','a','a',1);
 insert into Book_Tbl values(11111113,12345678,'a','a','a',1);
 insert into Book_Tbl values(11111114,12345678,'a','a','a',1);
+insert into Book_Tbl values(11111115,12345678,'a','a','a',1);
+insert into Book_Tbl values(11111116,12345678,'a','a','a',1);
+insert into Book_Tbl values(11111117,12345678,'a','a','a',1);
+
+insert into Reserve_Tbl values(11111111,12345678,1234);
+
 insert into Rental_Tbl(Rental_id,Book_code,Member_id)values(12345678,11111112,12345678);
+insert into Rental_Tbl(Rental_id,Book_code,Member_id)values(11111111,11111113,12345678);
+insert into Rental_Tbl(Rental_id,Book_code,Member_id)values(22222222,11111114,12345678);
+
 
 select*from Rental_Tbl;
+
+SELECT * FROM Member_Tbl;
+SELECT * FROM Classification_Tbl;
+SELECT * FROM Book_Tbl;
+SELECT * FROM Rental_Tbl;
+SELECT * FROM Reserve_Tbl;
+SELECT * FROM Appendix_Tbl;
+
+select*from Rental_Tbl;
+
+delete from Member_Tbl;
+
+commit;

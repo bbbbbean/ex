@@ -82,16 +82,6 @@ public class RentalController implements Controller{
 			System.out.println("숫자만 입력 가능합니다.");
 			return false;
 		}
-		if(!rentalDto.getMemberId().matches("^[0-9]*$")) {
-			response.put("error", "숫자만 입력 가능합니다.");
-			System.out.println("숫자만 입력 가능합니다.");
-			return false;
-		}
-		if(!rentalDto.getBookCode().matches("^[0-9]*$")) {
-			response.put("error", "숫자만 입력 가능합니다.");
-			System.out.println("숫자만 입력 가능합니다.");
-			return false;
-		}
 		return true;
 	}
 	
