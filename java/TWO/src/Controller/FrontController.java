@@ -23,6 +23,7 @@ public class FrontController {
 	private void init() {
 		System.out.println("FrontController init");
 		map.put("/rental", new RentalController());
+		// 추가
 	}
 	
 	public Map<String, Object> excute (Map<String, Object> params){

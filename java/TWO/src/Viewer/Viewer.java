@@ -31,10 +31,10 @@ public class Viewer {
 				int num = sc.nextInt();
 				switch (num) {
 				case 1:
-					
+					// 각부분 추가
 					break;
 				case 2:
-
+					// 각부분 추가
 					break;
 				case 3:
 					System.out.println("--------------------------");
@@ -46,6 +46,7 @@ public class Viewer {
 					String bookCode = sc.next();
 					System.out.print("MemberId : ");
 					String memberId = sc.next();
+					
 					// 요청처리
 					Map<String,Object> params = new HashMap();
 					params.put("endPoint", "/rental");
@@ -62,7 +63,7 @@ public class Viewer {
 						System.out.println(key + " : " + response.get(key));
 					break;
 				case 4:
-					
+					// 각부분 추가
 					break;
 				case 5:
 					System.out.println("프로그램을 종료합니다.");
