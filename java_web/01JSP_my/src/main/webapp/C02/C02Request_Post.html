@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- html문서 : 상단에 지시부가 없음, 서버에 먼저 전달할 내용 부분 -->
+	<!-- post : body부분에 실려 전달됨, 한글 문자는 깨짐(문자셋 설정필요), 민감한 정보는 post로 처리
+			    대표 예 : 회원가입 -->
+	
+	<form action="./C02Request_Process.jsp" method="post">
+		<input type="text" name="username"/><br/>
+		<input type="text" name="password"/><br/>
+		<input type="text" name="bgcolor"/><br/>
+		<button>전송</button>
+	</form>
+	
+</body>
+</html>
