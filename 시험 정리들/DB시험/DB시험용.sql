@@ -61,8 +61,15 @@ CREATE TABLE Appendix_Tbl (
 );
 select*from Member_Tbl;
 
-insert into Member_Tbl values(12345678,'a','a','a','a','a');
-insert into Member_Tbl values(11111111,'a','a','a','a','a');
+insert into Member_Tbl values(12345678,'김','1','2','3','4444');
+insert into Member_Tbl values(11111111,'이','5','6','7','8888');
+insert into Member_Tbl values(22222222,'박','9','0','1','2222');
+insert into Member_Tbl values(11223344,'김광','1','2','3','4444');
+insert into Member_Tbl values(55667788,'이광','5','6','7','8888');
+insert into Member_Tbl values(99001122,'박광','9','0','1','2222');
+insert into Member_Tbl values(55555555,'김광식','1','2','3','4444');
+insert into Member_Tbl values(66666666,'이광식','5','6','7','8888');
+insert into Member_Tbl values(77777777,'박광식','9','0','1','2222');
 
 insert into Classification_Tbl values(12345678,'a');
 insert into Book_Tbl values(11111112,12345678,'a','a','a',1);
@@ -79,6 +86,7 @@ insert into Rental_Tbl(Rental_id,Book_code,Member_id)values(11111111,11111113,12
 insert into Rental_Tbl(Rental_id,Book_code,Member_id)values(22222222,11111114,12345678);
 
 
+
 select*from Rental_Tbl;
 
 SELECT * FROM Member_Tbl;
@@ -88,8 +96,33 @@ SELECT * FROM Rental_Tbl;
 SELECT * FROM Reserve_Tbl;
 SELECT * FROM Appendix_Tbl;
 
+select * from Member_Tbl where member_id='12345678';
+
 select*from Rental_Tbl;
 
 delete from Member_Tbl;
+delete from Classification_Tbl;
+delete from Book_Tbl;
+delete from Rental_Tbl;
+delete from Reserve_Tbl;
+delete from Appendix_Tbl;
 
 commit;
+
+
+-- 성능 분석 코드
+-- 트레이스 파일 식별자 설정 : 저장 파일명에 해당 식별자가 추가되어 저장
+ALTER SESSION SET tracefile_identifier = '_bookUser_';
+-- 추적 시작
+ALTER SESSION SET sql_trace = TRUE;
+-- 어떤 레벨의 오류 추적 할건지
+-- 레벨별로 추적의 범위가 다름 12는 가장 높은 레벨 : 바인드 변수 + 대기 이벤트
+ALTER SESSION SET EVENTS '10046 trace name context forever, level 12';
+-- 아래 코드 처리 결과 확인 예정
+select * from usertbl where emeber_id='12345678';
+-- 추적 중단, 끝
+ALTER SESSION SET sql_trace = FALSE;
+-- 파일 확인
+-- 트레이스 파일 경로 확인 쿼리
+-- 이게 있어야 `C:\ORACLEXE\APP\ORACLE\diag\rdbms\xe\xe\trace\xe_ora_3276__TEST2_.trc` 이런 경로가 보임
+SELECT VALUE FROM v$diag_info;
