@@ -38,18 +38,19 @@
 		</header>
 		<main>
 			<section>
-				<!--  
-						form태그로 
-						
-						userid
-						password
-						join.jsp 로 회원가입 요청 처리
-					
-					-->
-				<form action="join.jsp" method="post">
+			<!--  
+				1. myinfo.jsp (생성)
+					- url : "/myinfo"를 request.setAttribute로 저장 후 forwarding
+				2. valiadtionCheck.jsp(기존)
+					- 유효성 체크
+				3. dbUtils.jsp(기존)
+					- select 작업 조회 이후 forwarding
+				4. myinfo.jsp(내용 표시)	
+			-->
+				<h1>MyInfo</h1>
+				<form action="myinfo.jsp" method="post">
 					<input type="text" name="userid" /><br> 
-					<input type="text"name="password" /><br> 
-					<input type="submit" value="회원가입" />
+					<input type="submit" value="조회" />
 				</form>
 			</section>
 

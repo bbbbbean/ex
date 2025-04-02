@@ -15,6 +15,10 @@
 	
 	// request 내장객체 userDto 추가
 	request.setAttribute("userDto",userDto);
+	
+	// dbUtils.jsp로 해당 내용 Forwarding
+	request.setAttribute("url","/join");	// DB 요청 처리 insert
+	request.setAttribute("serviceNo",1);	// ServiceNo C=1 R=2 U=3 D=4
 
 	// forwoarding
 	request.getRequestDispatcher("./validationCheck.jsp").forward(request,response);

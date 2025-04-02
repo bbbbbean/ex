@@ -3,22 +3,44 @@
 <%@ page import = "C04.UserDto" %>
 
 <%
-	// request로부터 전달받은 파라미터 꺼내서 System.out 확인
-	// 받은 username,password 값이 null인지여부를 체크(String API trim()  + isEmpty() 이용)
-	// 에러 발생 시 처리 페이지로 전달
-	UserDto userDto = (UserDto)request.getAttribute("userDto");
-	System.out.println("[validationCheck] userDto : "+userDto);
-	if(userDto == null)
-		throw new Exception("userDto가 null입니다");
-	if(userDto.getUserid().trim().isEmpty())
-		throw new Exception("userid를 입력하세요");
-	if(userDto.getPassword().trim().isEmpty())
-		throw new Exception("password를 입력하세요");
-	if(userDto.getRole().trim().isEmpty())
-		throw new Exception("기본역할(role)이 지정되지 않았습니다.");
+	//에러 발생 시 처리 페이지로 전달
+
+	// url 선별(join인지 myinfo인지) serviceNo 선별 -> 유효성 체큰
+	// url, serviceNo 저장
+	String url = (String)request.getAttribute("url");
+	Integer serviceNo = (Integer)request.getAttribute("serviceNo");
+
+	if(url.contains("/join")){
+		// join
+		// request로부터 전달받은 파라미터 꺼내서 System.out 확인
+		// 받은 username,password 값이 null인지여부를 체크(String API trim()  + isEmpty() 이용)
+		UserDto userDto = (UserDto)request.getAttribute("userDto");
+		isValid(userDto);
+	}else if(url.contains("/myinfo")){
+		// myinfo
+		String userid = request.getParameter("userid");
+		isValid(userid);
+	}
 	
-	// 에러 미발생시 dbUtils.jsp로 해당 내용 Forwarding
-	request.setAttribute("url","/join");	// DB 요청 처리 insert
-	request.setAttribute("serviceNo",1);	// ServiceNo C=1 R=2 U=3 D=4
 	request.getRequestDispatcher("./dbUtils.jsp").forward(request,response);
+%>
+<%!
+	void isValid(UserDto userDto) throws Exception{
+	// 전부 다 체크
+		System.out.println("[validationCheck] userDto : "+userDto);
+		if(userDto == null)
+			throw new Exception("userDto가 null입니다");
+		if(userDto.getUserid().trim().isEmpty())
+			throw new Exception("userid를 입력하세요");
+		if(userDto.getPassword().trim().isEmpty())
+			throw new Exception("password를 입력하세요");
+		if(userDto.getRole().trim().isEmpty())
+			throw new Exception("기본역할(role)이 지정되지 않았습니다.");
+	}
+	void isValid(String userid) throws Exception{
+		// userid만 판별하면 됨
+		if(userid.trim().isEmpty())
+			throw new Exception("userid를 입력하세요");
+	}
+
 %>

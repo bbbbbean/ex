@@ -7,6 +7,7 @@
 	   해당 파일 WEB-INF - lib에 넣기
 	2. 속성/기능 추가 : db연결, 쿼리문
 	3. service 란에서 사용
+	4. 문제가 없다면 login 페이지로 redirecting
 -->
     
     
@@ -16,9 +17,9 @@
 	private String id = "system";
 	private String pw = "1234";
 
-	private Connection conn;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
+	private Connection conn;	// 시험장에서 정리.. 안해도 뭐..
+	private PreparedStatement pstmt;	// 정리 잘하기
+	private ResultSet rs;		// 정리 잘하기
 	
 	private void getConnection() throws Exception{
 		if(conn==null)
@@ -36,6 +37,23 @@
 		pstmt.close();
 		return result;
 	}
+	private UserDto selectOne(String userid) throws Exception{
+		pstmt = conn.prepareStatement("select * from tbl_user where userid='"+userid+"'");	// 홑따옴표로 문자열 표현 명시, 이게 더 정확함..
+		rs = pstmt.executeQuery();
+		UserDto userDto=null;
+		
+		if(rs != null){
+			if(rs.next()){
+				userDto = new UserDto();
+				userDto.setUserid(userid);
+				userDto.setPassword(rs.getString("password"));
+				userDto.setRole(rs.getString("role"));
+			}
+		}
+		rs.close();
+		pstmt.close();
+		return userDto;
+	}
 %>
 
 <!-- service함수 -->
@@ -45,11 +63,26 @@
 	Integer serviceNo = (Integer)request.getAttribute("serviceNo");
 	System.out.println("URL : "+url);
 	System.out.println("serviceNo : "+serviceNo);
-
-	getConnection(); 	// db연결
 	
 	if(url.contains("/join")){
+		getConnection(); 	// db연결
 		UserDto userDto = (UserDto)request.getAttribute("userDto");
-		insert(userDto);
+		if(insert(userDto)>0){
+			response.sendRedirect("login_form.jsp");	// redirect 다수 사용시 return 예약어 사용
+			return;
+		}
 	}
+	if(url.contains("/myinfo")){
+		request.setAttribute("isConfirm", true);	// 루핑 방지, 무조건 true
+		
+		getConnection(); 	// db연결
+		String userid = request.getParameter("userid");
+		UserDto userDto = selectOne(userid);
+		
+		request.setAttribute("myinfo-result", userDto);
+		request.getRequestDispatcher("./myinfo.jsp").forward(request, response);	// forwarding 처리
+		return;
+		
+	}
+
 %>
