@@ -30,19 +30,20 @@
 	<form action="${pageContext.request.contextPath}/C07/03/login.jsp" method="post">
 		<div>
 			<label>아이디 </label><span><!-- 메시지 입력란 -->${username_msg}</span> <br />
+			<!-- value에 겹따옴표 꼭 넣기 -->
 			<input type="text" name="username" value="${cookie.username!=null?cookie.username.value:''}"/>
 		</div>
 		<div>
 			<label>패스워드 </label><span>${password_msg}</span> <br />
-			<input type="password" name="password" />
+			<input type="password" name="password" value="${cookie.password!=null?cookie.password.value:''}"/>
 		</div>
 		<div>
 			<!-- name을 넣어야 파라미터로 던져짐 -->
 			<!-- id랑 구별 -->
-			<input type="checkbox" id="idSave" name="idSave"/>
+			<input type="checkbox" id="idSave" name="idSave" ${cookie.idchk!=null?'checked':''} <%-- ${cookie.idchk.value} --%> />
 			<label for="idSave">ID 저장</label>
 			
-			<input type="checkbox" id="pwSave" name="pwSave"/>
+			<input type="checkbox" id="pwSave" name="pwSave" ${cookie.pwchk!=null?'checked':''} />
 			<label for="pwSave">PW 저장</label>
 		</div>
 		

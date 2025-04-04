@@ -49,6 +49,7 @@
 	session.setMaxInactiveInterval(60);	// 60초 동안 세션(로그인상태) 유지 (기본 1800초 : 30분)
 	
 	// 03+a 쿠키 설정!
+	// 쿠키 밖으로 빼고 정리해보기!
 	if(idSave!=null){	// on값이 들어오면
 		// response에 실어 보내기
 		Cookie cookie = new Cookie("username",username);
@@ -56,6 +57,49 @@
 		// 로그인 폼에서만 쿠키 확인 가능 -> 이걸 이제 id입력창에 넣으면 됨 -> login_form에서 작업
 		cookie.setPath("/01JSP_my/C07/03/login_form.jsp");	// 경로는 /01JSP_my/C07/02/getCookie.jsp 처럼 정확하게 -> 프로젝트 이름 다 나오는거 좋지 않음
 		response.addCookie(cookie);
+		
+		Cookie idchk = new Cookie("idchk","checked");
+		idchk.setMaxAge(60*5);
+		idchk.setPath("/01JSP_my/C07/03/login_form.jsp");
+		response.addCookie(idchk);
+	}else{
+		// 쿠키 삭제 작업
+		// 체크 해제 시 아이디 정보가 사라지게
+		Cookie cookie = new Cookie("username",null);
+		cookie.setMaxAge(0);	// 쿠키 만료
+		cookie.setPath("/01JSP_my/C07/03/login_form.jsp");
+		response.addCookie(cookie);
+		
+		Cookie idchk = new Cookie("idchk",null);
+		idchk.setMaxAge(0);
+		idchk.setPath("/01JSP_my/C07/03/login_form.jsp");
+		response.addCookie(idchk);
+	}
+	
+	if(pwSave!=null){	// on값이 들어오면
+		// response에 실어 보내기
+		Cookie cookie = new Cookie("password",password);
+		cookie.setMaxAge(60*5);
+		// 로그인 폼에서만 쿠키 확인 가능 -> 이걸 이제 id입력창에 넣으면 됨 -> login_form에서 작업
+		cookie.setPath("/01JSP_my/C07/03/login_form.jsp");
+		response.addCookie(cookie);
+		
+		Cookie pwchk = new Cookie("pwchk","checked");
+		pwchk.setMaxAge(60*5);
+		pwchk.setPath("/01JSP_my/C07/03/login_form.jsp");
+		response.addCookie(pwchk);
+	}else{
+		// 쿠키 삭제 작업
+		// 체크 해제 시 아이디 정보가 사라지게
+		Cookie cookie = new Cookie("password",null);
+		cookie.setMaxAge(0);	// 쿠키 만료
+		cookie.setPath("/01JSP_my/C07/03/login_form.jsp");
+		response.addCookie(cookie);
+		
+		Cookie pwchk = new Cookie("pwchk",null);
+		pwchk.setMaxAge(0);
+		pwchk.setPath("/01JSP_my/C07/03/login_form.jsp");
+		response.addCookie(pwchk);
 	}
 	
 	
