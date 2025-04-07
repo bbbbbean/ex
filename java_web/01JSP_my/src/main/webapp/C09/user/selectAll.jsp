@@ -46,10 +46,25 @@
 				<a href="./update_form.jsp?userid=<%=user.getUserid()%>">수정하기</a>
 			</td>
 			<td>
-				<a href="./delete.jsp?userid=<%=user.getUserid()%>">삭제하기</a>
+				<%-- <a href="./delete.jsp?userid=<%=user.getUserid()%>">삭제하기</a> --%>
+				<a href="javascript:deleteFunc('<%=user.getUserid()%>')">삭제하기</a>
+				<button onclick="deleteFunc('<%=user.getUserid()%>')">삭제하기</button>
 			</td>
 		</tr>
 		<% } %>
 	</table>
+	
+	<script>
+		// 경고창 띄우기용 스크립트
+		
+		function deleteFunc(userid){
+			const isDelete = confirm("정말 삭제하시겠습니까?");
+			if(isDelete)
+				// `` - 보간법 적용이 잘 되지 않음 -> 인자를 잘 받아오지 못함 그냥 따로 쓰기
+				// '' 안의 문자를 문자열 처리 -> 그냥 +로 이어주기
+				location.href = './delete.jsp?userid='+userid;
+		}
+	
+	</script>
 </body>
 </html>
