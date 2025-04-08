@@ -41,7 +41,13 @@
 		margin:0;
 		padding:10px;
 	}
+	form{border:1px solid; width:500px;margin:0 auto;}
+	main>form>div{display:flex;border-bottom:1px solid;line-height:40px;}
+	label{display:block;width:100px;height:40px;border-right:1px solid;text-align:center;line-height:40px;font-weight:600;background-color:lightgray;}
+	input{display:block; margin:10px 0 0 20px;height:20px;}
+	select{display:block;margin:2px 0 2px 20px;}
 	.wrapper>footer{height:80px;}
+	button{margin: 10px 0 10px 120px;}
 
 </style>
 </head>
@@ -101,26 +107,32 @@
 						// 유효성 검사
 						if(form.v_jumin.value===""){
 							alert('주민번호가 입력되지 않았습니다!');
+							form.v_jumin.focus();
 							return;
 						}
 						if(form.v_name.value===""){
 							alert('성명이 입력되지 않았습니다!');
+							form.v_name.focus();
 							return;
 						}
 						if(form.m_no.value===""){
 							alert('후보번호가 입력되지 않았습니다!');
+							form.m_no.focus();
 							return;
 						}
 						if(form.v_time.value===""){
 							alert('투표시간이 입력되지 않았습니다!');
+							form.v_time.focus();
 							return;
 						}
 						if(form.v_area.value===""){
 							alert('투표장소가 입력되지 않았습니다!');
+							form.v_area.focus();
 							return;
 						}
 						if(form.v_confirm.value===""){
 							alert('유권자 확인이 선택되지 않았습니다!');
+							form.v_confirm.focus();
 							return;
 						}
 						// submit 처리

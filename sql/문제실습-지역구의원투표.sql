@@ -25,3 +25,16 @@ select m_no, m_name, p_name,p_school,m_jumin,M_city,p_tel1,p_tel2,p_tel3
 from tbl_member_202005
 join tbl_party_202005
 on tbl_member_202005.p_code=tbl_party_202005.p_code;
+
+select v_name,v_jumin,m_no,v_time,v_confirm
+from tbl_vote_202005;
+
+select tbl_member_202005.m_no, m_name, count(tbl_member_202005.m_no)
+from tbl_member_202005
+join tbl_vote_202005
+on tbl_member_202005.m_no = tbl_vote_202005.m_no;
+
+select * from tbl_vote_202005;
+delete from tbl_vote_202005 where v_jumin=99010110002;
+commit;
+

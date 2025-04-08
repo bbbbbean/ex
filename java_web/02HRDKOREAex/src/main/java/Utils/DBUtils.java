@@ -89,4 +89,68 @@ public class DBUtils {
 		pstmt.close();
 		return result;
 	}
+	
+	
+	public List<VoteDto> selectAllVote() throws Exception{
+		
+		pstmt = conn.prepareStatement("select v_name,v_jumin,m_no,v_time,v_confirm from tbl_vote_202005 where v_area='제1투표장'");
+		rs = pstmt.executeQuery();
+		
+		
+		List<VoteDto> list = new ArrayList();
+		VoteDto dto = null;
+
+		if(rs!=null) {
+			while(rs.next()) {
+				dto = new VoteDto();
+				dto.setV_name(rs.getString(1));
+				dto.setV_jumin(rs.getString(2));
+				dto.setM_no(rs.getString(3));
+				dto.setV_time(rs.getString(4));
+				dto.setV_confirm(rs.getString(5));
+				list.add(dto);
+			}
+		}
+		rs.close();
+		pstmt.close();
+		return list;
+	}
+	
+	public List<ResultDto> selectAllresult() throws Exception{
+		
+		// select tbl_member_202005.m_no, m_name, count(tbl_member_202005.m_no)
+		// from tbl_member_202005
+		// join tbl_vote_202005
+		// on tbl_member_202005.m_no = tbl_vote_202005.m_no
+		// group by tbl_member_202005.m_no, m_name
+		// order by count(tbl_member_202005.m_no) desc;
+		
+		String sql = "select tbl_member_202005.m_no, m_name, count(tbl_member_202005.m_no)"
+				+ " from tbl_member_202005"
+				+ " join tbl_vote_202005"
+				+ " on tbl_member_202005.m_no = tbl_vote_202005.m_no"
+				+ " where v_confirm = 'Y'"
+				+ " group by tbl_member_202005.m_no, m_name"
+				+ " order by count(tbl_member_202005.m_no) desc";
+		
+		pstmt = conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+		
+		List<ResultDto> list = new ArrayList();
+		ResultDto dto = null;
+
+		if(rs!=null) {
+			while(rs.next()) {
+				dto = new ResultDto();
+				dto.setM_no(rs.getString(1));
+				dto.setM_name(rs.getString(2));
+				dto.setM_count(rs.getString(3));
+				list.add(dto);
+			}
+		}
+		rs.close();
+		pstmt.close();
+		return list;
+	}
+
 }
