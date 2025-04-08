@@ -32,9 +32,12 @@ from tbl_vote_202005;
 select tbl_member_202005.m_no, m_name, count(tbl_member_202005.m_no)
 from tbl_member_202005
 join tbl_vote_202005
-on tbl_member_202005.m_no = tbl_vote_202005.m_no;
+on tbl_member_202005.m_no = tbl_vote_202005.m_no
+where v_confirm = 'Y'
+group by tbl_member_202005.m_no, m_name
+order by count(tbl_member_202005.m_no) desc;
 
 select * from tbl_vote_202005;
-delete from tbl_vote_202005 where v_jumin=99010110002;
+delete from tbl_vote_202005 where v_jumin=2001013333333;
 commit;
 
