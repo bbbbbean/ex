@@ -35,6 +35,7 @@ public class DBUtils {
 		return instance;
 	}
 	
+	
 	public List<MemberDto> selectAllMember() throws Exception{
 		
 		// 조회 쿼리문
@@ -71,5 +72,21 @@ public class DBUtils {
 		rs.close();
 		pstmt.close();
 		return list;
+	}
+	
+	
+	public int insertVote(VoteDto dto) throws Exception {
+		pstmt = conn.prepareStatement("insert into tbl_vote_202005 values (?,?,?,?,?,?)");
+		pstmt.setString(1, dto.getV_jumin());
+		pstmt.setString(2, dto.getV_name());
+		pstmt.setString(3, dto.getM_no());
+		pstmt.setString(4, dto.getV_time());
+		pstmt.setString(5, dto.getV_area());
+		pstmt.setString(6, dto.getV_confirm());
+		
+		int result = pstmt.executeUpdate();
+		
+		pstmt.close();
+		return result;
 	}
 }

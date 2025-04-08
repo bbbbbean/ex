@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="Utils.*,java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,9 +44,11 @@
 	.wrapper>footer{height:80px;}
 
 </style>
-
 </head>
 
+<%
+	List<MemberDto> list = DBUtils.getInstance().selectAllMember();
+%>
 
 <body>
 	<div class="wrapper">
@@ -54,7 +57,7 @@
 		<%@include file="/layouts/Nav.jsp" %>
 		<main>
 			<h2>투표하기</h2>
-			<form action="./create.jsp" method="post">
+			<form name="vote_form" action="./create.jsp" method="post" onsubmit="return false">
 				<div>
 					<label for="">주민번호</label>
 					<input type="text" name="v_jumin"/>
@@ -65,7 +68,11 @@
 				</div>
 				<div>
 					<label for="">투표번호</label>
-					<input type="text" name="m_no"/>
+					<select name="m_no"/>
+					<%for(MemberDto dto:list){ %>
+						<option value="<%=dto.getM_no()%>"><%="["+dto.getM_no()+"] "+dto.getM_name()%></option>
+					<%}%>
+					</select>
 				</div>
 				<div>
 					<label for="">투표시간</label>
@@ -77,16 +84,49 @@
 				</div>
 				<div>
 					<label for="">유권자확인</label>
-					<input type="radio" name="v_confirm"/> 확인
+					<input type="radio" name="v_confirm" value="Y"/> 확인
 					&nbsp;&nbsp;
-					<input type="radio" name="v_confirm"/> 미확인
+					<input type="radio" name="v_confirm" value="N"/> 미확인
 				</div>
 				<div>
 					<!-- url에 결과 뜸 -->
-					<button type="submit">투표하기</button>
+					<button type="submit" onclick="isValid()">투표하기</button>
 					<!-- 기입한 input 내용 리셋 -->
-					<button type="reset">다시하기</button>
+					<button type="reset" onclick="javascript:alert('정보를 지우고 처음부터 다시 입력합니다!')">다시하기</button>
 				</div>
+				<script>
+					function isValid(){
+						// form 요소 찾기
+						var form = document.vote_form; 
+						// 유효성 검사
+						if(form.v_jumin.value===""){
+							alert('주민번호가 입력되지 않았습니다!');
+							return;
+						}
+						if(form.v_name.value===""){
+							alert('성명이 입력되지 않았습니다!');
+							return;
+						}
+						if(form.m_no.value===""){
+							alert('후보번호가 입력되지 않았습니다!');
+							return;
+						}
+						if(form.v_time.value===""){
+							alert('투표시간이 입력되지 않았습니다!');
+							return;
+						}
+						if(form.v_area.value===""){
+							alert('투표장소가 입력되지 않았습니다!');
+							return;
+						}
+						if(form.v_confirm.value===""){
+							alert('유권자 확인이 선택되지 않았습니다!');
+							return;
+						}
+						// submit 처리
+						form.submit();
+					}
+				</script>
 			</form>
 		</main>
 		<%@include file="/layouts/Footer.jsp" %>

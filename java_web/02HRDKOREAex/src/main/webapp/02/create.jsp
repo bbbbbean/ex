@@ -4,6 +4,10 @@
 
 
 <%
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html; charset=UTF-8");
+
 	// 파라미터 받기 : 기본, 가장 정확한 방법
 	String jumin = request.getParameter("v_jumin");
 	String name = request.getParameter("v_name");
@@ -14,6 +18,8 @@
 	
 	VoteDto voteDto = new VoteDto(jumin, name, no, time, area, confirm);
 	System.out.println("voteDto : "+voteDto);
+	
+	
 %>
 
 
@@ -28,6 +34,14 @@
 <jsp:setProperty name="voteDto2" property="*" />
 <%
 	System.out.println("voteDto2 : "+voteDto2);
+	// db 연결 및 함수 실행
+	int result = DBUtils.getInstance().insertVote(voteDto2);
+	if(result>0){
+		out.println("<script>alert('투표하기 정보가 정상적으로 등록되었습니다.')</script>");
+		request.getRequestDispatcher("./read.jsp").forward(request,response);
+	}else{
+		out.println("<script>alert('투표하기 정보를 다시 입력하세요.');location.href='./index.jsp'</script>");
+	}
 %>
 
 
