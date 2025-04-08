@@ -16,7 +16,7 @@
 	.wrapper{}
 	.wrapper>header{height:100px;}
 	.wrapper>nav{height:40px;}
-	.wrapper>main{height:calc(100vh - 220px);}
+	.wrapper>main{height:calc(100vh - 320px);}
 	.wrapper>main table{
 		border:1px solid;
 		border-collapse:collapse;
@@ -96,7 +96,7 @@
 						case "4":
 							out.print("<td>박사</td>");
 							break;
-					}
+						}
 					%>
 					<td><%
 						StringBuffer sb = new StringBuffer();
