@@ -65,12 +65,12 @@
 					<th>성명</th>
 					<th>총투표건수</th>
 				</tr>
-				<%for(ResultDto dto:list){ %>
+				<%for(ResultDto dto:list){%>
 				<tr>
 					<td><%=dto.getM_no() %></td>
 					<td><%=dto.getM_name() %></td>
 					<td><%=dto.getM_count() %></td>
-				<%} %>
+				<%}%>
 			</table>
 		</main>
 		<%@include file="/layouts/Footer.jsp" %>

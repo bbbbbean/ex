@@ -60,7 +60,7 @@
 					<td><%=el.getTeacher_name()%></td>
 					<td><%=el.getClass_name()%></td>
 					<%
-						DecimalFormat priceform = new DecimalFormat("\u00A4###,###");
+						DecimalFormat priceform = new DecimalFormat("\\###,###");
 						int price = el.getClass_price();
 						out.println("<td>"+priceform.format(price)+"</td>");
 					%>
