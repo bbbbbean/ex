@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>04Servlet_init_my</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<!-- 이름 정보, 내부적으로 사용 -->
+  	<servlet-name>C02Servlet</servlet-name>
+  	<!-- class 정보 여긴 정확하게 적기 -->
+  	<servlet-class>Servlet.C02Servlet_Test</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>C02Servlet</servlet-name>
+  	<url-pattern>/TEST_02</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
