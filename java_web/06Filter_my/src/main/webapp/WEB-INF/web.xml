@@ -116,4 +116,14 @@
   	<url-pattern>/manager_main</url-pattern>
   	<url-pattern>/user_main</url-pattern>
   </filter-mapping>
+  
+  <!-- 권한 : 로그인 후 각기 맞는 페이지 보내기 -->
+  <filter>
+  	<filter-name>LoginRedirectFilter</filter-name>
+  	<filter-class>Filter.LoginRedirectFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LoginRedirectFilter</filter-name>
+  	<url-pattern>/login.do</url-pattern>
+  </filter-mapping>
 </web-app>
