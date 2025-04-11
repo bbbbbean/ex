@@ -48,6 +48,8 @@ public class PermissionFilter implements Filter{
 		// -> 따로 관리하기도 함, 우리는 type에서 따로 관리 예정
 		// enum 클래스 : 문자를 상수로 치환 가능
 		// 숫자로만 저장해두면 이게 어떤거였는지 기억을 못함 그럴때를 대비해 문자와 함께 저장해두는것 - 상수와 의미를 함께 저장
+		
+		// 페이지에다 권한 지정해 둬야해서 Role 사용
 		pageGradeMap.put(projectPath+"/admin_main", Role.ROLE_ADMIN);
 		pageGradeMap.put(projectPath+"/manager_main", Role.ROLE_MANAGER);
 		pageGradeMap.put(projectPath+"/user_main", Role.ROLE_USER);

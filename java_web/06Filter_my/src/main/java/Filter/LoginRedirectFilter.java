@@ -31,22 +31,24 @@ public class LoginRedirectFilter implements Filter{
 		String myRole = (String) request.getSession().getAttribute("role");
 		String method = request.getMethod(); 
 		
-		// 방식이 POST인지 먼저 판별
+		// POST 방식으로 ID, PW 받아오니까 방식이 POST인지 먼저 판별
+		// role이 비어있나 아니냐로 로그인 유무 판별
 		if(method.contains("POST") && (myRole!=null)) {
 			System.out.println("로그인 상태 확인 role : "+myRole);
+			// session에 값있으니까 그냥 문자열 판별
 			switch(myRole) {
 				case "ROLE_USER":
 					response.sendRedirect(request.getContextPath()+"/user_main");
 					return;
-					//break;
+
 				case "ROLE_MANAGER":
 					response.sendRedirect(request.getContextPath()+"/manager_main");
 					return;
-					//break;
+	
 				case "ROLE_ADMIN":
 					response.sendRedirect(request.getContextPath()+"/admin_main");
 					return;
-					//break;
+
 				default :
 					break;
 			}
