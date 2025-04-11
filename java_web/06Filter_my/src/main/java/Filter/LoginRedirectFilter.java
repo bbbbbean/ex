@@ -29,35 +29,39 @@ public class LoginRedirectFilter implements Filter{
 		HttpServletResponse response = (HttpServletResponse)resp;
 		
 		String myRole = (String) request.getSession().getAttribute("role");
+		String method = request.getMethod(); 
 		
-		// role 가져오기
-		Role my= null;
-		switch(myRole) {
-			case "ROLE_USER":
-				my = Role.ROLE_USER;
-				break;
-			case "ROLE_MANAGER":	
-				my = Role.ROLE_MANAGER;
-				break;
-			case "ROLE_ADMIN":
-				my = Role.ROLE_ADMIN;
-				break;
-			default :
-				break;
+		// 방식이 POST인지 먼저 판별
+		if(method.contains("POST") && (myRole!=null)) {
+			System.out.println("로그인 상태 확인 role : "+myRole);
+			switch(myRole) {
+				case "ROLE_USER":
+					response.sendRedirect(request.getContextPath()+"/user_main");
+					return;
+					//break;
+				case "ROLE_MANAGER":
+					response.sendRedirect(request.getContextPath()+"/manager_main");
+					return;
+					//break;
+				case "ROLE_ADMIN":
+					response.sendRedirect(request.getContextPath()+"/admin_main");
+					return;
+					//break;
+				default :
+					break;
+			}
 		}
 		
-		// 권한 판별
-		switch(my.ordinal()) {
-		case 1:
-			response.sendRedirect(request.getContextPath()+"/user_main");
-			break;
-		case 2:
-			response.sendRedirect(request.getContextPath()+"/manager_main");
-			break;
-		case 3:
-			response.sendRedirect(request.getContextPath()+"/admin_main");
-			break;
-		}
+		/*
+		 * // role 가져오기 Role my= null; switch(myRole) { case "ROLE_USER": my =
+		 * Role.ROLE_USER; break; case "ROLE_MANAGER": my = Role.ROLE_MANAGER; break;
+		 * case "ROLE_ADMIN": my = Role.ROLE_ADMIN; break; default : break; }
+		 * 
+		 * // 권한 판별 switch(my.ordinal()) { case 1:
+		 * response.sendRedirect(request.getContextPath()+"/user_main"); break; case 2:
+		 * response.sendRedirect(request.getContextPath()+"/manager_main"); break; case
+		 * 3: response.sendRedirect(request.getContextPath()+"/admin_main"); break; }
+		 */
 		
 	}
 

@@ -47,10 +47,7 @@ public class Login extends HttpServlet{
 			e.printStackTrace();
 		}
 		// 뷰
-		if(isAuth==true) {
-			// resp.sendRedirect(req.getContextPath()+"/main.do");
-			return;
-		}else {
+		if(!isAuth) {
 			req.setAttribute("msg", "로그인 실패");
 			req.getRequestDispatcher("/WEB-INF/user/login.jsp").forward(req, resp);
 			return;
