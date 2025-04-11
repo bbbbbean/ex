@@ -48,7 +48,7 @@ public class Login extends HttpServlet{
 		}
 		// 뷰
 		if(isAuth==true) {
-			resp.sendRedirect(req.getContextPath()+"/main.do");
+			// resp.sendRedirect(req.getContextPath()+"/main.do");
 			return;
 		}else {
 			req.setAttribute("msg", "로그인 실패");

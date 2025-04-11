@@ -32,13 +32,40 @@
   	<url-pattern>/login.do</url-pattern>
   </servlet-mapping>
   
-    <servlet>
+   <servlet>
   	<servlet-name>join</servlet-name>
   	<servlet-class>Servlet.Join</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>join</servlet-name>
   	<url-pattern>/join.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>admin_main</servlet-name>
+  	<servlet-class>Servlet.AdminMain</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>admin_main</servlet-name>
+  	<url-pattern>/admin_main</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>manager_main</servlet-name>
+  	<servlet-class>Servlet.ManagerMain</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>manager_main</servlet-name>
+  	<url-pattern>/manager_main</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>user_main</servlet-name>
+  	<servlet-class>Servlet.UserMain</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>user_main</servlet-name>
+  	<url-pattern>/user_main</url-pattern>
   </servlet-mapping>
   
   <!-- 필터 -->
@@ -78,5 +105,15 @@
   	<url-pattern>*.do</url-pattern>
   </filter-mapping> 
   
-  
+  <!-- 권한 필터 -->
+  <filter>
+  	<filter-name>PermissionFilter</filter-name>
+  	<filter-class>Filter.PermissionFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>PermissionFilter</filter-name>
+  	<url-pattern>/admin_main</url-pattern>
+  	<url-pattern>/manager_main</url-pattern>
+  	<url-pattern>/user_main</url-pattern>
+  </filter-mapping>
 </web-app>

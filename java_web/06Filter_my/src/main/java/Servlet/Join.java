@@ -28,7 +28,7 @@ public class Join extends HttpServlet{
 		// 파라미터 받기
 		String userid = req.getParameter("username");
 		String password = req.getParameter("password");
-		String role_user = "R_user";
+		String role_user = "ROLE_USER";
 		String addr = req.getParameter("addr");
 		UserDto user = new UserDto(userid,password,role_user,addr);
 		
@@ -37,7 +37,7 @@ public class Join extends HttpServlet{
 		
 		int result = 0;
 		try {
-			// result = OracleDBUtils.getInstance().userJoin(user);
+			result = OracleDBUtils.getInstance().userJoin(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

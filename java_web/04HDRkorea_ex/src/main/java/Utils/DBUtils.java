@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBUtils {
 	// DB 연결
@@ -32,4 +33,24 @@ public class DBUtils {
 	
 	
 	// 쿼리문
+	public List<StudentDto> selectAllStudent() throws Exception{
+		String sql="";
+		pstmt = conn.prepareStatement(sql);
+		List<StudentDto> list = new ArrayList();
+		StudentDto dto = null;
+		
+		rs = pstmt.executeQuery();
+		if(rs!=null) {
+			while(rs.next()) {
+				dto = new StudentDto();
+				
+				list.add(dto);
+			}
+		}
+		rs.close();
+		pstmt.close();
+		return list;
+	}
+	
+	
 }
