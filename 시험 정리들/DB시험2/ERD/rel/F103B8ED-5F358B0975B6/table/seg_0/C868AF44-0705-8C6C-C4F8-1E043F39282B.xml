@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C868AF44-0705-8C6C-C4F8-1E043F39282B" schemaObject="0757E69A-D709-9BC2-2D72-7A4FE0A91ACC" name="TBL_RENTAL">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>TBL_RENTAL</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="RENTAL_ID" id="F3311DC5-EA17-12D0-7AED-5CA15547C0AD">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>TBL_RENTAL</sourceObjSchema>
+<sourceObjName>RENTAL_ID</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BOOK_CODE" id="2D01279D-C326-40BC-E5A1-4C62E28D99E7">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>TBL_RENTAL</sourceObjSchema>
+<sourceObjName>BOOK_CODE</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="41B349F8-B084-E6AE-7167-7A8B92744202" referredColumn="52114EB4-7F36-688C-2E81-F3903943F155"/>
+</associations>
+</Column>
+<Column name="MEMBER_ID" id="20571E52-C03F-E3B9-5A80-8D339BF99E92">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>TBL_RENTAL</sourceObjSchema>
+<sourceObjName>MEMBER_ID</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B2161BA3-48ED-4A10-FE69-4CB07B923B9B" referredColumn="ACE7AEDD-D782-BF0E-F38D-85D74F4F2CE4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BE2A3527-A715-56AD-F692-0E45C6DF3FC2" schemaObject="0757E69A-D709-9BC2-2D72-7A4FE0A91ACC" name="FK_BOOK_CODE">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>FK_BOOK_CODE</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2D01279D-C326-40BC-E5A1-4C62E28D99E7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="59988235-B345-3D1E-B243-74623D8F81EB" schemaObject="0757E69A-D709-9BC2-2D72-7A4FE0A91ACC" name="FK_MEMBER_ID">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>FK_MEMBER_ID</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="20571E52-C03F-E3B9-5A80-8D339BF99E92"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3BB03A06-2BC0-816D-8718-CDD21B4A3372" name="FK_BOOK_CODE">
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2D01279D-C326-40BC-E5A1-4C62E28D99E7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4CBE2967-4A9D-897F-32FE-5A9B7F16B91C" name="FK_MEMBER_ID">
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="20571E52-C03F-E3B9-5A80-8D339BF99E92"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

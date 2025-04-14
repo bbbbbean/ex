@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Diagram class="oracle.dbtools.crest.swingui.relational.DPVRelational" name="Relational_1" id="39DC1B59-670F-72A7-82EA-169750774DC9">
+<createdBy>Administrator</createdBy>
+<modifiedBy>Administrator</modifiedBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<autoRoute>false</autoRoute>
+<boxInbox>true</boxInbox>
+<showLegend>false</showLegend>
+<showLabels>false</showLabels>
+<showRelAttributes>false</showRelAttributes>
+<gridEnabled>false</gridEnabled>
+<showGrid>false</showGrid>
+<diagramColor>-1</diagramColor>
+<display>false</display>
+<notation>1</notation>
+<objectViews>
+<OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="01BA5369-D7EB-0ED7-C7C7-EE9619A04CE4" otype="Table" vid="2CA77DEF-2C3E-4645-1E48-1561284F7834">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="140" y="327" width="266" height="159"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="C868AF44-0705-8C6C-C4F8-1E043F39282B" otype="Table" vid="ACFD62F7-DDEB-F4FD-6618-B54B5FA4B9EB">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="139" y="116" width="193" height="144"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="F5B7A2D1-744A-8C41-AC30-ED76DCCF32B9" otype="Table" vid="A87D7BFC-4663-B5BB-7F31-654B1F44C29B">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="417" y="103" width="267" height="159"/>
+</OView>
+</objectViews>
+<connectors>
+<Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="41B349F8-B084-E6AE-7167-7A8B92744202" otype="FKIndexAssociation" vid_source="A87D7BFC-4663-B5BB-7F31-654B1F44C29B" vid_target="ACFD62F7-DDEB-F4FD-6618-B54B5FA4B9EB">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="417" y="188"/>
+<point x="332" y="188"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="B2161BA3-48ED-4A10-FE69-4CB07B923B9B" otype="FKIndexAssociation" vid_source="2CA77DEF-2C3E-4645-1E48-1561284F7834" vid_target="ACFD62F7-DDEB-F4FD-6618-B54B5FA4B9EB">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="236" y="327"/>
+<point x="236" y="260"/>
+</points>
+</Connector>
+</connectors>
+</Diagram>

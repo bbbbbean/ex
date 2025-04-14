@@ -1,0 +1,134 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F5B7A2D1-744A-8C41-AC30-ED76DCCF32B9" schemaObject="0757E69A-D709-9BC2-2D72-7A4FE0A91ACC" name="TBL_BOOK">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>TBL_BOOK</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BOOK_CODE" id="52114EB4-7F36-688C-2E81-F3903943F155">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>TBL_BOOK</sourceObjSchema>
+<sourceObjName>BOOK_CODE</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CLASSIFICATION_ID" id="9B187B6F-40CE-4909-F833-71CDC09ECFB7">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>TBL_BOOK</sourceObjSchema>
+<sourceObjName>CLASSIFICATION_ID</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BOOK_AUTHOR" id="7F4B216B-C643-E0BA-BDC2-AC102826A32D">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>TBL_BOOK</sourceObjSchema>
+<sourceObjName>BOOK_AUTHOR</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 BYTE</dataTypeSize>
+<ownDataTypeParameters>45 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BOOK_NAME" id="87D5497A-3770-0426-D44B-C47304495612">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>TBL_BOOK</sourceObjSchema>
+<sourceObjName>BOOK_NAME</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 BYTE</dataTypeSize>
+<ownDataTypeParameters>45 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PUBLISHER" id="153C00EE-53F1-DF7D-001A-63DC2F91E073">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>TBL_BOOK</sourceObjSchema>
+<sourceObjName>PUBLISHER</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 BYTE</dataTypeSize>
+<ownDataTypeParameters>45 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ISRENTAL" id="8B950FB1-3F4D-29C0-5BA7-3F3D06D82921">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>TBL_BOOK</sourceObjSchema>
+<sourceObjName>ISRENTAL</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8B0F2CC0-ACC7-23B9-1198-D36C2670C50C" name="BOOK_CODE">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>BOOK_CODE</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52114EB4-7F36-688C-2E81-F3903943F155"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DA964056-5C34-34DE-1A9B-038ED85AE407" schemaObject="0757E69A-D709-9BC2-2D72-7A4FE0A91ACC" name="BOOK_CODE">
+<sourceConnName>LOCALHOST</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>BOOK_CODE</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52114EB4-7F36-688C-2E81-F3903943F155"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

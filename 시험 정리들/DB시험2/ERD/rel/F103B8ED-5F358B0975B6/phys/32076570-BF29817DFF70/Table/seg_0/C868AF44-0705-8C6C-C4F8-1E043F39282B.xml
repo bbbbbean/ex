@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="TBL_RENTAL" directorySegmentName="seg_0" id="C868AF44-0705-8C6C-C4F8-1E043F39282B">
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<schemaObject>0757E69A-D709-9BC2-2D72-7A4FE0A91ACC</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>621E3E71-FE68-495F-C4D0-B27F256FBF7A</segment>
+<tableSpace>A3B09C3D-B400-70C2-63F1-A4C98B4EDCEC</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MEMBER_ID" id="20571E52-C03F-E3B9-5A80-8D339BF99E92">
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BOOK_CODE" id="2D01279D-C326-40BC-E5A1-4C62E28D99E7">
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RENTAL_ID" id="F3311DC5-EA17-12D0-7AED-5CA15547C0AD">
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="FK_MEMBER_ID" id="59988235-B345-3D1E-B243-74623D8F81EB">
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<schemaObject>0757E69A-D709-9BC2-2D72-7A4FE0A91ACC</schemaObject>
+<segment>EFFA28F4-1D2F-72EF-E5BA-C12B558FC07F</segment>
+<tableSpace>A3B09C3D-B400-70C2-63F1-A4C98B4EDCEC</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="FK_BOOK_CODE" id="BE2A3527-A715-56AD-F692-0E45C6DF3FC2">
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:43 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<schemaObject>0757E69A-D709-9BC2-2D72-7A4FE0A91ACC</schemaObject>
+<segment>EFFA28F4-1D2F-72EF-E5BA-C12B558FC07F</segment>
+<tableSpace>A3B09C3D-B400-70C2-63F1-A4C98B4EDCEC</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_BOOK_CODE" id="3BB03A06-2BC0-816D-8718-CDD21B4A3372">
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_MEMBER_ID" id="4CBE2967-4A9D-897F-32FE-5A9B7F16B91C">
+<createdBy>Administrator</createdBy>
+<createdTime>2025-04-14 06:02:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+</TableProxyOraclev11g>
