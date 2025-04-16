@@ -11,9 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Controller.user.AdminMainController;
+import Controller.user.ManagerMainController;
 import Controller.user.UserCreateController;
 import Controller.user.UserLoginController;
 import Controller.user.UserLogoutController;
+import Controller.user.UserMainController;
 
 //@WebServlet("/")
 public class FrontController extends HttpServlet {
@@ -30,6 +33,12 @@ public class FrontController extends HttpServlet {
 			// 기본
 			map.put("/", new HomeController());
 			map.put("/index.do", new HomeController());
+
+			// 권한별 페이지
+			// 서블릿이 아니라 따로 컨트롤러 만들어야함
+			map.put("/user/user", new UserMainController());
+			map.put("/user/manager", new ManagerMainController());
+			map.put("/user/admin", new AdminMainController());
 			
 			// 인증(/user/*) - 회원CRUD , 로그인 , 로그아웃
 			map.put("/user/create", new UserCreateController());
