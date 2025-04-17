@@ -4,6 +4,7 @@ public class PageDto {
 	private static final long serialVersionUID = 5L;
 	// Criteria의 결과물
 	
+	private long totalCount;
 	
 	//페이지정보(전체페이지,현재페이지)
 	private int totalpage;			// 총게시물건수 / amount
@@ -26,7 +27,7 @@ public class PageDto {
 	
 	public PageDto(long totalcount,Criteria criteria) {
 		
-		
+		this.totalCount = totalcount;
 		this.criteria = criteria;
 		
 		// 전체페이지 계산 : 전체 게시물 건수 / 페이지당 게시물의 건수
@@ -65,6 +66,14 @@ public class PageDto {
 				+ endPage + ", prev=" + prev + ", next=" + next + "]";
 	}
 	
+
+	public long getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(long totalCount) {
+		this.totalCount = totalCount;
+	}
 
 	public Criteria getCriteria() {
 		return criteria;

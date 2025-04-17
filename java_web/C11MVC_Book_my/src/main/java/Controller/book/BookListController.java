@@ -48,16 +48,32 @@ public class BookListController implements SubController{
 			String type = req.getParameter("type");
 			String keyword = req.getParameter("keyword");
 			
+			
+			
 			Criteria criteria=null;
 			if(pageno==null) {
+				// 첫번째 접근
 				criteria = new Criteria();	// pageno=1, amount=10, type=null, keyword=null
 			}else {
+				// 페이지를 누른 뒤 판단
+				//criteria = new Criteria(pageno,10);
+				criteria = new Criteria(pageno,10,type,keyword);
 				
+				long totalcount;
+				PageDto page = new PageDto(totalcount,criteria);
+				
+				if(pageno>page.getTotalpage()) {
+					pageno=page.getEndPage();
+				}
 			}
+			
+			
 			
 			// 입력값
 			
 			// 서비스
+			//Map<String,Object> serviceResponse = bookService.getAllBooks(criteria);
+			// 타입과 키워드가 들어오면 
 			Map<String,Object> serviceResponse = bookService.getAllBooks(criteria);
 			// Object들이라 형변환 필요 -> 다운캐스팅
 			Boolean status = (Boolean) serviceResponse.get("status");

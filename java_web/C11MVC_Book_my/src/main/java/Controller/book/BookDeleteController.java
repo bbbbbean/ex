@@ -25,19 +25,33 @@ public class BookDeleteController implements SubController {
 		System.out.println("[SC] BookDeleteController execute..");
 		
 		try {
-			// GET 방식일 경우 페이지 이동
-			String uri = req.getMethod();
-			if(uri.equals("GET")) {
-				req.getRequestDispatcher("/WEB-INF/view/book/delete.jsp").forward(req, resp);
-				return;
+			// 파라미터
+			String bookCode = req.getParameter("bookcode");
+			String pageno = req.getParameter("pageno")!=null?req.getParameter("pageno"):"1";
+			// 추가적으로 판별해주기
+			if(pageno.isEmpty())
+				pageno = "1";
+
+			// 유효성
+			if(!isValid(bookCode)) {
+				resp.sendRedirect(req.getContextPath()+"/book/read?bookcode="+bookCode);
 			}
+			
+			// 서비스
+			boolean isDelete = bookService.removeBook(bookCode);
+			
+			
+			// 뷰
+			resp.sendRedirect(req.getContextPath()+"/book/list?pageno="+pageno);
+
+			
 		}catch(Exception e) {
 			exceptionHandler(e);
 		}
 	}
 	
 	// 유효성 함수
-	private boolean isValid(UserDto userDto) {
+	private boolean isValid(String bookCode) {
 
 		return true;
 	}
