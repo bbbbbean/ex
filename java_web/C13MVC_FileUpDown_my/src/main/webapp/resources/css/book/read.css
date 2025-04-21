@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.reply-block .reply-header textarea{
+	max-height: 40px;
+}
+
+.reply-header div {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	
+}
+
+.reply-block .reply-body .item{
+	display: flex;
+	align-items: conter;
+	gap : 30px;
+	border: 1px solid;
+	margin: 10px 0;
+}
+
+.reply-block .reply-body .item>*{
+	
+}
