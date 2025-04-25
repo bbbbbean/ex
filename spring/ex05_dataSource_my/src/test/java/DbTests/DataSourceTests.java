@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +25,35 @@ class DataSourceTests {
 	@Autowired
 	private DataSource dataSource1;
 	
+	@Autowired
+	private DataSource dataSource2;
+	
+	@Autowired
+	private DataSource dataSource3;
+	
 	@Test
+	@Disabled
 	void test1() throws SQLException {
 		System.out.println(dataSource1);
 		Connection con = dataSource1.getConnection();
 		PreparedStatement pstmt = con.prepareStatement("insert into tbl_book values('asdf','asdf','asdf','asdf')");
+		pstmt.executeUpdate();
+	}
+	
+	@Test
+	@Disabled
+	void test2() throws SQLException {
+		System.out.println(dataSource2);
+		Connection con = dataSource2.getConnection();
+		PreparedStatement pstmt = con.prepareStatement("insert into tbl_book values('asdfa','asdfa','asdfa','asdfa')");
+		pstmt.executeUpdate();
+	}
+	
+	@Test
+	void test3() throws SQLException {
+		System.out.println(dataSource3);
+		Connection con = dataSource3.getConnection();
+		PreparedStatement pstmt = con.prepareStatement("insert into tbl_book values('asdfab','asdfab','asdfab','asdfab')");
 		pstmt.executeUpdate();
 	}
 
