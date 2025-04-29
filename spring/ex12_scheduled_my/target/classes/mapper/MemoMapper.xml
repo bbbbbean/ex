@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- root-context의 base-package 경로 == mapper 인터페이스 경로 -->
+<mapper namespace="com.example.app.domain.mapper.MemoMapper">
+
+	<insert id="insertXml" useGeneratedKeys="true" keyProperty="id">
+        <selectKey keyProperty="id" order="AFTER" resultType="int">
+        	<!-- id에 AI설정(1씩 증가하며 아이디 자동 지정)이 되어있을 때 지정 -->
+            select max(id) + 1 as id from tbl_memo
+        </selectKey>
+        <!-- memoDto에서 꺼내오는 속성 : #{id}, #{text} -->
+        insert into tbl_memo (id, text) values (#{id}, #{text})
+    </insert>
+
+    <update id="updateXml">
+        update tbl_memo set text=#{text} where id=#{id}
+    </update>
+    
+    <delete id="deleteXml">
+        delete from tbl_memo where id=#{id}
+    </delete>
+    
+    <!-- 반환 타입 : MemoDto -->
+    <select id="selectAtXml" resultType="com.example.app.domain.dto.MemoDto" parameterType="int">
+        select * from tbl_memo where id=#{id}
+    </select>
+    <!-- 반환 타입 : List<MemoDto> -->
+    <select id="selectAllXml" resultType="com.example.app.domain.dto.MemoDto">
+        select * from tbl_memo
+    </select>
+    <!-- 반환 타입 : List<Map<String,Object>> -->
+    <select id="selectAllResultMapXml" resultType="java.util.Map">
+        select * from tbl_memo
+    </select>
+    
+    
+    <!-- 동적 쿼리 -->
+    <!-- 여러개면 리스트 형태로 전달됨 <k,v> -->
+    <!-- 조건부 쿼리문 가능! -->
+    <select id="Select_if_xml" parameterType="java.util.Map" resultType="java.util.Map" >
+		select * from tbl_memo
+		<!-- if문을 더 덧붙일 수 있음 -->
+		<!-- 아래 조건 만족시 아래 블럭 문장이 상단 뒤로 이어붙음 -->
+		<!-- select * from tbl_memo where text like concat('%',#{keyword},'%') -->
+		<if test="type!=null and type.equals('text')">
+			where text like concat('%',#{keyword},'%')
+		</if>
+	</select>
+	
+	<select id="Select_when_xml" parameterType="java.util.Map" resultType="java.util.Map" >
+		select * from tbl_memo
+		<if test="type!=null">
+			<!-- where절을 또 쪼개서 분기를 넣을 수 있음 -->
+			where
+			<choose>
+				<when test="type.equals('id')">
+					 id like concat('%',#{keyword},'%')
+				</when>
+				<when test="type.equals('text')">
+					 text like concat('%',#{keyword},'%')
+				</when>
+				<when test="type.equals('writer')">
+					 writer like concat('%',#{keyword},'%')
+				</when>
+				<otherwise>
+					 createAt &lt;= #{keyword}
+				</otherwise>
+			
+			</choose>
+		</if>
+		
+	</select>
+    
+
+</mapper>
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 프론트 컨트롤러 그 이상의 다른 설정들 가능, 범위가 넓음 -->
+	<!-- application context와 유사, 전역 설정 공간 -->
+	
+	<!-- 
+		애플리케이션 전체에서 공유되는 설정 파일
+		전역 설정 or Bean의 정의
+		주로 비즈니스 로직**과 관련된 서비스, Dao등을 설정
+		데이터베이스 연결, 트랜잭션 관리, 보안 설정(Spring Security등...)과 같은 애플리케이션 전체에서 공유되는 설정을 포함
+		딱 한번 생성되는 Bean들이 정의, 모든 웹 요청에 공유
+	 -->
+	 
+	 <!-- bean 등록 -->
+	 <bean id="personDto1" class="com.example.app.domain.dto.PersonDto">
+	 	<constructor-arg name="username" value="홍길동" />
+	 	<constructor-arg name="age" value="11" />
+	 	<constructor-arg name="addr" value="창원" />
+	 </bean>
+	 <bean id="personDto2" class="com.example.app.domain.dto.PersonDto">
+	 	<constructor-arg name="username" value="동길동" />
+	 	<constructor-arg name="age" value="51" />
+	 	<constructor-arg name="addr" value="원주" />
+	 </bean>
+	 
+	 <!-- java 파일을 bean으로 등록 -->
+	 <context:component-scan base-package="com.example.app.config" />
+	 
+	 
+	 <!-- 데이터소스 관련된 처리를 빈 등록으로 함 -->
+	 <!-- Custom bean 등록 -->
+	 <bean id="dataSource1" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	 	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+	 	<property name="url" value="jdbc:mysql://localhost:3306/testDB" />
+	 	<property name="username" value="root" />
+	 	<property name="password" value="1234" />
+	 </bean>
+	 
+	 <context:component-scan base-package="com.example.app.domain.dao" />
+	 <context:component-scan base-package="com.example.app.domain.service" />
+	 
+	 
+	 <!-- MyBatis -->
+	 <mybatis-spring:scan base-package="com.example.app.domain.mapper"/>
+	 
+	 <!-- TX : java config로 뺄 예정, 앞으로 엔간한건 이거로 함 -->
+	 <!-- 스케줄 -->
+	 <context:component-scan base-package="com.example.app.scheduled" />
+</beans>
