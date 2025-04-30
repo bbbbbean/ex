@@ -38,12 +38,12 @@ public class MybatisConfig {
 	//-----------------------
 	// sqlSession 생성
 	//-----------------------
-	@Autowired
-	private SqlSessionFactory sqlSessionFactory;
+	//@Autowired
+	//private SqlSessionFactory sqlSessionFactory;
 		
 	@Bean
-	public SqlSessionTemplate sqlSessionTemplate() {
-	    return new SqlSessionTemplate(sqlSessionFactory);
+	public SqlSessionTemplate sqlSessionTemplate() throws Exception {
+	    return new SqlSessionTemplate(sqlSessionFactory());
 	}
 }
 
