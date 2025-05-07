@@ -1,7 +1,19 @@
 package com.example.app.controller;
 
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.sql.SQLException;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.example.app.domain.Dto.UserDto;
+import com.example.app.domain.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -9,8 +21,35 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserController {
 	
-	@GetMapping("/loginform")
-	public void login() {
+	@GetMapping("/login")
+	public void loginpage() {
 		log.info("GET /login");
 	}
+	
+	@PostMapping("/login")
+	public void login() {
+		log.info("POST /login");
+		
+	}
+	
+	@Autowired
+	private UserService userService;
+	
+	@GetMapping("/join")
+	public void joinpage() {
+		log.info("GET /join");
+	}
+	
+	@PostMapping("/join")
+	public String join(@Valid UserDto dto, RedirectAttributes redirectAttributes) throws SQLException {
+		log.info("POST /join");
+		// 서비스
+		boolean isAdded = userService.join(dto);
+		if(isAdded) { 	// 세션에 저장
+			redirectAttributes.addFlashAttribute("message","회원가입 완료");
+			return "redirect:/login";}
+		else
+			return "/join";
+	}
+	
 }

@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page session="false" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
@@ -10,15 +10,15 @@
     <section class="login-section">
         <img src="image/로고.png" alt="logo">
         <h2>임시 회원가입 페이지입니다.<br>사용하고 있는 비밀번호를 입력하지마세요.</h2>
-        <form id="login-form" action="/join" method="post" name="join" submit="false">
+        <form id="login-form" action="${pageContext.request.contextPath }/join" method="post" name="join" submit="false">
             <label>
-                <input id="nickname" type="text" name="userid" placeholder="아이디">
+                <input id="nickname" type="text" name="userid" placeholder="아이디 ${message }">
             </label>
             <label>
-                <input type="password" id="pwd" name="password" placeholder="비밀번호">
+                <input type="password" id="pwd" name="password" placeholder="비밀번호 ${message }">
             </label>
             <label>
-                <input type="text" id="name" name="name" placeholder="이름">
+                <input type="text" id="name" name="name" placeholder="이름 ${message }">
             </label>
             <label>
                 <input id="nickname" type="text" name="nickname" placeholder="사용자 닉네임">
@@ -29,7 +29,7 @@
     </section>
     <section class="no-account-section">
         <span>계정이 있으신가요?</span>
-        <a href="/login">로그인</a>
+        <a href="${pageContext.request.contextPath }/login">로그인</a>
     </section>
 </body>
 </html>

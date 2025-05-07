@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page session="false" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
@@ -9,7 +9,7 @@
 	<title>Home</title>
 </head>
 <body>
-    <form action="/login" name="login" method="post" submit="false">
+    <form action="${pageContext.request.contextPath }/login" name="login" method="post" submit="false">
         <div class="login-continer">
             <div class="login-tit">
                 <span>회원 로그인</span>
@@ -29,7 +29,7 @@
                 </a>
             </div>
             <div class="login-menu">
-                <a href="/app/join">
+                <a href="${pageContext.request.contextPath }/join">
                     <span>회원가입</span>
                 </a>
                 <span>|</span>
