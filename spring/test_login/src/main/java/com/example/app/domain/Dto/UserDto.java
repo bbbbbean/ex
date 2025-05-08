@@ -1,5 +1,6 @@
 package com.example.app.domain.Dto;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Valid
 public class UserDto {
 	@NotNull(message = "ID는 필수항목입니다.")
 	private String userid;

@@ -17,7 +17,7 @@ class BookRepositoryTest {
     public void t1() throws Exception{
         // insert
         Book book = Book.builder()
-                .bookCode(1111L)
+                .bookCode(1112L)
                 .bookName("책제목")
                 .publisher("출판사")
                 .isbn("1234-1234")

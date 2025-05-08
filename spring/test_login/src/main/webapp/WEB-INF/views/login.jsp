@@ -41,6 +41,7 @@
                     <span>비밀번호찾기</span>
                 </a>
             </div>
+            <div style="margin-top:10px;">${message}</div>
         </div>
     </form>
 </body>

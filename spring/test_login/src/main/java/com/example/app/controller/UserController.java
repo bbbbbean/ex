@@ -1,17 +1,17 @@
 package com.example.app.controller;
 
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.sql.SQLException;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.app.domain.Dao.UserDaoImpl;
 import com.example.app.domain.Dto.UserDto;
 import com.example.app.domain.service.UserService;
 
@@ -21,14 +21,23 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserController {
 	
+	@Autowired
+	private UserDaoImpl userDaoImpl;
+	
 	@GetMapping("/login")
 	public void loginpage() {
 		log.info("GET /login");
 	}
 	
 	@PostMapping("/login")
-	public void login() {
+	public String login(String userid, RedirectAttributes redirectAttributes) throws SQLException {
 		log.info("POST /login");
+		UserDto user = userDaoImpl.selectOne(userid);
+		
+		if(user==null) {
+			return "redirect:/join";
+		}else
+			return "/home";
 		
 	}
 	
@@ -50,6 +59,28 @@ public class UserController {
 			return "redirect:/login";}
 		else
 			return "/join";
+	}
+	
+	@GetMapping("/list")
+	public void listpage() {
+		log.info("GET /list");
+	}
+	
+	@PostMapping("/update")
+	public String update(UserDto dto, RedirectAttributes redirectAttributes) throws SQLException {
+		log.info("POST /update");
+		boolean isUpdated = userService.update(dto);
+		if(isUpdated) 
+			return "/list";
+		else
+			return "/listAt";
+	}
+	@PostMapping("/delete")
+	public String delete(String userid, RedirectAttributes redirectAttributes) throws SQLException {
+		log.info("POST /delete");
+		boolean isDeleted = userService.delete(userid);
+		
+		return "/list";
 	}
 	
 }
