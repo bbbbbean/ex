@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-// Repository : 쿼리를 날려서 알아서 bean 등록해줌
-
 @Repository
 public interface UserRepository extends JpaRepository<User,String> {
     @Query("select u from User as u where u.role=?1")
