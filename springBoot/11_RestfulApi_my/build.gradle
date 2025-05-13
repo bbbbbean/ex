@@ -32,15 +32,19 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
-	//TEST
+	// TEST
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-	//REST LIB
+	// REST LIB
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.0'
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.19.0'
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.19.0'
 	implementation 'com.fasterxml.jackson.core:jackson-annotations:2.19.0'
+	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+
+	// https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api
+	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.2'
 }
 
 tasks.named('test') {

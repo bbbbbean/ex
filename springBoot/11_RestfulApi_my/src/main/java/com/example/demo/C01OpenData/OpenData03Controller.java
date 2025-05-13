@@ -2,7 +2,6 @@ package com.example.demo.C01OpenData;
 
 import com.example.demo.C01OpenData.bus.BUSResult;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import jakarta.xml.bind.annotation.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
