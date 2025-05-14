@@ -45,6 +45,9 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api
 	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.2'
+
+	// mail
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 }
 
 tasks.named('test') {

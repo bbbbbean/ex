@@ -21,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/naver")
 public class C01NaverLoginController {
 
-    // 이런 토크값은 resource의 application.properties에 넣고 연결
+    // 이런 토큰값은 resource의 application.properties에 넣고 연결
     // properties도 나눠 관리 가능
     // gitignore < 깃 업로드 제외 파일
     private String NAVER_CLIENT_ID="-";

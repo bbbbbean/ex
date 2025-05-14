@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.17/index.global.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          googleCalendarApiKey: 'AIzaSyB0xReZvJQVFK7UBlD2C_EaesDPs1Uo5js',
+          events: {
+            googleCalendarId: '65eac98ab55388949b845c4b10cd20874d3a91d006eb78c3cf0e9ab338d2e609@group.calendar.google.com'
+          },
+          eventClick: function(info) {
+             info.jsEvent.preventDefault(); // 기본 기능 해제
+             console.log(info);
+             console.log(info.event.title);
+             //alert('Event: ' + info.event.title);
+             //alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+             //alert('View: ' + info.view.type);
+
+             // change the border color just for fun
+             //info.el.style.borderColor = 'red';
+          }
+        });
+        calendar.render();
+      });
+    </script>
+</head>
+<body>
+  <h1>달력 연동</h1>
+  <div id='calendar'></div>
+</body>
+</html>
