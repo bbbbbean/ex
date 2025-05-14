@@ -26,14 +26,14 @@ public class C02KakaoLoginController {
     // 인가 코드받기의 요청 쿼리 파라미터 필수 3개
     //String REDITECT_URI="http://localhost:8090/kakao/callback";
     String REDITECT_URI="http://192.168.16.17:8090/kakao/callback";
-    String CLIENT_ID="cb3c7d1743d2dbab986fed97bc53bccd";
+    String CLIENT_ID="-";
     String LOGOUT_REDITECT_URI="http://localhost:8090/kakao/login";
 
-    KakaoTokenResp kakaoTokenResp;
-    KakaoProfileResp kakaoProfileResp;
-    KakaoLogoutResp kakaoLogoutResp;
-    KakaoUnlinkResp kakaoUnlinkResp;
-    KakaoFriendsResp kakaoFriendsResp;
+    private KakaoTokenResp kakaoTokenResp;
+    private KakaoProfileResp kakaoProfileResp;
+    private KakaoLogoutResp kakaoLogoutResp;
+    private KakaoUnlinkResp kakaoUnlinkResp;
+    private KakaoFriendsResp kakaoFriendsResp;
 
     @GetMapping("/login")
     public String login(){
@@ -278,7 +278,6 @@ public class C02KakaoLoginController {
         public boolean is_email_verified;
         public String email;
     }
-
     @Data
     private static class Profile{
         public String nickname;
@@ -287,14 +286,12 @@ public class C02KakaoLoginController {
         public boolean is_default_image;
         public boolean is_default_nickname;
     }
-
     @Data
     private static class Properties{
         public String nickname;
         public String profile_image;
         public String thumbnail_image;
     }
-
     @Data
     private static class KakaoProfileResp{
         public long id;
@@ -325,7 +322,6 @@ public class C02KakaoLoginController {
         public String uuid;
         public boolean favorite;
     }
-
     @Data
     private static class KakaoFriendsResp{
         public ArrayList<Element> elements;
