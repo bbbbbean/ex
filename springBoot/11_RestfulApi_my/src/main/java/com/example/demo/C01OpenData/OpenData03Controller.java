@@ -25,7 +25,7 @@ public class OpenData03Controller {
     @GetMapping("/bus/realtime")
     public void bus_realtime() throws Exception{
         String url = "https://apis.data.go.kr/6270000/dbmsapi01/getRealtime";
-        String serviceKey= "ECePpj301D3k1s75Nguzs+fHiV94VwSZ+DpFbXJV82vOyvvfImmQDN8Iwa2ZEcNbVUdUafBKG6qW1E1LsPTHJA==";
+        String serviceKey= "-";
         // 하단 : 지금은 수동으로 넣어줘야함 -> 자동으로 만들기 위해서는 사전 작업이 많대..
         String bsId="7001003800";
         String routeNo="304";

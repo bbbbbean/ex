@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping("/openData")
 public class OpenData01Controller {
     String url = "https://apis.data.go.kr/6270000/service/rest/dgincident";
-    String serviceKey="xYZ80mMcU8S57mCCY/q8sRsk7o7G8NtnfnK7mVEuVxdtozrl0skuhvNf34epviHrru/jiRQ41FokE9H4lK0Hhg==";
+    String serviceKey="-";
     String pageNo = "1";
     String numOfRows ="10";
 

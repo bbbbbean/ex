@@ -18,7 +18,7 @@ import java.util.List;
 public class OpenData02Controller {
 
     String url = "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst";
-    String serviceKey="xYZ80mMcU8S57mCCY/q8sRsk7o7G8NtnfnK7mVEuVxdtozrl0skuhvNf34epviHrru/jiRQ41FokE9H4lK0Hhg==";
+    String serviceKey="-";
     String pageNo = "1";
     String numOfRows ="10";
     String base_date = "20250509";

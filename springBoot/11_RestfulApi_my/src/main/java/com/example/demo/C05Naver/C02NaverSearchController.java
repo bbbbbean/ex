@@ -26,8 +26,8 @@ public class C02NaverSearchController {
 
         // 요청 헤더 설정
         HttpHeaders header = new HttpHeaders();
-        header.add("X-Naver-Client-Id","jrREgGyGSGSvgQ7ZaW3s");
-        header.add("X-Naver-Client-Secret","eExfBumCdA");
+        header.add("X-Naver-Client-Id","-");
+        header.add("X-Naver-Client-Secret","-");
         // 요청 바디 설정(x)
 
         HttpEntity entity = new HttpEntity<>(header);
