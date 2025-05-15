@@ -98,11 +98,11 @@ public class PortOneController {
         header.add("Content-Type","application/json");
         header.add("Authorization","Bearer "+portOneTokenResp.getResponse().getAccess_token());
         // 요청 바디 설정
-        MultiValueMap<String, String> params = new LinkedMultiValueMap();
-        params.add("imp_uid","imp_794331117854");
-        params.add("merchant_uid","test_");
+        JSONObject params = new JSONObject();
+        params.put("imp_uid","imp_111128720929");
+        params.put("merchant_uid","merchant_4ce79207-f5e5-4d9b-a450-4e57e83");
 
-        HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(params,header);
+        HttpEntity<String> entity = new HttpEntity<>(params.toString(),header);
 
         // 요청 후 응답 확인
         RestTemplate rt = new RestTemplate();
