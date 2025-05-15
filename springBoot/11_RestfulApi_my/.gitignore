@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### 구글 api 키가 있으면 push가 안됨 ###
+C06Google/

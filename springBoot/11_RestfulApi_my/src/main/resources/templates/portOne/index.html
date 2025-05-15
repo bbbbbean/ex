@@ -16,9 +16,9 @@
     function pay(){
       const date = new Date();  // merchant_uid 겹치는 값 없이 적용하기 위해 설정
       IMP.request_pay({
-        channelKey: "-",
+        channelKey: "channel-key-61049b14-56de-44ef-9c37-f2c2d9869574",
         pay_method: "phone",
-        merchant_uid: "test_",  // 한번 결제 후 바뀌어져야함, 상품 id랑 비슷
+        merchant_uid: "merchant_"+crypto.randomUUID(),  // 한번 결제 후 바뀌어져야함, 상품 id랑 비슷
         name: "테스트 결제"+date.toString(),
         amount: 100,
         buyer_tel: "010-0000-0000",
@@ -28,7 +28,7 @@
     function auth(){
       const date = new Date();  // merchant_uid 겹치는 값 없이 적용하기 위해 설정
       IMP.certification({
-          channelKey: "-",
+          channelKey: "channel-key-ab42d2dd-61c7-40a9-a072-cdbe1cdac915",
           merchant_uid: "test_"+date.toString(),  // 한번 인증 후 바뀌어져야함, 상품 id랑 비슷
       },function(resp){console.log(resp);});
     }
