@@ -99,8 +99,8 @@ public class PortOneController {
         header.add("Authorization","Bearer "+portOneTokenResp.getResponse().getAccess_token());
         // 요청 바디 설정
         JSONObject params = new JSONObject();
-        params.put("imp_uid","imp_111128720929");
-        params.put("merchant_uid","merchant_4ce79207-f5e5-4d9b-a450-4e57e83");
+        params.put("imp_uid","-");
+        params.put("merchant_uid","-");
 
         HttpEntity<String> entity = new HttpEntity<>(params.toString(),header);
 
