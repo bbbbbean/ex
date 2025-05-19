@@ -26,6 +26,8 @@ public class JwtTokenProvider {
     private final Key key;
 
         public JwtTokenProvider() {
+            // 키젠값 해시 암호화
+            // 서명값은 일정 기간동안 유지되어야 함 - DB 혹은 서버에 저장 - 서명값이 달라지면 키젠 암호값도 달라짐
             byte[] keyBytes = KeyGenerator.getKeygen();
             this.key = Keys.hmacShaKeyFor(keyBytes);
             System.out.println("JwtTokenProvider Constructor  Key init: " + key);
@@ -41,7 +43,7 @@ public class JwtTokenProvider {
         long now = (new Date()).getTime();
 
         // Access Token 생성
-        Date accessTokenExpiresIn = new Date(now + 60*1000); // 60초후 만료
+        Date accessTokenExpiresIn = new Date(now+JwtProperties.ACCESS_TOKEN_EXPIRATION_TIME); // 만료 시간 1분
         String accessToken = Jwts.builder()
                 .setSubject(authentication.getName())
                 .claim("username",authentication.getName()) //정보저장
@@ -52,7 +54,7 @@ public class JwtTokenProvider {
 
         // Refresh Token 생성
         String refreshToken = Jwts.builder()
-                .setExpiration(new Date(now + 86400000))    //1일: 24 * 60 * 60 * 1000 = 86400000
+                .setExpiration(new Date(now + JwtProperties.REFRESH_TOKEN_EXPIRATION_TIME))    // 만료 시간 5분
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
 
@@ -72,9 +74,10 @@ public class JwtTokenProvider {
 
 
     // JWT 토큰을 복호화하여 토큰에 들어있는 정보를 꺼내는 메서드
+    // 한번 이상 로그인 한 이후
     public Authentication getAuthentication(String accessToken) {
         // 토큰 복호화
-        Claims claims = parseClaims(accessToken);
+        Claims claims = parseClaims(accessToken);   // access 토큰을 꺼내서 claims를 꺼낼 때 사용, 검증하는 과정 포함 - 하단에 정의 ㅇ
 
         if (claims.get("auth") == null) {
             throw new RuntimeException("권한 정보가 없는 토큰입니다.");
@@ -96,7 +99,7 @@ public class JwtTokenProvider {
 
     private Claims parseClaims(String accessToken) {
         try {
-            return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(accessToken).getBody();
+            return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(accessToken).getBody();   // 결과물의 body, 본문을 꺼냄
         } catch (ExpiredJwtException e) {
             return e.getClaims();
         }
@@ -110,10 +113,10 @@ public class JwtTokenProvider {
         } catch (io.jsonwebtoken.security.SecurityException | MalformedJwtException e) {
             log.info("Invalid JWT Token", e);
 //        }
-//        catch (ExpiredJwtException e) {
+//        catch (ExpiredJwtException e) {   // 토큰이 만료됐을때
 //            log.info("Expired JWT Token", e);
 
-        } catch (UnsupportedJwtException e) {
+        } catch (UnsupportedJwtException e) {   // 시스템에서 지원하지 않는 토큰
             log.info("Unsupported JWT Token", e);
         } catch (IllegalArgumentException e) {
             log.info("JWT claims string is empty.", e);

@@ -2,17 +2,15 @@ package com.example.demo.config.auth.jwt;
 
 
 import com.example.demo.domain.entity.User;
-import com.example.demo.domain.repository.UserRepository;
+import com.example.demo.domain.repository.UserRepositor;
 import io.jsonwebtoken.ExpiredJwtException;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
-
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Optional;
@@ -22,40 +20,43 @@ import java.util.Optional;
  */
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
-    private final UserRepository memberRepository;
+    private final UserRepositor userRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
     public JwtAuthorizationFilter(
-            UserRepository memberRepository,
+            UserRepositor userRepository,
             JwtTokenProvider jwtTokenProvider
     ) {
-        this.memberRepository = memberRepository;
+        this.userRepository = userRepository;
         this.jwtTokenProvider = jwtTokenProvider;
     }
 
     @Override
-    protected void doFilterInternal(
+    protected void doFilterInternal(    // 필터 역할 클래스
             HttpServletRequest request,
             HttpServletResponse response,
             FilterChain chain
     ) throws IOException, ServletException, IOException {
         System.out.println("[JWTAUTHORIZATIONFILTER] doFilterInternal...");
 
+        // 쿠키에서 토큰을 꺼내는 작업
         String token = null;
         try {
             // cookie 에서 JWT token을 가져옵니다.
             token = Arrays.stream(request.getCookies())
-                    .filter(cookie -> cookie.getName().equals(JwtProperties.COOKIE_NAME)).findFirst()
+                    .filter(cookie -> cookie.getName().equals(JwtProperties.ACCESS_TOKEN_COOKIE_NAME)).findFirst()
                     .map(cookie -> cookie.getValue())
                     .orElse(null);
         } catch (Exception ignored) {
 
         }
+        // 토큰이 존재한다면? 유효성 판단. 유효한지 아닌지
         if (token != null) {
             try {
                 if(jwtTokenProvider.validateToken(token)) {
+                    // 유효한 경우
                     Authentication authentication = getUsernamePasswordAuthenticationToken(token);
-                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                    SecurityContextHolder.getContext().setAuthentication(authentication);   // 로그인 한 이후 사용자의 정보를 auth로 만드는 작업
                     System.out.println("[JWTAUTHORIZATIONFILTER] : " + authentication);
                 }
             } catch (ExpiredJwtException e)     //토큰만료시 예외처리(쿠키 제거)
@@ -64,9 +65,9 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
                 System.out.println("[JWTAUTHORIZATIONFILTER] : ...ExpiredJwtException ...."+e.getMessage());
 
                 //토큰 만료시 처리(Refresh-token으로 갱신처리는 안함-쿠키에서 제거)
-                Cookie cookie = new Cookie(JwtProperties.COOKIE_NAME, null);
-                cookie.setMaxAge(0);
-                response.addCookie(cookie);
+//                Cookie cookie = new Cookie(JwtProperties.COOKIE_NAME, null);
+//                cookie.setMaxAge(0);
+//                response.addCookie(cookie);
 
             }catch(Exception e2){
 
@@ -81,13 +82,11 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
      */
     private Authentication getUsernamePasswordAuthenticationToken(String token) {
 
-        Authentication authentication = jwtTokenProvider.getAuthentication(token);
-        Optional<User> user = memberRepository.findById(authentication.getName()); // 유저를 유저명으로 찾습니다.
+        Authentication authentication = jwtTokenProvider.getAuthentication(token);  // 들어온 토큰을 받음
+        Optional<User> user = userRepository.findById(authentication.getName()); // 유저를 유저명으로 찾습니다. DB에 있는지 여부
         System.out.println("JwtAuthorizationFilter.getUsernamePasswordAuthenticationToken...authenticationToken : " +authentication );
-        if(user!=null)
-        {
-            return authentication;
-        }
+        if(user.isPresent())
+            return authentication; // 유저가 DB에 있다면
         return null; // 유저가 없으면 NULL
     }
 

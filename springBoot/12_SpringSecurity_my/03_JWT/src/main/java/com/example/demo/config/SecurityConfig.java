@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -78,6 +79,11 @@ public class SecurityConfig {
 		// OAuth2 Client
 		http.oauth2Login((oauth2)->{
 			oauth2.loginPage("/login");
+		});
+
+		// SESSION INVALIDATED
+		http.sessionManagement((sessionManagementConfigure)->{
+			sessionManagementConfigure.sessionCreationPolicy(SessionCreationPolicy.STATELESS);	// 세션 생성 정책
 		});
 
 		// bean으로 filter가 저장됨

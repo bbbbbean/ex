@@ -4,6 +4,7 @@ import java.security.SecureRandom;
 
 public class KeyGenerator {
 
+    // 인증서 만들 때 사용
     public static  byte[]  getKeygen(){
         SecureRandom secureRandom = new SecureRandom();
         byte[] keyBytes = new byte[256 / 8]; // 256비트 키 생성
