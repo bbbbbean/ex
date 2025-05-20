@@ -1,7 +1,9 @@
 package com.example.demo.config.auth.logoutHandler;
 
 import com.example.demo.config.auth.PrincipalDetails;
+import com.example.demo.config.auth.jwt.JwtProperties;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +27,14 @@ public class CustomLogoutSuccessHandler implements LogoutSuccessHandler {
 	@Override
 	public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
 			throws IOException, ServletException {
-		log.info("CustomLogoutSuccessHandler onLogoutSuccess invoke..");
+		log.info("CustomLogoutSuccessHandler onLogoutSuccess invoke.."+authentication);
+
+		// 토큰 : 클라이언트 브라우저에서 쿠키 형태로 쥐고 있음 -> request에서 꺼내오기
+		// 취소 걍 있는 쿠키 유지시간 0으로 만들면 됨
+		Cookie cookie = new Cookie(JwtProperties.ACCESS_TOKEN_COOKIE_NAME,null);
+		cookie.setMaxAge(0);
+		cookie.setPath("/");
+		response.addCookie(cookie);
 
 		PrincipalDetails principalDetails = (PrincipalDetails)authentication.getPrincipal();
 		// principalDetails 여기에 userDto가 있음 -> provider꺼낼 수 있음

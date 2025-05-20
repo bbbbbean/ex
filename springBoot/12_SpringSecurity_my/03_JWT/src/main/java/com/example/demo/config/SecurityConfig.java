@@ -2,10 +2,13 @@ package com.example.demo.config;
 
 import com.example.demo.config.auth.exceptionHandler.CustomAccessDeniedHandler;
 import com.example.demo.config.auth.exceptionHandler.CustomAuthenticationEntryPoint;
+import com.example.demo.config.auth.jwt.JwtAuthorizationFilter;
+import com.example.demo.config.auth.jwt.JwtTokenProvider;
 import com.example.demo.config.auth.loginHandler.CustomLoginFailureHandler;
 import com.example.demo.config.auth.loginHandler.CustomLoginSuccessHandler;
 import com.example.demo.config.auth.logoutHandler.CustomLogoutHandler;
 import com.example.demo.config.auth.logoutHandler.CustomLogoutSuccessHandler;
+import com.example.demo.domain.repository.UserRepositor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +19,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
-
+import org.springframework.security.web.authentication.logout.LogoutFilter;
 
 
 @Configuration
@@ -32,6 +34,11 @@ public class SecurityConfig {
 	private CustomLogoutSuccessHandler customLogoutSuccessHandler;
 	@Autowired
 	private CustomLogoutHandler customLogoutHandler;
+
+	@Autowired
+	private UserRepositor userRepository;
+	@Autowired
+	private JwtTokenProvider jwtTokenProvider;
 	
 	// 상속 받는게 아닌 자체적으로 bean 생성 가능 -> 스스로 체인을 만들어 리턴 가능
 	@Bean
@@ -85,6 +92,10 @@ public class SecurityConfig {
 		http.sessionManagement((sessionManagementConfigure)->{
 			sessionManagementConfigure.sessionCreationPolicy(SessionCreationPolicy.STATELESS);	// 세션 생성 정책
 		});
+
+		// JWT filter add
+		http.addFilterBefore(new JwtAuthorizationFilter(userRepository,jwtTokenProvider), LogoutFilter.class);
+
 
 		// bean으로 filter가 저장됨
 		return http.build();

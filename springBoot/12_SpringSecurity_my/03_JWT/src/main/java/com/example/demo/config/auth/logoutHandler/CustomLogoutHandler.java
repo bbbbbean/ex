@@ -30,7 +30,8 @@ public class CustomLogoutHandler implements LogoutHandler {
 
 		}
 
-		HttpSession session =  request.getSession();
+		// 세션을 새로 생성하지 않음 false
+		HttpSession session =  request.getSession(false);
 		if(session!=null)
 			session.invalidate();
 

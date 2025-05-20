@@ -1,36 +1,71 @@
 package com.example.demo.config.auth.jwt;
 
 
+import com.example.demo.config.auth.PrincipalDetails;
+import com.example.demo.domain.dto.UserDto;
+import com.example.demo.domain.entity.Signature;
+import com.example.demo.domain.entity.User;
+import com.example.demo.domain.repository.SignatureRepository;
+import com.example.demo.domain.repository.UserRepositor;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
 @Component
 public class JwtTokenProvider {
 
+    @Autowired
+    private UserRepositor userRepository;
+
+    @Autowired
+    private SignatureRepository signatureRepository;
+
     //Key 저장
-    private final Key key;
+    private Key key;
+    public void setKey(Key key){
+        this.key = key;
+    }
+
+    // Signature 저장
+    @PostConstruct
+    public void init(){
+        List<Signature> list = signatureRepository.findAll();   // 어파치 1개 값만 저장되어 있음
+        if(list.isEmpty()){
+            // 처음 Signature 발급-> 처음 발급하면? DB에두 넣어야함
+            byte[] keyBytes = KeyGenerator.getKeygen();
+            this.key = Keys.hmacShaKeyFor(keyBytes);
+            Signature signature = new Signature();
+            signature.setKeyBytes(keyBytes);
+            signature.setCreateAt(LocalDate.now());
+            signatureRepository.save(signature);
+            System.out.println("JwtTokenProvider Constructor  Key init: " + key);
+        }else{
+            // 기존 Signature dldyd
+            Signature signature = list.get(0);
+            this.key = Keys.hmacShaKeyFor(signature.getKeyBytes());
+            System.out.println("JwtTokenProvider Constructor  기존 Key : " + key);
+        }
+    }
 
         public JwtTokenProvider() {
             // 키젠값 해시 암호화
             // 서명값은 일정 기간동안 유지되어야 함 - DB 혹은 서버에 저장 - 서명값이 달라지면 키젠 암호값도 달라짐
-            byte[] keyBytes = KeyGenerator.getKeygen();
-            this.key = Keys.hmacShaKeyFor(keyBytes);
-            System.out.println("JwtTokenProvider Constructor  Key init: " + key);
+//            byte[] keyBytes = KeyGenerator.getKeygen();
+//            this.key = Keys.hmacShaKeyFor(keyBytes);
+//            System.out.println("JwtTokenProvider Constructor  Key init: " + key);
 
         }
 
@@ -90,10 +125,19 @@ public class JwtTokenProvider {
 
         String username = claims.getSubject(); //username
         // UserDetails 객체를 만들어서 Authentication 리턴
-        UserDetails principal = new User(username, "", authorities);
+        PrincipalDetails principalDetails =new PrincipalDetails();
+        // UserDto userDto = new UserDto(); 이 과정 레포지토리에서 들고와서 완성, 왜? 내용이 너무 없음..
+        Optional<User> userOptional = userRepository.findById(username);
+        UserDto userDto = null;
+        if(userOptional.isPresent()){
+            userDto = userDto.toDto(userOptional.get());
+        }
+        principalDetails.setUserDto(userDto);
+
+        //UserDetails principal = new User(username, "", authorities);
         System.out.println("JwtTokenProvider.getAuthentication UsernamePasswordAuthenticationToken : " + accessToken);
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
-                new UsernamePasswordAuthenticationToken(principal, "", authorities);
+                new UsernamePasswordAuthenticationToken(principalDetails, "", authorities);
         return usernamePasswordAuthenticationToken;
     }
 
