@@ -38,6 +38,9 @@ public class JwtTokenProvider {
     public void setKey(Key key){
         this.key = key;
     }
+    public Key getKey(){
+        return this.key;
+    }
 
     // Signature 저장
     @PostConstruct
@@ -104,10 +107,6 @@ public class JwtTokenProvider {
     }
 
 
-
-
-
-
     // JWT 토큰을 복호화하여 토큰에 들어있는 정보를 꺼내는 메서드
     // 한번 이상 로그인 한 이후
     public Authentication getAuthentication(String accessToken) {
@@ -150,16 +149,16 @@ public class JwtTokenProvider {
     }
 
     // 토큰 정보를 검증하는 메서드
-    public boolean validateToken(String token) {
+    public boolean validateToken(String token) throws ExpiredJwtException {
         try {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;
         } catch (io.jsonwebtoken.security.SecurityException | MalformedJwtException e) {
             log.info("Invalid JWT Token", e);
-//        }
-//        catch (ExpiredJwtException e) {   // 토큰이 만료됐을때
-//            log.info("Expired JWT Token", e);
-
+        }
+        catch (ExpiredJwtException e) {   // 토큰이 만료됐을때
+            log.info("Expired JWT Token", e);
+            throw new ExpiredJwtException(null,null,null);
         } catch (UnsupportedJwtException e) {   // 시스템에서 지원하지 않는 토큰
             log.info("Unsupported JWT Token", e);
         } catch (IllegalArgumentException e) {

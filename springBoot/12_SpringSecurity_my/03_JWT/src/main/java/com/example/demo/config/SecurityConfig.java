@@ -39,6 +39,9 @@ public class SecurityConfig {
 	private UserRepositor userRepository;
 	@Autowired
 	private JwtTokenProvider jwtTokenProvider;
+
+	@Autowired
+	private JwtAuthorizationFilter jwtAuthorizationFilter;
 	
 	// 상속 받는게 아닌 자체적으로 bean 생성 가능 -> 스스로 체인을 만들어 리턴 가능
 	@Bean
@@ -94,7 +97,7 @@ public class SecurityConfig {
 		});
 
 		// JWT filter add
-		http.addFilterBefore(new JwtAuthorizationFilter(userRepository,jwtTokenProvider), LogoutFilter.class);
+		http.addFilterBefore(jwtAuthorizationFilter, LogoutFilter.class);
 
 
 		// bean으로 filter가 저장됨

@@ -49,6 +49,10 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 		cookie.setPath("/");
 		response.addCookie(cookie);
 
+//		JwtToken jwtToken = jwtTokenRepository.findByUsername(authentication.getName());
+//		if(jwtToken==null){
+//
+//		}
 		// JWT 토큰 DB 저장
 		JwtToken jwtToken = new JwtToken();
 		jwtToken.setAccessToken(tokenInfo.getAccessToken());
@@ -56,6 +60,31 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 		jwtToken.setUsername(authentication.getName());
 		jwtToken.setCreateAt(LocalDateTime.now());
 		jwtTokenRepository.save(jwtToken);
+
+		//	** 로그인 처리
+		//---------------------------------
+		//	최초로그인(Client's AT x , DB x)
+		//---------------------------------
+		//	- Client에게 AT 전송
+		//	- DB 저장
+		//	- DB 저장 여부로 최초인지 판단
+		//	- authorization filter로 넘기기
+		//---------------------------------
+		//	기존로그인(Client's AT o , DB o)
+		//---------------------------------
+		//	- AT 만료 x -> 로그인 완료처리
+		//	- AT 만료 o -> ** RT x -> AT 갱신
+		//	- AT 만료 o -> ** RT o -> AT, RT 새로 발급 + 기존 DB 갱신
+		//	provider : 토큰 유효성 체크 부분
+		//---------------------------------
+		//	기존로그인(Client's AT o , DB x)
+		//---------------------------------
+		//	-
+		//---------------------------------
+		//	기존로그인(Client's AT x , DB o) -예외상황
+		//---------------------------------
+		//-
+
 
 		response.sendRedirect(request.getContextPath()+"/");
 	}

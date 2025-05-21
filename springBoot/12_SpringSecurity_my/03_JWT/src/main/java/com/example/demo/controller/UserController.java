@@ -24,8 +24,13 @@ public class UserController {
 	private PasswordEncoder passwordEncoder;
 
 	@GetMapping("/login")
-	public void login() {
+	public String login(Authentication authentication) {
 		log.info("GET /login...");
+
+		if(authentication!=null&&authentication.isAuthenticated()){
+			return "redirect:/";
+		}
+		return "login";
 	}
 
 	
