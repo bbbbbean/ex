@@ -3,6 +3,7 @@ package com.example.demo.config.auth.loginHandler;
 import com.example.demo.config.auth.jwt.JwtProperties;
 import com.example.demo.config.auth.jwt.JwtTokenProvider;
 import com.example.demo.config.auth.jwt.TokenInfo;
+import com.example.demo.config.auth.redis.RedisUtil;
 import com.example.demo.domain.entity.JwtToken;
 import com.example.demo.domain.repository.JwtTokenRepository;
 import jakarta.servlet.ServletException;
@@ -28,6 +29,9 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
 	@Autowired
 	private JwtTokenRepository jwtTokenRepository;
+
+	@Autowired
+	private RedisUtil redisUtil;
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -60,6 +64,18 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 		jwtToken.setUsername(authentication.getName());
 		jwtToken.setCreateAt(LocalDateTime.now());
 		jwtTokenRepository.save(jwtToken);
+
+		// Resis에 refresh 저장
+		// 쿠키로 username 던짐 -> 토큰 만료 후에 확인을 위해
+		Cookie usernameCookie = new Cookie("username",authentication.getName());
+		usernameCookie.setMaxAge(JwtProperties.REFRESH_TOKEN_EXPIRATION_TIME);
+		usernameCookie.setPath("/");
+		response.addCookie(usernameCookie);
+		// RT: : rt라는 폴더 안에 만들어짐
+		// 이름, 리프레시 토크, 만료일
+		redisUtil.setDataExpire("RT:"+authentication.getName(),tokenInfo.getRefreshToken(),JwtProperties.REFRESH_TOKEN_EXPIRATION_TIME);
+		
+
 
 		//	** 로그인 처리
 		//---------------------------------

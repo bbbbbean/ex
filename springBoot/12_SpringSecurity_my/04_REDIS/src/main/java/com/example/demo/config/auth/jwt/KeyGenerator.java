@@ -1,0 +1,15 @@
+package com.example.demo.config.auth.jwt;
+
+import java.security.SecureRandom;
+
+public class KeyGenerator {
+
+    // 인증서 만들 때 사용
+    public static  byte[]  getKeygen(){
+        SecureRandom secureRandom = new SecureRandom();
+        byte[] keyBytes = new byte[256 / 8]; // 256비트 키 생성
+        secureRandom.nextBytes(keyBytes); // 난수로 바이트 배열 생성
+        System.out.println("KeyGenerator getKeygen Key: " + keyBytes);
+        return keyBytes;
+    }
+}
