@@ -1,0 +1,14 @@
+main{
+    display: flex;
+}
+
+main>aside{
+    min-width: 300px;
+    height: 100vh;
+    border: 1px solid seagreen;
+}
+
+main>section{
+    height: 100vh;
+    border: 1px solid salmon;
+}
