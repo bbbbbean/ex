@@ -1,5 +1,0 @@
-package Ch38.Controller;
-
-public interface SubController {
-
-}
